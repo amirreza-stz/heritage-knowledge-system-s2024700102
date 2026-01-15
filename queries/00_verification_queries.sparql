@@ -1,0 +1,101 @@
+# Verification Queries - Run These First!
+# Use these queries to verify your data loaded correctly in GraphDB
+
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX hp: <http://webprotege.stanford.edu/>
+PREFIX ex: <http://example.org/heritage/s2024700102#>
+
+# ============================================
+# Query 1: Count Total Triples
+# ============================================
+# Expected: ~415 triples (138 ontology + 277 main dataset)
+# If you only see ~220, you need to upload heritage_base_dataset.ttl
+SELECT (COUNT(*) as ?totalTriples)
+WHERE {
+    ?s ?p ?o .
+}
+
+# ============================================
+# Query 2: Count Ontology Triples
+# ============================================
+# Expected: ~138 triples
+SELECT (COUNT(*) as ?ontologyTriples)
+WHERE {
+    ?s ?p ?o .
+    FILTER(STRSTARTS(STR(?s), "http://webprotege.stanford.edu/") || 
+           STRSTARTS(STR(?p), "http://webprotege.stanford.edu/") ||
+           (isURI(?o) && STRSTARTS(STR(?o), "http://webprotege.stanford.edu/")))
+}
+
+# ============================================
+# Query 3: Count Data Instance Triples
+# ============================================
+# Expected: ~277 triples (if heritage_base_dataset.ttl is loaded)
+SELECT (COUNT(*) as ?dataTriples)
+WHERE {
+    ?s ?p ?o .
+    FILTER(STRSTARTS(STR(?s), "http://example.org/heritage/s2024700102#"))
+}
+
+# ============================================
+# Query 4: Count People
+# ============================================
+# Expected: 30 people
+SELECT (COUNT(?person) as ?peopleCount)
+WHERE {
+    ?person a hp:RDqiGQVsD47hrqZoozr5QsY .
+}
+
+# ============================================
+# Query 5: Count Cultural Items
+# ============================================
+# Expected: 50 items
+SELECT (COUNT(?item) as ?itemsCount)
+WHERE {
+    ?item a ?type .
+    ?type rdfs:subClassOf hp:RMGAHX6nPHqguUGyQWzWc3 .
+}
+
+# ============================================
+# Query 6: List All Classes Used
+# ============================================
+SELECT DISTINCT ?class ?label
+WHERE {
+    ?s a ?class .
+    OPTIONAL { ?class rdfs:label ?label }
+    FILTER(STRSTARTS(STR(?class), "http://webprotege.stanford.edu/"))
+}
+ORDER BY ?class
+
+# ============================================
+# Query 7: Check if Main Dataset is Loaded
+# ============================================
+# This checks for specific instances from heritage_base_dataset.ttl
+SELECT (COUNT(?person) as ?guardianCount)
+WHERE {
+    VALUES ?person {
+        ex:person_guardian_01
+        ex:person_guardian_02
+        ex:person_guardian_03
+        ex:person_guardian_04
+        ex:person_guardian_05
+    }
+    ?person ?p ?o .
+}
+# Expected: Should return results if main dataset is loaded
+
+# ============================================
+# Query 8: Sample Data Check
+# ============================================
+# Shows a sample of people and items to verify data structure
+SELECT ?person ?type ?item ?itemType
+WHERE {
+    ?person a hp:RDqiGQVsD47hrqZoozr5QsY .
+    ?person a ?type .
+    OPTIONAL {
+        ?person hp:RC2A3h4SFUS7L6DFLFfGllV ?item .
+        ?item a ?itemType .
+    }
+}
+LIMIT 10

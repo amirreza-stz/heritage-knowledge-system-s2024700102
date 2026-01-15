@@ -1,0 +1,89 @@
+# Inference Queries for Heritage Knowledge System
+# These queries test inference capabilities, especially SpiritualGuardian inference
+# NOTE: Requires equivalent-class axiom to be added in Protégé first! which I have problem adding it because of my migration to MacOS and I have learnt them on Ubuntu during the semester.
+
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX hp: <http://webprotege.stanford.edu/>
+PREFIX ex: <http://example.org/heritage/s2024700102#>
+
+# ============================================
+# Query 1: Find Inferred SpiritualGuardians
+# ============================================
+# This query will work AFTER adding the equivalent-class axiom:
+# SpiritualGuardian ≡ (hasRole some Guardian) and (caresFor some SacredItem)
+SELECT ?guardian ?sacredItem ?role
+WHERE {
+    ?guardian a hp:RBSrZ3NgHRLya35FIsySYi1 .
+    ?guardian hp:RC2A3h4SFUS7L6DFLFfGllV ?sacredItem .
+    ?guardian hp:RBicyNm8ZNjNz9uoAdHA05E ?role .
+    ?sacredItem a hp:R7pxWOFI810disSa49P9mBh .
+}
+ORDER BY ?guardian
+
+# ============================================
+# Query 2: Count Inferred SpiritualGuardians
+# ============================================
+SELECT (COUNT(?guardian) as ?spiritualGuardianCount)
+WHERE {
+    ?guardian a hp:RBSrZ3NgHRLya35FIsySYi1 .
+}
+# Expected result: 5 (person_guardian_01 through person_guardian_05)
+
+# ============================================
+# Query 3: Find People Who Can Be SpiritualGuardians (Before Inference)
+# ============================================
+# This shows the people who SHOULD be inferred as SpiritualGuardians
+SELECT ?person ?role ?sacredItem
+WHERE {
+    ?person a hp:RDqiGQVsD47hrqZoozr5QsY .
+    ?person hp:RBicyNm8ZNjNz9uoAdHA05E ?role .
+    ?role a hp:R8n0Clv4ntakelp3R7JuFo4 .
+    ?person hp:RC2A3h4SFUS7L6DFLFfGllV ?sacredItem .
+    ?sacredItem a hp:R7pxWOFI810disSa49P9mBh .
+}
+ORDER BY ?person
+# Expected: 5 results (person_guardian_01 through person_guardian_05)
+
+# ============================================
+# Query 4: Verify Inference Chain
+# ============================================
+# Shows the inference path: Person → hasRole → Guardian → caresFor → SacredItem
+SELECT ?person ?role ?sacredItem
+WHERE {
+    ?person a hp:RDqiGQVsD47hrqZoozr5QsY .
+    ?person hp:RBicyNm8ZNjNz9uoAdHA05E ?role .
+    ?role a hp:R8n0Clv4ntakelp3R7JuFo4 .
+    ?person hp:RC2A3h4SFUS7L6DFLFfGllV ?sacredItem .
+    ?sacredItem a hp:R7pxWOFI810disSa49P9mBh .
+    # After inference, this person should also be a SpiritualGuardian
+    ?person a hp:RBSrZ3NgHRLya35FIsySYi1 .
+}
+ORDER BY ?person
+
+# ============================================
+# Query 5: Find All Inferred Types for People
+# ============================================
+SELECT ?person ?type
+WHERE {
+    ?person a hp:RDqiGQVsD47hrqZoozr5QsY .
+    ?person a ?type .
+}
+ORDER BY ?person ?type
+
+# ============================================
+# Query 6: Compare Explicit vs Inferred Types
+# ============================================
+SELECT ?person 
+       (GROUP_CONCAT(DISTINCT ?explicitType; separator=", ") as ?explicitTypes)
+       (GROUP_CONCAT(DISTINCT ?inferredType; separator=", ") as ?inferredTypes)
+WHERE {
+    ?person a hp:RDqiGQVsD47hrqZoozr5QsY .
+    ?person a ?explicitType .
+    OPTIONAL {
+        ?person a ?inferredType .
+        FILTER(?inferredType != hp:RDqiGQVsD47hrqZoozr5QsY)
+    }
+}
+GROUP BY ?person
+ORDER BY ?person
