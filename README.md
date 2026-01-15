@@ -2,6 +2,12 @@
 
 This repository contains the implementation for the final project of the Social Semantic Web course taught by Prof. Dr. Suzan Üsküdarlı at Boğaziçi University CMPE.
 
+
+###  *** I had some variuos challenges during implementation of this project (Such as my hard illness, my migration to MacOS and compatibility problems with this OS, and the problems and challenges related to my mental health and connection bloch with my family and country and etc) but I tried to completely understand and answer all of the requirements of the project, using more time and also with the help of AI assistants (but I used them just as assistant and not a team-mate, and understood every part or help that I used them). 
+
+*** Also because of my challenges with MacOS, I will use an alternative Laptop from a friend to test and run protege, fuseki/graphDB.
+
+
 ## Project Overview
 
 The Heritage Knowledge System is an ontology-based system designed to model and manage cultural heritage information, including artifacts, rituals, locations, people, and their relationships. The system supports access control, approval workflows, and cultural preservation documentation.
