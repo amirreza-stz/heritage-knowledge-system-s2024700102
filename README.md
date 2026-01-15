@@ -1,22 +1,164 @@
-# SSW_Final
-This repository has been created to think, work, implement and learn the requirements to answer the final project for Social Semantic Web course of Prof. Dr. Suzan Üsküdarlı in Boğaziçi University CMPE
+# Heritage Knowledge System - Final Project
 
+This repository contains the implementation for the final project of the Social Semantic Web course taught by Prof. Dr. Suzan Üsküdarlı at Boğaziçi University CMPE.
 
-Learner's Name : Amirreza Sattarzadeh KhanehBargh 
+## Project Overview
 
-Student ID : 2024700102
+The Heritage Knowledge System is an ontology-based system designed to model and manage cultural heritage information, including artifacts, rituals, locations, people, and their relationships. The system supports access control, approval workflows, and cultural preservation documentation.
 
-Tools and their versions : (TBD)
-• Prot´eg´e version
-• Triplestore (Fuseki/GraphDB) version
-• Programming language and version
-• Library versions (rdflib, Jena, pySHACL, etc.)
+## Learner Information
 
-Requireed setup for running the code : 
-TBD
+- **Name**: Amirreza Sattarzadeh KhanehBargh 
+- **Student ID**: 2024700102
 
-Brief answer for the analysis questions : 
-TBD
+## Project Structure
 
-Limits and challenges : 
-TBD
+```
+heritage-knowledge-system-s2024700102/
+├── ontology/
+│   ├── urn_webprotege_ontology_f1486f8e-61de-449c-a0d0-d0b65f032faf.owl  # Original OWL ontology
+│   └── heritage_ontology.ttl                                             # Converted TTL ontology (138 triples)
+├── data/
+│   ├── heritage_base_dataset.ttl                                         # Main dataset: 30 people + 50 items (277 triples)
+│   └── example_data.ttl                                                  # Example instance data (79 triples)
+├── queries/
+│   └── (SPARQL queries will be placed here)
+├── convert_owl_to_ttl.py                                                 # Conversion script
+├── requirements.txt                                                       # Python dependencies
+└── README.md                                                              # This file
+```
+
+## Tools and Versions
+
+- **Protégé**: WebProtégé (used for ontology development)
+- **Triplestore**: TBD (Fuseki/GraphDB)
+- **Programming Language**: Python3
+- **Libraries**:
+  - `rdflib >= 6.0.0` - RDF parsing and manipulation
+  - `pyshacl >= 0.20.0` - SHACL validation (optional)
+
+## Ontology Overview
+
+### Main Classes
+
+- **CulturalEntity** (root class)
+  - **Person**: Represents individuals in the system
+    - Performer
+    - TribalElder
+    - Archaeologist
+    - Guardian
+  - **CulturalItem**: Represents cultural artifacts and practices
+    - Artifact
+    - SacredItem
+    - Ritual
+    - Instrument
+    - ArchaeologicalSite
+  - **Role**: Represents roles that people can have
+    - Guardian
+    - Researcher
+    - SpiritualGuardian
+  - **Location**: Represents geographical locations
+    - Region
+    - Site
+  - **AccessLevel**: Represents access control levels
+    - Public
+    - Restricted
+    - Sacred
+
+### Object Properties
+
+- `recordedAt`: Links cultural items to locations
+- `approvedBy`: Links items to tribal elders who approved them
+- `playsInstrument`: Links performers to instruments
+- `isCaredBy`: Links cultural items to people who care for them
+- `hasRole`: Links people to their roles
+- `aboutItem`: Links items to related items
+- `caresFor`: Inverse of isCaredBy
+- `hasAccessLevel`: Links people to their access levels
+- `isRoleOf`: Inverse of hasRole
+- `performs`: Links performers to rituals
+- `hasRequiredAccessLevel`: Links cultural items to required access levels
+- `locatedIn`: Links locations to parent locations
+
+### Data Properties
+
+- `recordingDate`: Date when a cultural item was recorded (xsd:date)
+- `humanApproval`: Boolean indicating human approval status (xsd:boolean)
+
+## Setup Instructions
+
+### Prerequisites
+
+1. Python 3.7 or higher
+2. pip (Python package manager)
+
+### Installation
+
+1. Clone or download this repository
+
+2. Install Python dependencies:
+```bash
+pip install -r requirements.txt
+```
+
+### Converting OWL to TTL
+
+To convert the OWL ontology file to TTL format:
+
+```bash
+python convert_owl_to_ttl.py ontology/urn_webprotege_ontology_f1486f8e-61de-449c-a0d0-d0b65f032faf.owl
+```
+
+Or specify an output file:
+
+```bash
+python convert_owl_to_ttl.py ontology/urn_webprotege_ontology_f1486f8e-61de-449c-a0d0-d0b65f032faf.owl ontology/heritage_ontology.ttl
+```
+
+## Usage
+
+### Loading the Ontology
+
+The ontology is available in both OWL and TTL formats:
+- **OWL**: `ontology/urn_webprotege_ontology_f1486f8e-61de-449c-a0d0-d0b65f032faf.owl`
+- **TTL**: `ontology/heritage_ontology.ttl`
+
+### Example Data
+
+Two data files are provided:
+
+1. **`data/heritage_base_dataset.ttl`** - Main dataset for the project:
+   - **30 people** (2 elders, 5 guardians, 5 performers, 2 archaeologists, 16 general persons)
+   - **50 cultural items** (10 sacred items, 10 rituals, 10 instruments, 10 artifacts, 10 archaeological sites)
+   - Designed to enable inference of ≥5 SpiritualGuardians (once equivalent-class axiom is added in Protégé)
+   - Includes human-approval violations for SHACL testing
+   - Uses student ID prefix: `http://example.org/heritage/s2024700102#`
+   - Total: 277 triples
+
+2. **`data/example_data.ttl`** - Smaller example dataset for testing:
+   - Demonstrates basic relationships and structure
+   - Useful for initial testing and understanding the ontology
+
+## Next Steps
+
+See `NEXT_STEPS.md` for a detailed guide. Quick overview:
+
+1. **Protégé Enhancement**: Add equivalent-class axiom for SpiritualGuardian inference
+2. **Triplestore Setup**: Install and configure Fuseki or GraphDB
+3. **Load Data**: Import ontology and dataset into triplestore
+4. **SPARQL Queries**: Create queries in the `queries/` directory
+5. **Test Inference**: Verify SpiritualGuardian inference works
+6. **SHACL Validation**: Create validation shapes (optional)
+7. **Documentation**: Complete analysis questions and finalize README
+
+## Brief Answer for Analysis Questions
+
+TBD (To be completed)
+
+## Limits and Challenges
+
+TBD (To be completed)
+
+## License
+
+This project is part of an academic course assignment.
