@@ -1,0 +1,131 @@
+# Validation and Constraint Checking Queries
+
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX hp: <http://webprotege.stanford.edu/>
+PREFIX ex: <http://example.org/heritage/s2024700102#>
+
+# ============================================
+# Query 1: Find People Missing humanApproval
+# ============================================
+# People who care for sacred items should have humanApproval
+SELECT ?person ?item
+WHERE {
+    ?person a hp:RDqiGQVsD47hrqZoozr5QsY .
+    ?person hp:RC2A3h4SFUS7L6DFLFfGllV ?item .
+    ?item a hp:R7pxWOFI810disSa49P9mBh .
+    FILTER NOT EXISTS {
+        ?person hp:RSI0l4uEyriNyqJaIicRNi ?approval .
+    }
+}
+# Expected violations: person_guardian_03, person_guardian_04 (they have false, but it exists)
+
+# ============================================
+# Query 2: Find People with humanApproval = false
+# ============================================
+SELECT ?person ?approval ?item
+WHERE {
+    ?person a hp:RDqiGQVsD47hrqZoozr5QsY .
+    ?person hp:RSI0l4uEyriNyqJaIicRNi "false"^^xsd:boolean .
+    OPTIONAL {
+        ?person hp:RC2A3h4SFUS7L6DFLFfGllV ?item .
+        ?item a hp:R7pxWOFI810disSa49P9mBh .
+    }
+}
+# Expected: person_guardian_03, person_guardian_04
+
+# ============================================
+# Query 3: Find People Missing hasAccessLevel
+# ============================================
+SELECT ?person
+WHERE {
+    ?person a hp:RDqiGQVsD47hrqZoozr5QsY .
+    FILTER NOT EXISTS {
+        ?person hp:RCJaWiwRu0H17JaH2SCttq4 ?accessLevel .
+    }
+}
+# Expected: person_03, person_07 (they have humanApproval but no access level)
+
+# ============================================
+# Query 4: Find Access Level Mismatches
+# ============================================
+# People whose access level doesn't match required access of items they care for
+SELECT ?person ?personAccess ?item ?requiredAccess
+WHERE {
+    ?person a hp:RDqiGQVsD47hrqZoozr5QsY .
+    ?person hp:RCJaWiwRu0H17JaH2SCttq4 ?personAccess .
+    ?person hp:RC2A3h4SFUS7L6DFLFfGllV ?item .
+    ?item hp:RpDGSmirVNb6iFln2laxUV ?requiredAccess .
+    FILTER(?personAccess != ?requiredAccess)
+}
+
+# ============================================
+# Query 5: Find Items Missing Required Access Level
+# ============================================
+SELECT ?item ?itemType
+WHERE {
+    ?item a ?itemType .
+    ?itemType rdfs:subClassOf hp:RMGAHX6nPHqguUGyQWzWc3 .
+    FILTER NOT EXISTS {
+        ?item hp:RpDGSmirVNb6iFln2laxUV ?requiredAccess .
+    }
+}
+
+# ============================================
+# Query 6: Find Rituals Missing Recording Date
+# ============================================
+SELECT ?ritual ?location
+WHERE {
+    ?ritual a hp:R7mttBU5VPhW5YJQVYDffDM .
+    OPTIONAL {
+        ?ritual hp:R8No5PZTgDSjt4MNRkbAuGe ?location .
+    }
+    FILTER NOT EXISTS {
+        ?ritual hp:RBboBfaALQFmlbSHTvugBOZ ?date .
+    }
+}
+
+# ============================================
+# Query 7: Find People Approved by Tribal Elders
+# ============================================
+SELECT ?person ?elder
+WHERE {
+    ?person a hp:RDqiGQVsD47hrqZoozr5QsY .
+    ?person hp:R8fRXG3bd0ky2unGk6dEDpN ?elder .
+    ?elder a hp:R9MtvAjrM8UvFUsgpyKNT11 .
+}
+ORDER BY ?elder ?person
+
+# ============================================
+# Query 8: Find Items Not Approved by Tribal Elders
+# ============================================
+# Items that should be approved but aren't
+SELECT ?item ?itemType
+WHERE {
+    ?item a ?itemType .
+    ?itemType rdfs:subClassOf hp:RMGAHX6nPHqguUGyQWzWc3 .
+    FILTER NOT EXISTS {
+        ?item hp:R8fRXG3bd0ky2unGk6dEDpN ?elder .
+    }
+}
+
+# ============================================
+# Query 9: Data Completeness Check
+# ============================================
+SELECT 
+    (COUNT(DISTINCT ?person) as ?totalPeople)
+    (COUNT(DISTINCT ?item) as ?totalItems)
+    (COUNT(DISTINCT ?personWithAccess) as ?peopleWithAccess)
+    (COUNT(DISTINCT ?personWithApproval) as ?peopleWithApproval)
+    (COUNT(DISTINCT ?itemWithAccess) as ?itemsWithAccess)
+WHERE {
+    { ?person a hp:RDqiGQVsD47hrqZoozr5QsY . }
+    UNION
+    { ?item a ?itemType . ?itemType rdfs:subClassOf hp:RMGAHX6nPHqguUGyQWzWc3 . }
+    UNION
+    { ?personWithAccess hp:RCJaWiwRu0H17JaH2SCttq4 ?access . }
+    UNION
+    { ?personWithApproval hp:RSI0l4uEyriNyqJaIicRNi ?approval . }
+    UNION
+    { ?itemWithAccess hp:RpDGSmirVNb6iFln2laxUV ?requiredAccess . }
+}

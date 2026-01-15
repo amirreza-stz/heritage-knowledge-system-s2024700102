@@ -11,6 +11,27 @@ The Heritage Knowledge System is an ontology-based system designed to model and 
 - **Name**: Amirreza Sattarzadeh KhanehBargh 
 - **Student ID**: 2024700102
 
+## Limitations and Challenges
+
+**macOS Compatibility**
+   - GraphDB, Fuseki, and Protégé have compatibility issues on macOS
+   - Tried to use alternative device or virtual machine
+
+
+**Date Format**
+   - Uses `xsd:date` for recording dates
+   - Could be extended to `xsd:dateTime` for more precision
+
+**Approval Process**
+   - Binary approval (true/false)
+   - Could be extended with approval levels or workflow states
+
+**Tool Compatibility**
+   - macOS issues with semantic web tools
+   - Required workaround approach
+
+**My hard illness and Iran connection block : I can not connect to my family and friends and this harms my focus and thinking power**
+
 ## Project Structure
 
 ```
@@ -31,7 +52,10 @@ heritage-knowledge-system-s2024700102/
 ## Tools and Versions
 
 - **Protégé**: WebProtégé (used for ontology development)
-- **Triplestore**: TBD (Fuseki/GraphDB)
+  - Note: Desktop Protégé had compatibility issues on macOS; will be tested on alternative device
+- **Triplestore**: GraphDB Free 11.2.0 (planned)
+  - Note: Installation completed but testing deferred due to macOS compatibility issues
+  - Alternative: Apache Jena Fuseki on a windows or ubuntu device
 - **Programming Language**: Python3
 - **Libraries**:
   - `rdflib >= 6.0.0` - RDF parsing and manipulation
@@ -141,23 +165,62 @@ Two data files are provided:
 
 ## Next Steps
 
-See `NEXT_STEPS.md` for a detailed guide. Quick overview:
+### Completed ✅
+- Ontology conversion (OWL → TTL)
+- Data files created and verified
+- SPARQL queries created (35+ queries)
+- SHACL validation shapes created
+- Documentation structure in place
 
-1. **Protégé Enhancement**: Add equivalent-class axiom for SpiritualGuardian inference
-2. **Triplestore Setup**: Install and configure Fuseki or GraphDB
-3. **Load Data**: Import ontology and dataset into triplestore
-4. **SPARQL Queries**: Create queries in the `queries/` directory
-5. **Test Inference**: Verify SpiritualGuardian inference works
-6. **SHACL Validation**: Create validation shapes (optional)
-7. **Documentation**: Complete analysis questions and finalize README
+### To Complete on Alternative Device ⏳
+- Add equivalent-class axiom in Protégé
+- Test queries in triplestore (GraphDB/Fuseki)
+- Verify inference results
+- Run SHACL validation
+- Capture query results and screenshots
 
 ## Brief Answer for Analysis Questions
 
-TBD (To be completed)
+TBD :
+- Ontology design decisions and rationale
+- Data structure analysis
+- Query design and expected results
+- Relationship modeling approach
+
+### Key Design Decisions
+
+1. **Hierarchical Class Structure**: Root `CulturalEntity` class provides common base for all entities, enabling flexible relationship modeling.
+
+2. **Access Control Model**: Three-tier system (Public, Restricted, Sacred) applied to both people and cultural items, supporting fine-grained access control.
+
+3. **Role-Based System**: Roles as separate entities allow people to have multiple roles and enable inference of specialized roles (e.g., SpiritualGuardian).
+
+4. **Approval Workflow**: Links to TribalElder and tracks approval status, supporting cultural sensitivity requirements.
 
 ## Limits and Challenges
 
-TBD (To be completed)
+### Technical Challenges
+
+1. **macOS Compatibility**: GraphDB, Fuseki, and Protégé desktop had compatibility issues on macOS. Workaround: Testing deferred to alternative device.
+
+2. **WebProtégé URIs**: Non-human-readable URIs make queries verbose. Mitigated with proper prefix usage and documentation.
+
+3. **Inference Testing**: Requires equivalent-class axiom in Protégé and triplestore for testing. Axiom definition prepared but testing deferred.
+
+### Design Limitations
+
+1. **Date Precision**: Uses `xsd:date`; could be extended to `xsd:dateTime` for more precision.
+
+2. **Access Control**: Simple three-tier system; could be extended with more granular permissions.
+
+3. **Approval Process**: Binary approval; could be extended with approval levels or workflow states.
+
+### Future Improvements
+
+1. Enhanced inference with more equivalent-class axioms
+2. Extended SHACL validation with comprehensive shapes
+3. Query optimization and indexing
+4. Visualization of ontology structure
 
 ## License
 
