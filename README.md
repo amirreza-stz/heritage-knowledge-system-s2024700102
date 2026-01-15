@@ -11,6 +11,27 @@ The Heritage Knowledge System is an ontology-based system designed to model and 
 - **Name**: Amirreza Sattarzadeh KhanehBargh 
 - **Student ID**: 2024700102
 
+## Limitations and Challenges
+
+**macOS Compatibility**
+   - GraphDB, Fuseki, and Protégé have compatibility issues on macOS
+   - Tried to use alternative device or virtual machine
+
+
+**Date Format**
+   - Uses `xsd:date` for recording dates
+   - Could be extended to `xsd:dateTime` for more precision
+
+**Approval Process**
+   - Binary approval (true/false)
+   - Could be extended with approval levels or workflow states
+
+**Tool Compatibility**
+   - macOS issues with semantic web tools
+   - Required workaround approach
+
+**My hard illness and Iran connection block : I can not connect to my family and friends and this harms my focus and thinking power**
+
 ## Project Structure
 
 ```
@@ -22,21 +43,9 @@ heritage-knowledge-system-s2024700102/
 │   ├── heritage_base_dataset.ttl                                         # Main dataset: 30 people + 50 items (277 triples)
 │   └── example_data.ttl                                                  # Example instance data (79 triples)
 ├── queries/
-│   ├── 00_verification_queries.sparql                                     # Verification queries (8 queries)
-│   ├── 01_basic_queries.sparql                                           # Basic queries (10 queries)
-│   ├── 02_inference_queries.sparql                                       # Inference queries (6 queries)
-│   ├── 03_validation_queries.sparql                                       # Validation queries (9 queries)
-│   ├── 04_advanced_queries.sparql                                        # Advanced queries (10 queries)
-│   └── README.md                                                          # Query documentation
-├── shapes/
-│   └── validation_shapes.ttl                                              # SHACL validation shapes (8 shapes)
+│   └── (SPARQL queries will be placed here)
 ├── convert_owl_to_ttl.py                                                 # Conversion script
 ├── requirements.txt                                                       # Python dependencies
-├── ANALYSIS_AND_DOCUMENTATION.md                                         # Detailed analysis
-├── QUERY_EXPECTED_RESULTS.md                                             # Expected query results
-├── PROJECT_REVIEW.md                                                     # Requirements checklist
-├── TTL_FILES_VERIFICATION.md                                            # TTL files verification
-├── URI_VERIFICATION_REPORT.md                                           # URI verification report
 └── README.md                                                              # This file
 ```
 
@@ -164,19 +173,21 @@ Two data files are provided:
 - Documentation structure in place
 
 ### To Complete on Alternative Device ⏳
-- Add equivalent-class axiom in Protégé (definition ready)
-- Test all 43 SPARQL queries in triplestore (GraphDB/Fuseki)
-- Verify inference results (5 SpiritualGuardians expected)
-- Run SHACL validation (8 shapes ready)
-- Capture query results and screenshots for documentation
-
-**Note**: All code, queries, shapes, and documentation are complete. Only testing and validation remain, which require tools that work better on Windows/Ubuntu.
+- Add equivalent-class axiom in Protégé
+- Test queries in triplestore (GraphDB/Fuseki)
+- Verify inference results
+- Run SHACL validation
+- Capture query results and screenshots
 
 ## Brief Answer for Analysis Questions
 
-See `ANALYSIS_AND_DOCUMENTATION.md` for comprehensive analysis. Summary:
+TBD :
+- Ontology design decisions and rationale
+- Data structure analysis
+- Query design and expected results
+- Relationship modeling approach
 
-### Ontology Design Decisions
+### Key Design Decisions
 
 1. **Hierarchical Class Structure**: Root `CulturalEntity` class provides common base for all entities, enabling flexible relationship modeling.
 
@@ -186,46 +197,15 @@ See `ANALYSIS_AND_DOCUMENTATION.md` for comprehensive analysis. Summary:
 
 4. **Approval Workflow**: Links to TribalElder and tracks approval status, supporting cultural sensitivity requirements.
 
-### Data Structure Analysis
-
-- **30 People**: Diverse roles (elders, guardians, performers, archaeologists, general persons)
-- **50 Cultural Items**: Balanced across 5 types (sacred items, rituals, instruments, artifacts, sites)
-- **Access Control**: Three-tier system with test cases for validation
-- **Inference Ready**: 5 guardians prepared for SpiritualGuardian inference
-
-### Query Design
-
-- **43 SPARQL queries** organized into 5 categories
-- Queries cover: verification, basic operations, inference testing, validation, and advanced analysis
-- All queries documented with expected results in `QUERY_EXPECTED_RESULTS.md`
-
-### Relationship Modeling
-
-- **Care relationships**: `caresFor`/`isCaredBy` for stewardship
-- **Location relationships**: Hierarchical location structure
-- **Performance relationships**: Links performers to rituals and instruments
-- **Approval relationships**: Links to tribal elders for cultural sensitivity
-
 ## Limits and Challenges
 
 ### Technical Challenges
 
-1. **macOS Compatibility**: GraphDB, Fuseki, and Protégé desktop had compatibility issues on macOS. 
-   - **Impact**: Testing and validation deferred to alternative device (Windows/Ubuntu)
-   - **Workaround**: All code, queries, and shapes prepared; ready for testing on compatible device
-   - **Status**: Project structure and files complete; only testing remains
+1. **macOS Compatibility**: GraphDB, Fuseki, and Protégé desktop had compatibility issues on macOS. Workaround: Testing deferred to alternative device.
 
-2. **WebProtégé URIs**: Non-human-readable URIs make queries verbose. 
-   - **Mitigation**: Proper prefix usage and comprehensive documentation
-   - **Solution**: All queries use consistent prefixes for readability
+2. **WebProtégé URIs**: Non-human-readable URIs make queries verbose. Mitigated with proper prefix usage and documentation.
 
-3. **Inference Testing**: Requires equivalent-class axiom in Protégé and triplestore for testing. 
-   - **Status**: Axiom definition prepared; ready to add in Protégé
-   - **Expected**: 5 SpiritualGuardians will be inferred once axiom is added
-
-4. **Personal Challenges**: 
-   - Health issues and connection restrictions affecting focus
-   - **Mitigation**: Comprehensive documentation and prepared files enable efficient completion on alternative device
+3. **Inference Testing**: Requires equivalent-class axiom in Protégé and triplestore for testing. Axiom definition prepared but testing deferred.
 
 ### Design Limitations
 
@@ -233,7 +213,7 @@ See `ANALYSIS_AND_DOCUMENTATION.md` for comprehensive analysis. Summary:
 
 2. **Access Control**: Simple three-tier system; could be extended with more granular permissions.
 
-3. **Approval Process**: Binary approval (true/false); could be extended with approval levels or workflow states.
+3. **Approval Process**: Binary approval; could be extended with approval levels or workflow states.
 
 ### Future Improvements
 
@@ -241,7 +221,6 @@ See `ANALYSIS_AND_DOCUMENTATION.md` for comprehensive analysis. Summary:
 2. Extended SHACL validation with comprehensive shapes
 3. Query optimization and indexing
 4. Visualization of ontology structure
-5. Automated validation pipeline
 
 ## License
 
