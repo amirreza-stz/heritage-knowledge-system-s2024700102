@@ -44,12 +44,18 @@ The Heritage Knowledge System is an ontology-based system designed to model and 
 heritage-knowledge-system-s2024700102/
 ├── ontology/
 │   ├── urn_webprotege_ontology_f1486f8e-61de-449c-a0d0-d0b65f032faf.owl  # Original OWL ontology
-│   └── heritage_ontology.ttl                                             # Converted TTL ontology (138 triples)
+│   └── heritage-s2024700102.ttl                                          # Updated TTL ontology with equivalent-class axiom (286 triples)
 ├── data/
 │   ├── heritage_base_dataset.ttl                                         # Main dataset: 30 people + 50 items (277 triples)
 │   └── example_data.ttl                                                  # Example instance data (79 triples)
 ├── queries/
-│   └── (SPARQL queries will be placed here)
+│   ├── 00_verification_queries.sparql                                    # Verification queries
+│   ├── 01_basic_queries.sparql                                           # Basic exploration queries
+│   ├── 02_inference_queries.sparql                                       # Inference testing queries
+│   ├── 03_validation_queries.sparql                                     # Data quality queries
+│   └── 04_advanced_queries.sparql                                       # Advanced analysis queries
+├── shapes/
+│   └── validation_shapes.ttl                                             # SHACL validation shapes
 ├── convert_owl_to_ttl.py                                                 # Conversion script
 ├── requirements.txt                                                       # Python dependencies
 └── README.md                                                              # This file
@@ -150,8 +156,8 @@ python convert_owl_to_ttl.py ontology/urn_webprotege_ontology_f1486f8e-61de-449c
 ### Loading the Ontology
 
 The ontology is available in both OWL and TTL formats:
-- **OWL**: `ontology/urn_webprotege_ontology_f1486f8e-61de-449c-a0d0-d0b65f032faf.owl`
-- **TTL**: `ontology/heritage_ontology.ttl`
+- **OWL**: `ontology/urn_webprotege_ontology_f1486f8e-61de-449c-a0d0-d0b65f032faf.owl` (original)
+- **TTL**: `ontology/heritage-s2024700102.ttl` (updated with equivalent-class axiom for SpiritualGuardian inference)
 
 ### Example Data
 
@@ -160,7 +166,7 @@ Two data files are provided:
 1. **`data/heritage_base_dataset.ttl`** - Main dataset for the project:
    - **30 people** (2 elders, 5 guardians, 5 performers, 2 archaeologists, 16 general persons)
    - **50 cultural items** (10 sacred items, 10 rituals, 10 instruments, 10 artifacts, 10 archaeological sites)
-   - Designed to enable inference of ≥5 SpiritualGuardians (once equivalent-class axiom is added in Protégé)
+   - Designed to enable inference of ≥5 SpiritualGuardians (equivalent-class axiom added in `heritage-s2024700102.ttl`)
    - Includes human-approval violations for SHACL testing
    - Uses student ID prefix: `http://example.org/heritage/s2024700102#`
    - Total: 277 triples
@@ -173,15 +179,15 @@ Two data files are provided:
 
 ### Completed ✅
 - Ontology conversion (OWL → TTL)
+- Ontology updated with equivalent-class axiom for SpiritualGuardian inference
 - Data files created and verified
-- SPARQL queries created (35+ queries)
+- SPARQL queries created (43 queries across 5 files)
 - SHACL validation shapes created
 - Documentation structure in place
 
 ### To Complete on Alternative Device ⏳
-- Add equivalent-class axiom in Protégé
 - Test queries in triplestore (GraphDB/Fuseki)
-- Verify inference results
+- Verify inference results (5 SpiritualGuardians should be inferred)
 - Run SHACL validation
 - Capture query results and screenshots
 
