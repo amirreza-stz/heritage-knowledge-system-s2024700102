@@ -5,8 +5,11 @@
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
-    <owl:Ontology rdf:about="urn:webprotege:ontology:f1486f8e-61de-449c-a0d0-d0b65f032faf"/>
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:webprotege="http://webprotege.stanford.edu/">
+    <owl:Ontology rdf:about="urn:webprotege:ontology:f1486f8e-61de-449c-a0d0-d0b65f032faf">
+        <owl:imports rdf:resource="file:/home/ubuntu/Desktop/SSW/v2/heritage-knowledge-system-s2024700102/data/heritage_base_dataset.ttl"/>
+    </owl:Ontology>
     
 
 
@@ -323,7 +326,10 @@
         <owl:equivalentClass>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://webprotege.stanford.edu/R8n0Clv4ntakelp3R7JuFo4"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://webprotege.stanford.edu/RBicyNm8ZNjNz9uoAdHA05E"/>
+                        <owl:someValuesFrom rdf:resource="http://webprotege.stanford.edu/R8n0Clv4ntakelp3R7JuFo4"/>
+                    </owl:Restriction>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="http://webprotege.stanford.edu/RC2A3h4SFUS7L6DFLFfGllV"/>
                         <owl:someValuesFrom rdf:resource="http://webprotege.stanford.edu/R7pxWOFI810disSa49P9mBh"/>
@@ -331,7 +337,7 @@
                 </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
-        <rdfs:subClassOf rdf:resource="http://webprotege.stanford.edu/RCE34gLAs7o4yxGhTv0nh0W"/>
+        <rdfs:subClassOf rdf:resource="http://webprotege.stanford.edu/RDqiGQVsD47hrqZoozr5QsY"/>
         <rdfs:label>SpiritualGuardian</rdfs:label>
     </owl:Class>
     
@@ -423,6 +429,34 @@
         <rdfs:subClassOf rdf:resource="http://webprotege.stanford.edu/RBzaNvgfS1OLMV7DXLrkS4J"/>
         <rdfs:label>Site</rdfs:label>
     </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://example.org/heritage/s2024700102#person_05 -->
+
+    <rdf:Description rdf:about="http://example.org/heritage/s2024700102#person_05">
+        <webprotege:RBicyNm8ZNjNz9uoAdHA05E rdf:resource="http://example.org/heritage/s2024700102#guardianRole_01"/>
+        <webprotege:RC2A3h4SFUS7L6DFLFfGllV rdf:resource="http://example.org/heritage/s2024700102#sacredItem_03"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://example.org/heritage/s2024700102#sacredItem_02 -->
+
+    <rdf:Description rdf:about="http://example.org/heritage/s2024700102#sacredItem_02">
+        <webprotege:RC2A3h4SFUS7L6DFLFfGllV rdf:resource="http://example.org/heritage/s2024700102#sacredItem_02"/>
+    </rdf:Description>
 </rdf:RDF>
 
 
