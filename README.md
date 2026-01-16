@@ -63,15 +63,40 @@ heritage-knowledge-system-s2024700102/
 
 ## Tools and Versions
 
-- **Protégé**: WebProtégé (used for ontology development)
-  - Note: Desktop Protégé had compatibility issues on macOS; will be tested on alternative device
-- **Triplestore**: GraphDB Free 11.2.0 (planned)
-  - Note: Installation completed but testing deferred due to macOS compatibility issues
-  - Alternative: Apache Jena Fuseki on a windows or ubuntu device
-- **Programming Language**: Python3
-- **Libraries**:
-  - `rdflib >= 6.0.0` - RDF parsing and manipulation
-  - `pyshacl >= 0.20.0` - SHACL validation (optional)
+### Ontology Development
+- **Protégé**: Desktop Protégé (tested on Ubuntu)
+  - Used for: Ontology editing, adding equivalent-class axiom, inference testing
+  - Reasoner: HermiT 
+  - Note: Desktop Protégé had compatibility issues on macOS; tested on Ubuntu alternative device
+
+### Triplestore
+- **Apache Jena Fuseki**: Latest version (tested on Ubuntu)
+  - Used for: SPARQL query testing, data loading
+
+### Programming Language
+- **Python 3**
+  - Used for: OWL to TTL conversion, SHACL validation, data verification
+
+### Python Libraries
+- **rdflib**: >= 6.0.0
+  - Purpose: RDF parsing, manipulation, and serialization
+  - Used in: `convert_owl_to_ttl.py`, data verification scripts
+- **pyshacl**: >= 0.20.0
+  - Purpose: SHACL validation
+  - Used in: `test_shacl.py` for validating data against SHACL shapes
+
+### Standards and Formats
+- **OWL**: 2.0 (Web Ontology Language)
+- **RDF**: RDF 1.1 (Resource Description Framework)
+- **SPARQL**: SPARQL 1.1 (Query language)
+- **SHACL**: SHACL 1.1 (Shapes Constraint Language)
+- **Turtle**: TTL syntax for RDF serialization
+
+### Testing and Validation
+- **SHACL Validation**: Using pySHACL library
+  - Script: `test_shacl.py` (included in repository)
+  - Shapes: `shapes/validation_shapes.ttl` (8 validation shapes)
+  - Expected: 4 violations (by design, for testing)
 
 ## Ontology Overview
 
@@ -125,17 +150,33 @@ heritage-knowledge-system-s2024700102/
 
 ### Prerequisites
 
-1. Python 3.7 or higher
-2. pip (Python package manager)
-
+1. **Python 3.7 or higher**
+2. **pip**: Python package manager
+3. **Protégé**: Desktop version (for ontology editing and inference testing)
+   - Download: https://protege.stanford.edu/
+   - Alternative: WebProtégé (browser-based)
+4. **Triplestore** (choose one):
+   - **Apache Jena Fuseki**: For SPARQL query testing
+     - Download: https://jena.apache.org/download/
 ### Installation
 
-1. Clone or download this repository
+1. **Clone or download this repository**
 
-2. Install Python dependencies:
+2. **Install Python dependencies**:
 ```bash
 pip install -r requirements.txt
 ```
+
+This will install:
+- `rdflib >= 6.0.0` - For RDF processing
+- `pyshacl >= 0.20.0` - For SHACL validation
+
+3. **Install Protégé** (for ontology editing):
+   - Download from: https://protege.stanford.edu/
+   - Extract and run (Java required)
+
+4. **Install Triplestore** (choose one):
+   - **Fuseki**: Download from https://jena.apache.org/download/
 
 ### Converting OWL to TTL
 
@@ -175,6 +216,24 @@ Two data files are provided:
    - Demonstrates basic relationships and structure
    - Useful for initial testing and understanding the ontology
 
+### Running SHACL Validation
+
+To validate your data against SHACL shapes:
+
+```bash
+# Install pySHACL if not already installed
+pip install pyshacl
+
+# Run validation
+python3 test_shacl.py
+```
+
+This will:
+- Load SHACL shapes from `shapes/validation_shapes.ttl` (8 validation shapes)
+- Validate data from `data/heritage_base_dataset.ttl`
+- Report violations 
+- Save detailed report to `validation_report.ttl`
+
 ## Next Steps
 
 ### Completed ✅
@@ -185,19 +244,16 @@ Two data files are provided:
 - SHACL validation shapes created
 - Documentation structure in place
 
-### To Complete on Alternative Device ⏳
-- Test queries in triplestore (GraphDB/Fuseki)
-- Verify inference results (5 SpiritualGuardians should be inferred)
-- Run SHACL validation
-- Capture query results and screenshots
+### Testing Status ⏳
+- ✅ Protégé: Equivalent-class axiom added and tested
+- ✅ Fuseki: Data loaded and queries tested
+- ⏳ Inference: Verify 5 SpiritualGuardians inferred in triplestore
+- ⏳ SHACL Validation: Run `test_shacl.py` to validate data
+- ⏳ Documentation: Capture query results and screenshots
 
 ## Brief Answer for Analysis Questions
 
-TBD :
-- Ontology design decisions and rationale
-- Data structure analysis
-- Query design and expected results
-- Relationship modeling approach
+See `ANALYSIS_AND_DOCUMENTATION.md` for comprehensive analysis. Summary below:
 
 ### Key Design Decisions
 
@@ -208,6 +264,42 @@ TBD :
 3. **Role-Based System**: Roles as separate entities allow people to have multiple roles and enable inference of specialized roles (e.g., SpiritualGuardian).
 
 4. **Approval Workflow**: Links to TribalElder and tracks approval status, supporting cultural sensitivity requirements.
+
+### OWL Reasoning vs SHACL Validation
+
+#### Why does OWL reasoning automatically classify individuals as SpiritualGuardian?
+
+OWL reasoning automatically classifies individuals as `SpiritualGuardian` because of the **equivalent-class axiom** defined in the ontology:
+
+```
+SpiritualGuardian ≡ (hasRole some Guardian) and (caresFor some SacredItem)
+```
+
+#### Why can't OWL axioms alone enforce the human approval requirement?
+
+OWL axioms **cannot enforce constraints** like "people caring for sacred items must have human approval" because:
+
+1. **OWL is for inference, not validation**: OWL axioms describe what **can be inferred** from existing data, not what **must be true** or what **should be rejected**
+2. **OWL is monotonic**: OWL reasoning only adds new knowledge; it doesn't reject or flag invalid data
+3. **Open-world assumption**: OWL assumes incomplete knowledge - missing `humanApproval` doesn't mean it's false, it means it's unknown
+
+**What OWL CAN do**: Define that "if someone has humanApproval=true AND cares for a sacred item, then they are an ApprovedGuardian" (inference)
+**What OWL CANNOT do**: Reject or flag data where "someone cares for a sacred item but humanApproval=false" (validation)
+
+#### How does SHACL complement OWL in this scenario?
+
+SHACL complements OWL by providing **constraint validation** that OWL cannot provide:
+
+1. **OWL handles inference** (what can be derived):
+   - Infers that people with Guardian roles caring for SacredItems are SpiritualGuardians
+   - Adds new knowledge to the knowledge base
+
+2. **SHACL handles validation** (what must be true):
+   - Enforces that people caring for sacred items MUST have `humanApproval = true`
+   - Reports violations when constraints are not met
+   - Validates data quality and business rules
+
+**Together**: OWL enriches the knowledge base with inferred knowledge, while SHACL ensures data quality and constraint compliance. Both are essential for a complete semantic web system.
 
 ## Limits and Challenges
 
