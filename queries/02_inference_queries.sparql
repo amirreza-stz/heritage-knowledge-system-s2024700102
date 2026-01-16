@@ -1,6 +1,7 @@
 # Inference Queries for Heritage Knowledge System
 # These queries test inference capabilities, especially SpiritualGuardian inference
-# NOTE: Requires equivalent-class axiom to be added in Protégé first! which I have problem adding it because of my migration to MacOS and I have learnt them on Ubuntu during the semester.
+# NOTE: Equivalent-class axiom has been added in Protégé (see ontology/heritage-s2024700102.ttl)
+# The axiom: SpiritualGuardian ≡ (hasRole some Guardian) and (caresFor some SacredItem)
 
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>

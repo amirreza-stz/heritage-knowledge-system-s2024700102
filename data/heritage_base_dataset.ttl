@@ -8,8 +8,9 @@
 # Heritage base dataset (instances)
 # Student ID: 2024700102
 # This file is designed to: (1) have 30 people + 50 cultural items,
-# (2) enable inference of >=5 SpiritualGuardians once you add the equivalent-class axiom in Protégé:
+# (2) enable inference of >=5 SpiritualGuardians with the equivalent-class axiom:
 #     SpiritualGuardian ≡ (hasRole some Guardian) and (caresFor some SacredItem)
+#     (Axiom added in Protégé - see ontology/heritage-s2024700102.ttl)
 # (3) include some human-approval violations for SHACL testing.
 # ===============================
 
