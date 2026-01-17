@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://example.org/heritage/s2024700102#"
+     xml:base="http://example.org/heritage/s2024700102#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://example.org/heritage/s2024700102#"/>
+    
+    <!-- 
+    ATTEMPT TO ENCODE TEMPORAL ACCESS CONSTRAINT IN OWL
+    
+    This file demonstrates why OWL cannot enforce the temporal access constraint:
+    "IF recordingDate > restrictionEffectiveDate AND performerAccessLevel < requiredAccessLevel
+     THEN violation"
+    
+    LIMITATIONS:
+    1. OWL cannot express date comparisons (recordingDate > restrictionEffectiveDate)
+    2. OWL cannot express conditional logic based on data property values
+    3. OWL cannot report violations - it only infers new knowledge
+    4. OWL uses open-world assumption - missing data doesn't mean false
+    5. OWL is monotonic - it only adds knowledge, never rejects data
+    
+    What we CAN do in OWL:
+    - Define that if someone has proper access, they are an "AuthorizedPerformer"
+    - But we CANNOT reject or flag recordings that violate the constraint
+    -->
+    
+    <!-- Class definitions -->
+    <owl:Class rdf:about="#Recording"/>
+    <owl:Class rdf:about="#AuthorizedPerformer"/>
+    <owl:Class rdf:about="#AccessLevel"/>
+    
+    <!-- Data properties -->
+    <owl:DatatypeProperty rdf:about="#recordingDate">
+        <rdfs:domain rdf:resource="#Recording"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+    </owl:DatatypeProperty>
+    
+    <owl:DatatypeProperty rdf:about="#restrictionEffectiveDate">
+        <rdfs:domain rdf:resource="#Recording"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+    </owl:DatatypeProperty>
+    
+    <owl:ObjectProperty rdf:about="#performerAccessLevel">
+        <rdfs:domain rdf:resource="#Recording"/>
+        <rdfs:range rdf:resource="#AccessLevel"/>
+    </owl:ObjectProperty>
+    
+    <owl:ObjectProperty rdf:about="#requiredAccessLevel">
+        <rdfs:domain rdf:resource="#Recording"/>
+        <rdfs:range rdf:resource="#AccessLevel"/>
+    </owl:ObjectProperty>
+    
+    <!-- 
+    ATTEMPT: We can define that if access levels match, then authorized
+    But we CANNOT express: "if date1 > date2 AND level1 < level2 THEN violation"
+    
+    The best we can do is define what IS authorized, but not what IS NOT authorized
+    or what SHOULD BE rejected.
+    -->
+    
+    <!-- This is the best we can do - define authorized cases -->
+    <owl:Class rdf:about="#AuthorizedRecording">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description>
+                        <owl:onProperty rdf:resource="#performerAccessLevel"/>
+                        <owl:hasValue rdf:resource="#Sacred"/>
+                    </rdf:Description>
+                    <rdf:Description>
+                        <owl:onProperty rdf:resource="#requiredAccessLevel"/>
+                        <owl:hasValue rdf:resource="#Sacred"/>
+                    </rdf:Description>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+    <!-- 
+    BUT: We cannot express date comparisons or conditional violations.
+    This is why SHACL is needed for constraint validation.
+    -->
+    
+</rdf:RDF>

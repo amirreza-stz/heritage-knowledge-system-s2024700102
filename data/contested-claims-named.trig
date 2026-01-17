@@ -1,0 +1,123 @@
+# Contested Claims - Named Graphs Pattern (TriG format)
+# Student ID: 2024700102
+# This file contains 10 contested claims about cultural heritage items
+# Each claim is represented in a separate named graph
+# The graph URI contains metadata about source, confidence, and date
+
+@prefix ex: <http://example.org/heritage/s2024700102#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# ============================================
+# Claim 1-2: Artifact creation date contested
+# ============================================
+<ex:graph_claim1_20230115> {
+    ex:artifact_ancient_vase ex:createdIn "1500 BCE"^^xsd:string .
+    ex:graph_claim1_20230115 ex:source ex:archaeologist_dr_smith ;
+        ex:confidence 0.92 ;
+        ex:dateRecorded "2023-01-15"^^xsd:date .
+}
+
+<ex:graph_claim2_20230320> {
+    ex:artifact_ancient_vase ex:createdIn "1200 BCE"^^xsd:string .
+    ex:graph_claim2_20230320 ex:source ex:researcher_prof_jones ;
+        ex:confidence 0.78 ;
+        ex:dateRecorded "2023-03-20"^^xsd:date .
+}
+
+# ============================================
+# Claim 3-4: Ritual cycle assignment contested
+# ============================================
+<ex:graph_claim3_20221110> {
+    ex:ritual_harvest_ceremony ex:belongsTo ex:seasonal_cycle_spring .
+    ex:graph_claim3_20221110 ex:source ex:elder_chief_whitefeather ;
+        ex:confidence 0.95 ;
+        ex:dateRecorded "2022-11-10"^^xsd:date .
+}
+
+<ex:graph_claim4_20230512> {
+    ex:ritual_harvest_ceremony ex:belongsTo ex:seasonal_cycle_autumn .
+    ex:graph_claim4_20230512 ex:source ex:anthropologist_dr_brown ;
+        ex:confidence 0.85 ;
+        ex:dateRecorded "2023-05-12"^^xsd:date .
+}
+
+# ============================================
+# Claim 5-6: Sacred item location contested
+# ============================================
+<ex:graph_claim5_20220825> {
+    ex:sacred_item_ceremonial_mask ex:originallyLocatedAt ex:location_sacred_cave_north .
+    ex:graph_claim5_20220825 ex:source ex:guardian_elder_moon ;
+        ex:confidence 0.88 ;
+        ex:dateRecorded "2022-08-25"^^xsd:date .
+}
+
+<ex:graph_claim6_20230718> {
+    ex:sacred_item_ceremonial_mask ex:originallyLocatedAt ex:location_temple_south .
+    ex:graph_claim6_20230718 ex:source ex:historian_dr_williams ;
+        ex:confidence 0.72 ;
+        ex:dateRecorded "2023-07-18"^^xsd:date .
+}
+
+# ============================================
+# Claim 7-8: Instrument performer association contested
+# ============================================
+<ex:graph_claim7_20221205> {
+    ex:instrument_drum_traditional ex:playedBy ex:performer_master_drummer .
+    ex:graph_claim7_20221205 ex:source ex:elder_chief_whitefeather ;
+        ex:confidence 0.90 ;
+        ex:dateRecorded "2022-12-05"^^xsd:date .
+}
+
+<ex:graph_claim8_20230922> {
+    ex:instrument_drum_traditional ex:playedBy ex:performer_apprentice_drummer .
+    ex:graph_claim8_20230922 ex:source ex:researcher_prof_jones ;
+        ex:confidence 0.65 ;
+        ex:dateRecorded "2023-09-22"^^xsd:date .
+}
+
+# ============================================
+# Claim 9-10: Archaeological site dating contested
+# ============================================
+<ex:graph_claim9_20230214> {
+    ex:archaeological_site_ancient_settlement ex:datedTo "3000 BCE"^^xsd:string .
+    ex:graph_claim9_20230214 ex:source ex:archaeologist_dr_smith ;
+        ex:confidence 0.87 ;
+        ex:dateRecorded "2023-02-14"^^xsd:date .
+}
+
+<ex:graph_claim10_20231030> {
+    ex:archaeological_site_ancient_settlement ex:datedTo "2500 BCE"^^xsd:string .
+    ex:graph_claim10_20231030 ex:source ex:carbon_dating_lab_tech ;
+        ex:confidence 0.93 ;
+        ex:dateRecorded "2023-10-30"^^xsd:date .
+}
+
+# ============================================
+# Supporting instance data (default graph)
+# ============================================
+{
+    ex:artifact_ancient_vase a ex:Artifact .
+    ex:ritual_harvest_ceremony a ex:Ritual .
+    ex:sacred_item_ceremonial_mask a ex:SacredItem .
+    ex:instrument_drum_traditional a ex:Instrument .
+    ex:archaeological_site_ancient_settlement a ex:ArchaeologicalSite .
+    
+    ex:seasonal_cycle_spring a ex:SeasonalCycle .
+    ex:seasonal_cycle_autumn a ex:SeasonalCycle .
+    
+    ex:location_sacred_cave_north a ex:Location .
+    ex:location_temple_south a ex:Location .
+    
+    ex:archaeologist_dr_smith a ex:Archaeologist .
+    ex:researcher_prof_jones a ex:Researcher .
+    ex:elder_chief_whitefeather a ex:TribalElder .
+    ex:anthropologist_dr_brown a ex:Anthropologist .
+    ex:guardian_elder_moon a ex:Guardian .
+    ex:historian_dr_williams a ex:Historian .
+    ex:carbon_dating_lab_tech a ex:LabTechnician .
+    
+    ex:performer_master_drummer a ex:Performer .
+    ex:performer_apprentice_drummer a ex:Performer .
+}

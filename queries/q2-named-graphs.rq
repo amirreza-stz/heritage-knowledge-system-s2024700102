@@ -1,0 +1,17 @@
+# Query 2: Find all claims with confidence > 0.8 (Named Graphs pattern)
+# For dataset: heritage-named
+
+PREFIX ex: <http://example.org/heritage/s2024700102#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT ?graph ?source ?confidence ?dateRecorded ?ritual ?cycle
+WHERE {
+    GRAPH ?graph {
+        ?ritual ex:belongsTo ?cycle .
+        ?graph ex:source ?source ;
+            ex:confidence ?confidence ;
+            ex:dateRecorded ?dateRecorded .
+    }
+    FILTER (?confidence > 0.8)
+}
+ORDER BY DESC(?confidence)
