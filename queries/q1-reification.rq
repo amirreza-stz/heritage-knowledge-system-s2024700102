@@ -1,0 +1,19 @@
+# Query 1: Find all claims with confidence > 0.8 (RDF Reification pattern)
+# For dataset: heritage-reification
+
+PREFIX ex: <http://example.org/heritage/s2024700102#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT ?claim ?source ?confidence ?dateRecorded ?subject ?predicate ?object
+WHERE {
+    ?claim a rdf:Statement ;
+        rdf:subject ?subject ;
+        rdf:predicate ?predicate ;
+        rdf:object ?object ;
+        ex:source ?source ;
+        ex:confidence ?confidence ;
+        ex:dateRecorded ?dateRecorded .
+    FILTER (?confidence > 0.8)
+}
+ORDER BY DESC(?confidence)
