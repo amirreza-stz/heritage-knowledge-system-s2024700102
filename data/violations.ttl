@@ -1,0 +1,118 @@
+# Test Data with Intentional Violations
+# Student ID: 2024700102
+# This file contains 10 violations for SHACL validation testing:
+# - 5 temporal access violations
+# - 3 missing performer information
+# - 2 invalid date formats
+
+@prefix ex: <http://example.org/heritage/s2024700102#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# ============================================
+# Violations 1-5: Temporal Access Violations
+# Recording made after restriction without proper authorization
+# ============================================
+
+# Violation 1: Recording in 2025, restriction in 2020, but performer only has Public access (needs Sacred)
+ex:s2024700102_recording_violation1 a ex:Recording ;
+    ex:recordingDate "2025-01-15"^^xsd:date ;
+    ex:restrictionEffectiveDate "2020-01-01"^^xsd:date ;
+    ex:requiredAccessLevel ex:Sacred ;
+    ex:performerAccessLevel ex:Public ;
+    ex:performer ex:s2024700102_performer1 .
+
+# Violation 2: Recording in 2024, restriction in 2021, but performer only has Public access (needs Restricted)
+ex:s2024700102_recording_violation2 a ex:Recording ;
+    ex:recordingDate "2024-06-20"^^xsd:date ;
+    ex:restrictionEffectiveDate "2021-01-01"^^xsd:date ;
+    ex:requiredAccessLevel ex:Restricted ;
+    ex:performerAccessLevel ex:Public ;
+    ex:performer ex:s2024700102_performer2 .
+
+# Violation 3: Recording in 2025, restriction in 2019, but performer only has Restricted access (needs Sacred)
+ex:s2024700102_recording_violation3 a ex:Recording ;
+    ex:recordingDate "2025-03-10"^^xsd:date ;
+    ex:restrictionEffectiveDate "2019-06-15"^^xsd:date ;
+    ex:requiredAccessLevel ex:Sacred ;
+    ex:performerAccessLevel ex:Restricted ;
+    ex:performer ex:s2024700102_performer3 .
+
+# Violation 4: Recording in 2024, restriction in 2022, but performer only has Public access (needs Restricted)
+ex:s2024700102_recording_violation4 a ex:Recording ;
+    ex:recordingDate "2024-09-12"^^xsd:date ;
+    ex:restrictionEffectiveDate "2022-03-01"^^xsd:date ;
+    ex:requiredAccessLevel ex:Restricted ;
+    ex:performerAccessLevel ex:Public ;
+    ex:performer ex:s2024700102_performer4 .
+
+# Violation 5: Recording in 2025, restriction in 2020, but performer only has Restricted access (needs Sacred)
+ex:s2024700102_recording_violation5 a ex:Recording ;
+    ex:recordingDate "2025-11-25"^^xsd:date ;
+    ex:restrictionEffectiveDate "2020-08-10"^^xsd:date ;
+    ex:requiredAccessLevel ex:Sacred ;
+    ex:performerAccessLevel ex:Restricted ;
+    ex:performer ex:s2024700102_performer5 .
+
+# ============================================
+# Violations 6-8: Missing Performer Information
+# ============================================
+
+# Violation 6: Missing performer property
+ex:s2024700102_recording_violation6 a ex:Recording ;
+    ex:recordingDate "2023-05-15"^^xsd:date ;
+    ex:restrictionEffectiveDate "2020-01-01"^^xsd:date ;
+    ex:requiredAccessLevel ex:Public ;
+    ex:performerAccessLevel ex:Public .
+    # Missing ex:performer property
+
+# Violation 7: Missing performer property
+ex:s2024700102_recording_violation7 a ex:Recording ;
+    ex:recordingDate "2023-08-20"^^xsd:date ;
+    ex:restrictionEffectiveDate "2021-01-01"^^xsd:date ;
+    ex:requiredAccessLevel ex:Public ;
+    ex:performerAccessLevel ex:Public .
+    # Missing ex:performer property
+
+# Violation 8: Missing performer property
+ex:s2024700102_recording_violation8 a ex:Recording ;
+    ex:recordingDate "2024-02-10"^^xsd:date ;
+    ex:restrictionEffectiveDate "2020-01-01"^^xsd:date ;
+    ex:requiredAccessLevel ex:Public ;
+    ex:performerAccessLevel ex:Public .
+    # Missing ex:performer property
+
+# ============================================
+# Violations 9-10: Invalid Date Formats
+# ============================================
+
+# Violation 9: Invalid date format (not xsd:date)
+ex:s2024700102_recording_violation9 a ex:Recording ;
+    ex:recordingDate "invalid-date" ;  # Invalid format - should be xsd:date
+    ex:restrictionEffectiveDate "2020-01-01"^^xsd:date ;
+    ex:requiredAccessLevel ex:Public ;
+    ex:performerAccessLevel ex:Public ;
+    ex:performer ex:s2024700102_performer6 .
+
+# Violation 10: Invalid date format (not xsd:date)
+ex:s2024700102_recording_violation10 a ex:Recording ;
+    ex:recordingDate "2024-12-25"^^xsd:date ;
+    ex:restrictionEffectiveDate "not-a-date" ;  # Invalid format - should be xsd:date
+    ex:requiredAccessLevel ex:Public ;
+    ex:performerAccessLevel ex:Public ;
+    ex:performer ex:s2024700102_performer7 .
+
+# ============================================
+# Supporting Resources
+# ============================================
+
+ex:Public a ex:AccessLevel .
+ex:Restricted a ex:AccessLevel .
+ex:Sacred a ex:AccessLevel .
+
+ex:s2024700102_performer1 a ex:Performer .
+ex:s2024700102_performer2 a ex:Performer .
+ex:s2024700102_performer3 a ex:Performer .
+ex:s2024700102_performer4 a ex:Performer .
+ex:s2024700102_performer5 a ex:Performer .
+ex:s2024700102_performer6 a ex:Performer .
+ex:s2024700102_performer7 a ex:Performer .

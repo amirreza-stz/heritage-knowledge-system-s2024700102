@@ -1,0 +1,80 @@
+# SHACL Temporal Validation Constraints
+# Student ID: 2024700102
+# This file contains SHACL shapes for temporal access validation
+
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ex: <http://example.org/heritage/s2024700102#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# ============================================
+# Shape 1: Temporal Access Violation
+# ============================================
+# Target: All instances of ex:Recording
+# Logic: IF recordingDate > restrictionEffectiveDate 
+#        AND performerAccessLevel < requiredAccessLevel
+# Then: sh:Violation
+# ============================================
+ex:TemporalAccessViolationShape
+    a sh:NodeShape ;
+    sh:targetClass ex:Recording ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:message "Recording made after restriction without proper authorization" ;
+        sh:severity sh:Violation ;
+        sh:select """
+            SELECT $this ?recordingDate ?restrictionDate ?performerLevel ?requiredLevel
+            WHERE {
+                $this ex:recordingDate ?recordingDate .
+                $this ex:restrictionEffectiveDate ?restrictionDate .
+                $this ex:performerAccessLevel ?performerLevel .
+                $this ex:requiredAccessLevel ?requiredLevel .
+                FILTER (?recordingDate > ?restrictionDate)
+                FILTER (
+                    (?requiredLevel = ex:Sacred && ?performerLevel != ex:Sacred) ||
+                    (?requiredLevel = ex:Restricted && ?performerLevel = ex:Public)
+                )
+            }
+        """ ;
+    ] .
+
+# ============================================
+# Shape 2: Performer Information Completeness
+# ============================================
+# Target: All ex:Recording instances
+# Constraint: Must have ex:performer property
+# Severity: sh:Warning
+# ============================================
+ex:PerformerInformationShape
+    a sh:NodeShape ;
+    sh:targetClass ex:Recording ;
+    sh:property [
+        sh:path ex:performer ;
+        sh:minCount 1 ;
+        sh:severity sh:Warning ;
+        sh:message "Recording must have performer information" ;
+    ] .
+
+# ============================================
+# Shape 3: Date Format Validation
+# ============================================
+# Target: All entities with date properties
+# Constraint: Dates must be valid xsd:date format
+# Severity: sh:Violation
+# ============================================
+ex:DateFormatShape
+    a sh:NodeShape ;
+    sh:targetClass ex:Recording ;
+    sh:property [
+        sh:path ex:recordingDate ;
+        sh:datatype xsd:date ;
+        sh:severity sh:Violation ;
+        sh:message "Recording date must be valid xsd:date format" ;
+    ] ;
+    sh:property [
+        sh:path ex:restrictionEffectiveDate ;
+        sh:datatype xsd:date ;
+        sh:severity sh:Violation ;
+        sh:message "Restriction date must be valid xsd:date format" ;
+    ] .

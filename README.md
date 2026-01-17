@@ -83,11 +83,16 @@ heritage-knowledge-system-s2024700102/
   - Used in: `convert_owl_to_ttl.py`, data verification scripts
 - **pyshacl**: >= 0.20.0
   - Purpose: SHACL validation
-  - Used in: `test_shacl.py` for validating data against SHACL shapes
+  - Used in: `code/run-shacl-validation.py` for validating data against SHACL shapes
+- **requests**: >= 2.28.0
+  - Purpose: HTTP requests for SPARQL query execution
+  - Used in: `code/run-queries.py` for querying triplestores
 
 ### Standards and Formats
 - **OWL**: 2.0 (Web Ontology Language)
 - **RDF**: RDF 1.1 (Resource Description Framework)
+- **RDF-star**: RDF-star 1.1 (Annotated statements)
+- **TriG**: TriG format (Named graphs)
 - **SPARQL**: SPARQL 1.1 (Query language)
 - **SHACL**: SHACL 1.1 (Shapes Constraint Language)
 - **Turtle**: TTL syntax for RDF serialization
@@ -200,40 +205,51 @@ The ontology is available in both OWL and TTL formats:
 - **OWL**: `ontology/urn_webprotege_ontology_f1486f8e-61de-449c-a0d0-d0b65f032faf.owl` (original)
 - **TTL**: `ontology/heritage-s2024700102.ttl` (updated with equivalent-class axiom for SpiritualGuardian inference)
 
-### Example Data
+### Data Files
 
-Two data files are provided:
-
-1. **`data/heritage_base_dataset.ttl`** - Main dataset for the project:
+1. **`data/heritage-base.ttl`** - Main dataset (Question 1):
    - **30 people** (2 elders, 5 guardians, 5 performers, 2 archaeologists, 16 general persons)
    - **50 cultural items** (10 sacred items, 10 rituals, 10 instruments, 10 artifacts, 10 archaeological sites)
-   - Designed to enable inference of ≥5 SpiritualGuardians (equivalent-class axiom added in `heritage-s2024700102.ttl`)
+   - Designed to enable inference of ≥5 SpiritualGuardians
    - Includes human-approval violations for SHACL testing
    - Uses student ID prefix: `http://example.org/heritage/s2024700102#`
-   - Total: 277 triples
 
-2. **`data/example_data.ttl`** - Smaller example dataset for testing:
-   - Demonstrates basic relationships and structure
-   - Useful for initial testing and understanding the ontology
+2. **`data/contested-claims-reification.ttl`** - Question 2: RDF reification pattern
+
+3. **`data/contested-claims-named.trig`** - Question 2: Named graphs pattern
+
+4. **`data/contested-claims-rdfstar.ttl`** - Question 2: RDF-star pattern
+
+5. **`data/violations.ttl`** - Question 3: Test data with violations (temporal, missing performer, invalid dates)
+
+6. **`data/fixed-data.ttl`** - Question 3: Corrected data with all violations fixed
 
 ### Running SHACL Validation
 
-To validate your data against SHACL shapes:
-
+#### Question 1: Basic SHACL Validation
 ```bash
-# Install pySHACL if not already installed
-pip install pyshacl
-
-# Run validation
-python3 test_shacl.py
+# Validate heritage-base.ttl against validation shapes
+python test_shacl.py
 ```
 
-This will:
-- Load SHACL shapes from `shapes/validation_shapes.ttl` (8 validation shapes)
-- Validate data from `data/heritage_base_dataset.ttl`
-- Report violations 
-- Save detailed report to `validation_report.ttl`
+#### Question 3: Temporal Constraints Validation
+```bash
+# Validate violations (should find 10 violations)
+python code/run-shacl-validation.py data/violations.ttl validation/temporal-constraints.shacl validation/validation-report-violations.txt
 
+# Validate fixed data (should find 0 violations)
+python code/run-shacl-validation.py data/fixed-data.ttl validation/temporal-constraints.shacl validation/validation-report-clean.txt
+```
+
+### Running SPARQL Queries
+
+#### Question 2: Contested Claims Queries
+```bash
+# After loading data into Fuseki, run queries:
+python code/run-queries.py http://localhost:3030/heritage-reification/sparql
+python code/run-queries.py http://localhost:3030/heritage-named/sparql
+python code/run-queries.py http://localhost:3030/heritage-rdfstar/sparql
+```
 ## Next Steps
 
 ### Completed ✅
@@ -261,7 +277,7 @@ See `ANALYSIS_AND_DOCUMENTATION.md` for comprehensive analysis. Summary below:
 
 2. **Access Control Model**: Three-tier system (Public, Restricted, Sacred) applied to both people and cultural items, supporting fine-grained access control.
 
-3. **Role-Based System**: Roles as separate entities allow people to have multiple roles and enable inference of specialized roles (e.g., SpiritualGuardian).
+3. **Role-Based System**: Roles are separate entities, allowing people to have multiple roles and enabling inference of specialized roles (e.g., SpiritualGuardian). **Note**: `SpiritualGuardian` is a subclass of `Person` (not `Role`) because both `hasRole` and `caresFor` properties have domain `Person`, requiring `SpiritualGuardian ⊑ Person` to satisfy domain constraints.
 
 4. **Approval Workflow**: Links to TribalElder and tracks approval status, supporting cultural sensitivity requirements.
 
@@ -300,6 +316,24 @@ SHACL complements OWL by providing **constraint validation** that OWL cannot pro
    - Validates data quality and business rules
 
 **Together**: OWL enriches the knowledge base with inferred knowledge, while SHACL ensures data quality and constraint compliance. Both are essential for a complete semantic web system.
+
+### OWL Limitation for Temporal Constraints
+
+**Why OWL Cannot Encode Temporal Access Constraints**
+
+OWL (Description Logics) fundamentally cannot enforce temporal access constraints like "IF recordingDate > restrictionEffectiveDate AND performerAccessLevel < requiredAccessLevel THEN violation" for several reasons:
+
+1. **No Date Comparisons**: OWL has no built-in operators for comparing data property values (e.g., `date1 > date2`). It can only express class membership, property relationships, and logical combinations thereof.
+
+2. **No Conditional Logic**: OWL cannot express "if-then" rules based on data property values. It can define equivalent classes and restrictions, but cannot conditionally reject data.
+
+3. **Open-World Assumption**: OWL assumes incomplete knowledge. Missing data doesn't mean false—it means unknown. This prevents OWL from making closed-world assertions needed for validation.
+
+4. **Monotonic Reasoning**: OWL only adds inferred knowledge; it never rejects or flags invalid data. It cannot report violations or errors.
+
+5. **No Constraint Violation Mechanism**: OWL has no way to report that data violates a constraint. It simply doesn't infer anything if conditions aren't met.
+
+**Fundamental Difference**: OWL (Description Logics) uses open-world, monotonic reasoning to derive new knowledge. SHACL (Constraint Languages) uses closed-world validation to enforce constraints and report violations. For temporal constraints requiring date comparisons and conditional logic, SHACL with SPARQL constraints is necessary.
 
 ## Limits and Challenges
 
