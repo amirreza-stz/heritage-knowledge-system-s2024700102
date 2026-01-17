@@ -1,0 +1,675 @@
+@prefix ex: <http://example.org/heritage/s2024700102#> .
+@prefix hp: <http://webprotege.stanford.edu/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+[] a sh:ValidationReport ;
+    sh:conforms false ;
+    sh:result [ a sh:ValidationResult ;
+            sh:focusNode ex:person_guardian_05 ;
+            sh:resultMessage "Focus node does not conform to shape MinCount 1: [ sh:class hp:R7pxWOFI810disSa49P9mBh ; sh:path [ sh:inversePath hp:RC2A3h4SFUS7L6DFLFfGllV ] ]" ;
+            sh:resultPath hp:RC2A3h4SFUS7L6DFLFfGllV ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:QualifiedMinCountConstraintComponent ;
+            sh:sourceShape _:n77bd040138324b308783c415675d1d5ab1 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode ex:sacredItem_01 ;
+            sh:resultMessage "Sacred items should be cared for by at least one person" ;
+            sh:resultPath hp:R93nXbfTdGD8uNsKFdX3LXQ ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:MinCountConstraintComponent ;
+            sh:sourceShape _:n77bd040138324b308783c415675d1d5ab11 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode ex:person_01 ;
+            sh:resultMessage "People caring for sacred items must have humanApproval = true" ;
+            sh:resultPath hp:RSI0l4uEyriNyqJaIicRNi ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:HasValueConstraintComponent ;
+            sh:sourceShape _:n77bd040138324b308783c415675d1d5ab5 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode ex:person_guardian_04 ;
+            sh:resultMessage "Focus node does not conform to shape MinCount 1: [ sh:class hp:R7pxWOFI810disSa49P9mBh ; sh:path [ sh:inversePath hp:RC2A3h4SFUS7L6DFLFfGllV ] ]" ;
+            sh:resultPath hp:RC2A3h4SFUS7L6DFLFfGllV ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:QualifiedMinCountConstraintComponent ;
+            sh:sourceShape _:n77bd040138324b308783c415675d1d5ab1 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode ex:person_guardian_03 ;
+            sh:resultMessage "People caring for sacred items must have humanApproval = true" ;
+            sh:resultPath hp:RSI0l4uEyriNyqJaIicRNi ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:HasValueConstraintComponent ;
+            sh:sourceShape _:n77bd040138324b308783c415675d1d5ab5 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode ex:elder_02 ;
+            sh:resultMessage "Focus node does not conform to shape MinCount 1: [ sh:class hp:R7pxWOFI810disSa49P9mBh ; sh:path [ sh:inversePath hp:RC2A3h4SFUS7L6DFLFfGllV ] ]" ;
+            sh:resultPath hp:RC2A3h4SFUS7L6DFLFfGllV ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:QualifiedMinCountConstraintComponent ;
+            sh:sourceShape _:n77bd040138324b308783c415675d1d5ab1 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode ex:person_archaeologist_01 ;
+            sh:resultMessage "People caring for sacred items must have humanApproval property" ;
+            sh:resultPath hp:RSI0l4uEyriNyqJaIicRNi ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:MinCountConstraintComponent ;
+            sh:sourceShape _:n77bd040138324b308783c415675d1d5ab4 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode ex:sacredItem_03 ;
+            sh:resultMessage "Sacred items should be cared for by at least one person" ;
+            sh:resultPath hp:R93nXbfTdGD8uNsKFdX3LXQ ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:MinCountConstraintComponent ;
+            sh:sourceShape _:n77bd040138324b308783c415675d1d5ab11 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode ex:sacredItem_09 ;
+            sh:resultMessage "Sacred items should be cared for by at least one person" ;
+            sh:resultPath hp:R93nXbfTdGD8uNsKFdX3LXQ ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:MinCountConstraintComponent ;
+            sh:sourceShape _:n77bd040138324b308783c415675d1d5ab11 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode ex:sacredItem_06 ;
+            sh:resultMessage "Sacred items should be cared for by at least one person" ;
+            sh:resultPath hp:R93nXbfTdGD8uNsKFdX3LXQ ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:MinCountConstraintComponent ;
+            sh:sourceShape _:n77bd040138324b308783c415675d1d5ab11 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode ex:person_guardian_02 ;
+            sh:resultMessage "Focus node does not conform to shape MinCount 1: [ sh:class hp:R7pxWOFI810disSa49P9mBh ; sh:path [ sh:inversePath hp:RC2A3h4SFUS7L6DFLFfGllV ] ]" ;
+            sh:resultPath hp:RC2A3h4SFUS7L6DFLFfGllV ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:QualifiedMinCountConstraintComponent ;
+            sh:sourceShape _:n77bd040138324b308783c415675d1d5ab1 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode ex:person_02 ;
+            sh:resultMessage "Focus node does not conform to shape MinCount 1: [ sh:class hp:R7pxWOFI810disSa49P9mBh ; sh:path [ sh:inversePath hp:RC2A3h4SFUS7L6DFLFfGllV ] ]" ;
+            sh:resultPath hp:RC2A3h4SFUS7L6DFLFfGllV ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:QualifiedMinCountConstraintComponent ;
+            sh:sourceShape _:n77bd040138324b308783c415675d1d5ab1 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode ex:person_16 ;
+            sh:resultMessage "People caring for sacred items must have humanApproval = true" ;
+            sh:resultPath hp:RSI0l4uEyriNyqJaIicRNi ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:HasValueConstraintComponent ;
+            sh:sourceShape _:n77bd040138324b308783c415675d1d5ab5 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode ex:person_14 ;
+            sh:resultMessage "People caring for sacred items must have humanApproval = true" ;
+            sh:resultPath hp:RSI0l4uEyriNyqJaIicRNi ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:HasValueConstraintComponent ;
+            sh:sourceShape _:n77bd040138324b308783c415675d1d5ab5 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode ex:person_archaeologist_01 ;
+            sh:resultMessage "Focus node does not conform to shape MinCount 1: [ sh:class hp:R7pxWOFI810disSa49P9mBh ; sh:path [ sh:inversePath hp:RC2A3h4SFUS7L6DFLFfGllV ] ]" ;
+            sh:resultPath hp:RC2A3h4SFUS7L6DFLFfGllV ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:QualifiedMinCountConstraintComponent ;
+            sh:sourceShape _:n77bd040138324b308783c415675d1d5ab1 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode ex:person_11 ;
+            sh:resultMessage "People caring for sacred items must have humanApproval property" ;
+            sh:resultPath hp:RSI0l4uEyriNyqJaIicRNi ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:MinCountConstraintComponent ;
+            sh:sourceShape _:n77bd040138324b308783c415675d1d5ab4 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode ex:sacredItem_02 ;
+            sh:resultMessage "Sacred items should be cared for by at least one person" ;
+            sh:resultPath hp:R93nXbfTdGD8uNsKFdX3LXQ ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:MinCountConstraintComponent ;
+            sh:sourceShape _:n77bd040138324b308783c415675d1d5ab11 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode ex:person_16 ;
+            sh:resultMessage "Focus node does not conform to shape MinCount 1: [ sh:class hp:R7pxWOFI810disSa49P9mBh ; sh:path [ sh:inversePath hp:RC2A3h4SFUS7L6DFLFfGllV ] ]" ;
+            sh:resultPath hp:RC2A3h4SFUS7L6DFLFfGllV ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:QualifiedMinCountConstraintComponent ;
+            sh:sourceShape _:n77bd040138324b308783c415675d1d5ab1 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode ex:person_performer_05 ;
+            sh:resultMessage "People caring for sacred items must have humanApproval property" ;
+            sh:resultPath hp:RSI0l4uEyriNyqJaIicRNi ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:MinCountConstraintComponent ;
+            sh:sourceShape _:n77bd040138324b308783c415675d1d5ab4 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode ex:person_06 ;
+            sh:resultMessage "People caring for sacred items must have humanApproval property" ;
+            sh:resultPath hp:RSI0l4uEyriNyqJaIicRNi ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:MinCountConstraintComponent ;
+            sh:sourceShape _:n77bd040138324b308783c415675d1d5ab4 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode ex:person_04 ;
+            sh:resultMessage "People caring for sacred items must have humanApproval = true" ;
+            sh:resultPath hp:RSI0l4uEyriNyqJaIicRNi ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:HasValueConstraintComponent ;
+            sh:sourceShape _:n77bd040138324b308783c415675d1d5ab5 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode ex:person_guardian_03 ;
+            sh:resultMessage "Focus node does not conform to shape MinCount 1: [ sh:class hp:R7pxWOFI810disSa49P9mBh ; sh:path [ sh:inversePath hp:RC2A3h4SFUS7L6DFLFfGllV ] ]" ;
+            sh:resultPath hp:RC2A3h4SFUS7L6DFLFfGllV ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:QualifiedMinCountConstraintComponent ;
+            sh:sourceShape _:n77bd040138324b308783c415675d1d5ab1 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode ex:person_performer_05 ;
+            sh:resultMessage "Focus node does not conform to shape MinCount 1: [ sh:class hp:R7pxWOFI810disSa49P9mBh ; sh:path [ sh:inversePath hp:RC2A3h4SFUS7L6DFLFfGllV ] ]" ;
+            sh:resultPath hp:RC2A3h4SFUS7L6DFLFfGllV ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:QualifiedMinCountConstraintComponent ;
+            sh:sourceShape _:n77bd040138324b308783c415675d1d5ab1 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode ex:person_09 ;
+            sh:resultMessage "People caring for sacred items must have humanApproval property" ;
+            sh:resultPath hp:RSI0l4uEyriNyqJaIicRNi ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:MinCountConstraintComponent ;
+            sh:sourceShape _:n77bd040138324b308783c415675d1d5ab4 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode ex:person_05 ;
+            sh:resultMessage "People caring for sacred items must have humanApproval = true" ;
+            sh:resultPath hp:RSI0l4uEyriNyqJaIicRNi ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:HasValueConstraintComponent ;
+            sh:sourceShape _:n77bd040138324b308783c415675d1d5ab5 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode ex:sacredItem_10 ;
+            sh:resultMessage "Sacred items should be cared for by at least one person" ;
+            sh:resultPath hp:R93nXbfTdGD8uNsKFdX3LXQ ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:MinCountConstraintComponent ;
+            sh:sourceShape _:n77bd040138324b308783c415675d1d5ab11 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode ex:person_14 ;
+            sh:resultMessage "Focus node does not conform to shape MinCount 1: [ sh:class hp:R7pxWOFI810disSa49P9mBh ; sh:path [ sh:inversePath hp:RC2A3h4SFUS7L6DFLFfGllV ] ]" ;
+            sh:resultPath hp:RC2A3h4SFUS7L6DFLFfGllV ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:QualifiedMinCountConstraintComponent ;
+            sh:sourceShape _:n77bd040138324b308783c415675d1d5ab1 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode ex:person_06 ;
+            sh:resultMessage "Focus node does not conform to shape MinCount 1: [ sh:class hp:R7pxWOFI810disSa49P9mBh ; sh:path [ sh:inversePath hp:RC2A3h4SFUS7L6DFLFfGllV ] ]" ;
+            sh:resultPath hp:RC2A3h4SFUS7L6DFLFfGllV ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:QualifiedMinCountConstraintComponent ;
+            sh:sourceShape _:n77bd040138324b308783c415675d1d5ab1 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode ex:person_performer_05 ;
+            sh:resultMessage "People caring for sacred items must have humanApproval = true" ;
+            sh:resultPath hp:RSI0l4uEyriNyqJaIicRNi ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:HasValueConstraintComponent ;
+            sh:sourceShape _:n77bd040138324b308783c415675d1d5ab5 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode ex:person_03 ;
+            sh:resultMessage "Focus node does not conform to shape MinCount 1: [ sh:class hp:R7pxWOFI810disSa49P9mBh ; sh:path [ sh:inversePath hp:RC2A3h4SFUS7L6DFLFfGllV ] ]" ;
+            sh:resultPath hp:RC2A3h4SFUS7L6DFLFfGllV ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:QualifiedMinCountConstraintComponent ;
+            sh:sourceShape _:n77bd040138324b308783c415675d1d5ab1 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode ex:person_15 ;
+            sh:resultMessage "People caring for sacred items must have humanApproval = true" ;
+            sh:resultPath hp:RSI0l4uEyriNyqJaIicRNi ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:HasValueConstraintComponent ;
+            sh:sourceShape _:n77bd040138324b308783c415675d1d5ab5 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode ex:person_performer_01 ;
+            sh:resultMessage "Focus node does not conform to shape MinCount 1: [ sh:class hp:R7pxWOFI810disSa49P9mBh ; sh:path [ sh:inversePath hp:RC2A3h4SFUS7L6DFLFfGllV ] ]" ;
+            sh:resultPath hp:RC2A3h4SFUS7L6DFLFfGllV ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:QualifiedMinCountConstraintComponent ;
+            sh:sourceShape _:n77bd040138324b308783c415675d1d5ab1 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode ex:person_15 ;
+            sh:resultMessage "People caring for sacred items must have humanApproval property" ;
+            sh:resultPath hp:RSI0l4uEyriNyqJaIicRNi ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:MinCountConstraintComponent ;
+            sh:sourceShape _:n77bd040138324b308783c415675d1d5ab4 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode ex:person_performer_02 ;
+            sh:resultMessage "People caring for sacred items must have humanApproval property" ;
+            sh:resultPath hp:RSI0l4uEyriNyqJaIicRNi ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:MinCountConstraintComponent ;
+            sh:sourceShape _:n77bd040138324b308783c415675d1d5ab4 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode ex:person_guardian_01 ;
+            sh:resultMessage "Focus node does not conform to shape MinCount 1: [ sh:class hp:R7pxWOFI810disSa49P9mBh ; sh:path [ sh:inversePath hp:RC2A3h4SFUS7L6DFLFfGllV ] ]" ;
+            sh:resultPath hp:RC2A3h4SFUS7L6DFLFfGllV ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:QualifiedMinCountConstraintComponent ;
+            sh:sourceShape _:n77bd040138324b308783c415675d1d5ab1 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode ex:person_performer_04 ;
+            sh:resultMessage "Focus node does not conform to shape MinCount 1: [ sh:class hp:R7pxWOFI810disSa49P9mBh ; sh:path [ sh:inversePath hp:RC2A3h4SFUS7L6DFLFfGllV ] ]" ;
+            sh:resultPath hp:RC2A3h4SFUS7L6DFLFfGllV ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:QualifiedMinCountConstraintComponent ;
+            sh:sourceShape _:n77bd040138324b308783c415675d1d5ab1 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode ex:elder_01 ;
+            sh:resultMessage "People caring for sacred items must have humanApproval = true" ;
+            sh:resultPath hp:RSI0l4uEyriNyqJaIicRNi ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:HasValueConstraintComponent ;
+            sh:sourceShape _:n77bd040138324b308783c415675d1d5ab5 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode ex:person_10 ;
+            sh:resultMessage "Focus node does not conform to shape MinCount 1: [ sh:class hp:R7pxWOFI810disSa49P9mBh ; sh:path [ sh:inversePath hp:RC2A3h4SFUS7L6DFLFfGllV ] ]" ;
+            sh:resultPath hp:RC2A3h4SFUS7L6DFLFfGllV ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:QualifiedMinCountConstraintComponent ;
+            sh:sourceShape _:n77bd040138324b308783c415675d1d5ab1 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode ex:person_performer_04 ;
+            sh:resultMessage "People caring for sacred items must have humanApproval = true" ;
+            sh:resultPath hp:RSI0l4uEyriNyqJaIicRNi ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:HasValueConstraintComponent ;
+            sh:sourceShape _:n77bd040138324b308783c415675d1d5ab5 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode ex:person_04 ;
+            sh:resultMessage "Focus node does not conform to shape MinCount 1: [ sh:class hp:R7pxWOFI810disSa49P9mBh ; sh:path [ sh:inversePath hp:RC2A3h4SFUS7L6DFLFfGllV ] ]" ;
+            sh:resultPath hp:RC2A3h4SFUS7L6DFLFfGllV ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:QualifiedMinCountConstraintComponent ;
+            sh:sourceShape _:n77bd040138324b308783c415675d1d5ab1 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode ex:person_07 ;
+            sh:resultMessage "Focus node does not conform to shape MinCount 1: [ sh:class hp:R7pxWOFI810disSa49P9mBh ; sh:path [ sh:inversePath hp:RC2A3h4SFUS7L6DFLFfGllV ] ]" ;
+            sh:resultPath hp:RC2A3h4SFUS7L6DFLFfGllV ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:QualifiedMinCountConstraintComponent ;
+            sh:sourceShape _:n77bd040138324b308783c415675d1d5ab1 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode ex:person_performer_04 ;
+            sh:resultMessage "People caring for sacred items must have humanApproval property" ;
+            sh:resultPath hp:RSI0l4uEyriNyqJaIicRNi ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:MinCountConstraintComponent ;
+            sh:sourceShape _:n77bd040138324b308783c415675d1d5ab4 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode ex:person_performer_03 ;
+            sh:resultMessage "Focus node does not conform to shape MinCount 1: [ sh:class hp:R7pxWOFI810disSa49P9mBh ; sh:path [ sh:inversePath hp:RC2A3h4SFUS7L6DFLFfGllV ] ]" ;
+            sh:resultPath hp:RC2A3h4SFUS7L6DFLFfGllV ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:QualifiedMinCountConstraintComponent ;
+            sh:sourceShape _:n77bd040138324b308783c415675d1d5ab1 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode ex:person_performer_02 ;
+            sh:resultMessage "People caring for sacred items must have humanApproval = true" ;
+            sh:resultPath hp:RSI0l4uEyriNyqJaIicRNi ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:HasValueConstraintComponent ;
+            sh:sourceShape _:n77bd040138324b308783c415675d1d5ab5 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode ex:person_11 ;
+            sh:resultMessage "People caring for sacred items must have humanApproval = true" ;
+            sh:resultPath hp:RSI0l4uEyriNyqJaIicRNi ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:HasValueConstraintComponent ;
+            sh:sourceShape _:n77bd040138324b308783c415675d1d5ab5 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode ex:person_02 ;
+            sh:resultMessage "People caring for sacred items must have humanApproval property" ;
+            sh:resultPath hp:RSI0l4uEyriNyqJaIicRNi ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:MinCountConstraintComponent ;
+            sh:sourceShape _:n77bd040138324b308783c415675d1d5ab4 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode ex:person_13 ;
+            sh:resultMessage "People caring for sacred items must have humanApproval = true" ;
+            sh:resultPath hp:RSI0l4uEyriNyqJaIicRNi ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:HasValueConstraintComponent ;
+            sh:sourceShape _:n77bd040138324b308783c415675d1d5ab5 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode ex:elder_02 ;
+            sh:resultMessage "People caring for sacred items must have humanApproval = true" ;
+            sh:resultPath hp:RSI0l4uEyriNyqJaIicRNi ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:HasValueConstraintComponent ;
+            sh:sourceShape _:n77bd040138324b308783c415675d1d5ab5 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode ex:person_archaeologist_01 ;
+            sh:resultMessage "People caring for sacred items must have humanApproval = true" ;
+            sh:resultPath hp:RSI0l4uEyriNyqJaIicRNi ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:HasValueConstraintComponent ;
+            sh:sourceShape _:n77bd040138324b308783c415675d1d5ab5 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode ex:person_08 ;
+            sh:resultMessage "Focus node does not conform to shape MinCount 1: [ sh:class hp:R7pxWOFI810disSa49P9mBh ; sh:path [ sh:inversePath hp:RC2A3h4SFUS7L6DFLFfGllV ] ]" ;
+            sh:resultPath hp:RC2A3h4SFUS7L6DFLFfGllV ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:QualifiedMinCountConstraintComponent ;
+            sh:sourceShape _:n77bd040138324b308783c415675d1d5ab1 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode ex:person_performer_01 ;
+            sh:resultMessage "People caring for sacred items must have humanApproval = true" ;
+            sh:resultPath hp:RSI0l4uEyriNyqJaIicRNi ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:HasValueConstraintComponent ;
+            sh:sourceShape _:n77bd040138324b308783c415675d1d5ab5 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode ex:person_05 ;
+            sh:resultMessage "Focus node does not conform to shape MinCount 1: [ sh:class hp:R7pxWOFI810disSa49P9mBh ; sh:path [ sh:inversePath hp:RC2A3h4SFUS7L6DFLFfGllV ] ]" ;
+            sh:resultPath hp:RC2A3h4SFUS7L6DFLFfGllV ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:QualifiedMinCountConstraintComponent ;
+            sh:sourceShape _:n77bd040138324b308783c415675d1d5ab1 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode ex:person_performer_03 ;
+            sh:resultMessage "People caring for sacred items must have humanApproval property" ;
+            sh:resultPath hp:RSI0l4uEyriNyqJaIicRNi ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:MinCountConstraintComponent ;
+            sh:sourceShape _:n77bd040138324b308783c415675d1d5ab4 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode ex:person_04 ;
+            sh:resultMessage "People caring for sacred items must have humanApproval property" ;
+            sh:resultPath hp:RSI0l4uEyriNyqJaIicRNi ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:MinCountConstraintComponent ;
+            sh:sourceShape _:n77bd040138324b308783c415675d1d5ab4 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode ex:person_13 ;
+            sh:resultMessage "People caring for sacred items must have humanApproval property" ;
+            sh:resultPath hp:RSI0l4uEyriNyqJaIicRNi ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:MinCountConstraintComponent ;
+            sh:sourceShape _:n77bd040138324b308783c415675d1d5ab4 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode ex:sacredItem_05 ;
+            sh:resultMessage "Sacred items should be cared for by at least one person" ;
+            sh:resultPath hp:R93nXbfTdGD8uNsKFdX3LXQ ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:MinCountConstraintComponent ;
+            sh:sourceShape _:n77bd040138324b308783c415675d1d5ab11 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode ex:person_09 ;
+            sh:resultMessage "People caring for sacred items must have humanApproval = true" ;
+            sh:resultPath hp:RSI0l4uEyriNyqJaIicRNi ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:HasValueConstraintComponent ;
+            sh:sourceShape _:n77bd040138324b308783c415675d1d5ab5 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode ex:person_01 ;
+            sh:resultMessage "People caring for sacred items must have humanApproval property" ;
+            sh:resultPath hp:RSI0l4uEyriNyqJaIicRNi ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:MinCountConstraintComponent ;
+            sh:sourceShape _:n77bd040138324b308783c415675d1d5ab4 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode ex:person_12 ;
+            sh:resultMessage "People caring for sacred items must have humanApproval property" ;
+            sh:resultPath hp:RSI0l4uEyriNyqJaIicRNi ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:MinCountConstraintComponent ;
+            sh:sourceShape _:n77bd040138324b308783c415675d1d5ab4 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode ex:elder_01 ;
+            sh:resultMessage "People caring for sacred items must have humanApproval property" ;
+            sh:resultPath hp:RSI0l4uEyriNyqJaIicRNi ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:MinCountConstraintComponent ;
+            sh:sourceShape _:n77bd040138324b308783c415675d1d5ab4 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode ex:person_02 ;
+            sh:resultMessage "People caring for sacred items must have humanApproval = true" ;
+            sh:resultPath hp:RSI0l4uEyriNyqJaIicRNi ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:HasValueConstraintComponent ;
+            sh:sourceShape _:n77bd040138324b308783c415675d1d5ab5 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode ex:person_guardian_04 ;
+            sh:resultMessage "People caring for sacred items must have humanApproval = true" ;
+            sh:resultPath hp:RSI0l4uEyriNyqJaIicRNi ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:HasValueConstraintComponent ;
+            sh:sourceShape _:n77bd040138324b308783c415675d1d5ab5 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode ex:sacredItem_04 ;
+            sh:resultMessage "Sacred items should be cared for by at least one person" ;
+            sh:resultPath hp:R93nXbfTdGD8uNsKFdX3LXQ ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:MinCountConstraintComponent ;
+            sh:sourceShape _:n77bd040138324b308783c415675d1d5ab11 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode ex:person_13 ;
+            sh:resultMessage "Focus node does not conform to shape MinCount 1: [ sh:class hp:R7pxWOFI810disSa49P9mBh ; sh:path [ sh:inversePath hp:RC2A3h4SFUS7L6DFLFfGllV ] ]" ;
+            sh:resultPath hp:RC2A3h4SFUS7L6DFLFfGllV ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:QualifiedMinCountConstraintComponent ;
+            sh:sourceShape _:n77bd040138324b308783c415675d1d5ab1 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode ex:person_06 ;
+            sh:resultMessage "People caring for sacred items must have humanApproval = true" ;
+            sh:resultPath hp:RSI0l4uEyriNyqJaIicRNi ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:HasValueConstraintComponent ;
+            sh:sourceShape _:n77bd040138324b308783c415675d1d5ab5 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode ex:elder_02 ;
+            sh:resultMessage "People caring for sacred items must have humanApproval property" ;
+            sh:resultPath hp:RSI0l4uEyriNyqJaIicRNi ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:MinCountConstraintComponent ;
+            sh:sourceShape _:n77bd040138324b308783c415675d1d5ab4 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode ex:person_archaeologist_02 ;
+            sh:resultMessage "People caring for sacred items must have humanApproval property" ;
+            sh:resultPath hp:RSI0l4uEyriNyqJaIicRNi ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:MinCountConstraintComponent ;
+            sh:sourceShape _:n77bd040138324b308783c415675d1d5ab4 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode ex:person_12 ;
+            sh:resultMessage "Focus node does not conform to shape MinCount 1: [ sh:class hp:R7pxWOFI810disSa49P9mBh ; sh:path [ sh:inversePath hp:RC2A3h4SFUS7L6DFLFfGllV ] ]" ;
+            sh:resultPath hp:RC2A3h4SFUS7L6DFLFfGllV ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:QualifiedMinCountConstraintComponent ;
+            sh:sourceShape _:n77bd040138324b308783c415675d1d5ab1 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode ex:elder_02 ;
+            sh:resultMessage "All people should have an access level" ;
+            sh:resultPath hp:RCJaWiwRu0H17JaH2SCttq4 ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:MinCountConstraintComponent ;
+            sh:sourceShape _:n77bd040138324b308783c415675d1d5ab6 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode ex:person_08 ;
+            sh:resultMessage "People caring for sacred items must have humanApproval property" ;
+            sh:resultPath hp:RSI0l4uEyriNyqJaIicRNi ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:MinCountConstraintComponent ;
+            sh:sourceShape _:n77bd040138324b308783c415675d1d5ab4 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode ex:person_07 ;
+            sh:resultMessage "All people should have an access level" ;
+            sh:resultPath hp:RCJaWiwRu0H17JaH2SCttq4 ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:MinCountConstraintComponent ;
+            sh:sourceShape _:n77bd040138324b308783c415675d1d5ab6 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode ex:person_performer_01 ;
+            sh:resultMessage "People caring for sacred items must have humanApproval property" ;
+            sh:resultPath hp:RSI0l4uEyriNyqJaIicRNi ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:MinCountConstraintComponent ;
+            sh:sourceShape _:n77bd040138324b308783c415675d1d5ab4 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode ex:person_08 ;
+            sh:resultMessage "People caring for sacred items must have humanApproval = true" ;
+            sh:resultPath hp:RSI0l4uEyriNyqJaIicRNi ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:HasValueConstraintComponent ;
+            sh:sourceShape _:n77bd040138324b308783c415675d1d5ab5 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode ex:sacredItem_07 ;
+            sh:resultMessage "Sacred items should be cared for by at least one person" ;
+            sh:resultPath hp:R93nXbfTdGD8uNsKFdX3LXQ ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:MinCountConstraintComponent ;
+            sh:sourceShape _:n77bd040138324b308783c415675d1d5ab11 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode ex:person_12 ;
+            sh:resultMessage "People caring for sacred items must have humanApproval = true" ;
+            sh:resultPath hp:RSI0l4uEyriNyqJaIicRNi ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:HasValueConstraintComponent ;
+            sh:sourceShape _:n77bd040138324b308783c415675d1d5ab5 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode ex:person_archaeologist_02 ;
+            sh:resultMessage "Focus node does not conform to shape MinCount 1: [ sh:class hp:R7pxWOFI810disSa49P9mBh ; sh:path [ sh:inversePath hp:RC2A3h4SFUS7L6DFLFfGllV ] ]" ;
+            sh:resultPath hp:RC2A3h4SFUS7L6DFLFfGllV ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:QualifiedMinCountConstraintComponent ;
+            sh:sourceShape _:n77bd040138324b308783c415675d1d5ab1 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode ex:person_performer_03 ;
+            sh:resultMessage "People caring for sacred items must have humanApproval = true" ;
+            sh:resultPath hp:RSI0l4uEyriNyqJaIicRNi ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:HasValueConstraintComponent ;
+            sh:sourceShape _:n77bd040138324b308783c415675d1d5ab5 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode ex:person_10 ;
+            sh:resultMessage "People caring for sacred items must have humanApproval property" ;
+            sh:resultPath hp:RSI0l4uEyriNyqJaIicRNi ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:MinCountConstraintComponent ;
+            sh:sourceShape _:n77bd040138324b308783c415675d1d5ab4 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode ex:person_03 ;
+            sh:resultMessage "All people should have an access level" ;
+            sh:resultPath hp:RCJaWiwRu0H17JaH2SCttq4 ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:MinCountConstraintComponent ;
+            sh:sourceShape _:n77bd040138324b308783c415675d1d5ab6 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode ex:person_01 ;
+            sh:resultMessage "Focus node does not conform to shape MinCount 1: [ sh:class hp:R7pxWOFI810disSa49P9mBh ; sh:path [ sh:inversePath hp:RC2A3h4SFUS7L6DFLFfGllV ] ]" ;
+            sh:resultPath hp:RC2A3h4SFUS7L6DFLFfGllV ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:QualifiedMinCountConstraintComponent ;
+            sh:sourceShape _:n77bd040138324b308783c415675d1d5ab1 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode ex:person_16 ;
+            sh:resultMessage "People caring for sacred items must have humanApproval property" ;
+            sh:resultPath hp:RSI0l4uEyriNyqJaIicRNi ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:MinCountConstraintComponent ;
+            sh:sourceShape _:n77bd040138324b308783c415675d1d5ab4 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode ex:person_archaeologist_02 ;
+            sh:resultMessage "People caring for sacred items must have humanApproval = true" ;
+            sh:resultPath hp:RSI0l4uEyriNyqJaIicRNi ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:HasValueConstraintComponent ;
+            sh:sourceShape _:n77bd040138324b308783c415675d1d5ab5 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode ex:elder_01 ;
+            sh:resultMessage "All people should have an access level" ;
+            sh:resultPath hp:RCJaWiwRu0H17JaH2SCttq4 ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:MinCountConstraintComponent ;
+            sh:sourceShape _:n77bd040138324b308783c415675d1d5ab6 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode ex:sacredItem_08 ;
+            sh:resultMessage "Sacred items should be cared for by at least one person" ;
+            sh:resultPath hp:R93nXbfTdGD8uNsKFdX3LXQ ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:MinCountConstraintComponent ;
+            sh:sourceShape _:n77bd040138324b308783c415675d1d5ab11 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode ex:person_11 ;
+            sh:resultMessage "Focus node does not conform to shape MinCount 1: [ sh:class hp:R7pxWOFI810disSa49P9mBh ; sh:path [ sh:inversePath hp:RC2A3h4SFUS7L6DFLFfGllV ] ]" ;
+            sh:resultPath hp:RC2A3h4SFUS7L6DFLFfGllV ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:QualifiedMinCountConstraintComponent ;
+            sh:sourceShape _:n77bd040138324b308783c415675d1d5ab1 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode ex:person_14 ;
+            sh:resultMessage "People caring for sacred items must have humanApproval property" ;
+            sh:resultPath hp:RSI0l4uEyriNyqJaIicRNi ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:MinCountConstraintComponent ;
+            sh:sourceShape _:n77bd040138324b308783c415675d1d5ab4 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode ex:person_15 ;
+            sh:resultMessage "Focus node does not conform to shape MinCount 1: [ sh:class hp:R7pxWOFI810disSa49P9mBh ; sh:path [ sh:inversePath hp:RC2A3h4SFUS7L6DFLFfGllV ] ]" ;
+            sh:resultPath hp:RC2A3h4SFUS7L6DFLFfGllV ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:QualifiedMinCountConstraintComponent ;
+            sh:sourceShape _:n77bd040138324b308783c415675d1d5ab1 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode ex:person_10 ;
+            sh:resultMessage "People caring for sacred items must have humanApproval = true" ;
+            sh:resultPath hp:RSI0l4uEyriNyqJaIicRNi ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:HasValueConstraintComponent ;
+            sh:sourceShape _:n77bd040138324b308783c415675d1d5ab5 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode ex:person_09 ;
+            sh:resultMessage "Focus node does not conform to shape MinCount 1: [ sh:class hp:R7pxWOFI810disSa49P9mBh ; sh:path [ sh:inversePath hp:RC2A3h4SFUS7L6DFLFfGllV ] ]" ;
+            sh:resultPath hp:RC2A3h4SFUS7L6DFLFfGllV ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:QualifiedMinCountConstraintComponent ;
+            sh:sourceShape _:n77bd040138324b308783c415675d1d5ab1 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode ex:person_05 ;
+            sh:resultMessage "People caring for sacred items must have humanApproval property" ;
+            sh:resultPath hp:RSI0l4uEyriNyqJaIicRNi ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:MinCountConstraintComponent ;
+            sh:sourceShape _:n77bd040138324b308783c415675d1d5ab4 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode ex:person_performer_02 ;
+            sh:resultMessage "Focus node does not conform to shape MinCount 1: [ sh:class hp:R7pxWOFI810disSa49P9mBh ; sh:path [ sh:inversePath hp:RC2A3h4SFUS7L6DFLFfGllV ] ]" ;
+            sh:resultPath hp:RC2A3h4SFUS7L6DFLFfGllV ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:QualifiedMinCountConstraintComponent ;
+            sh:sourceShape _:n77bd040138324b308783c415675d1d5ab1 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode ex:elder_01 ;
+            sh:resultMessage "Focus node does not conform to shape MinCount 1: [ sh:class hp:R7pxWOFI810disSa49P9mBh ; sh:path [ sh:inversePath hp:RC2A3h4SFUS7L6DFLFfGllV ] ]" ;
+            sh:resultPath hp:RC2A3h4SFUS7L6DFLFfGllV ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:QualifiedMinCountConstraintComponent ;
+            sh:sourceShape _:n77bd040138324b308783c415675d1d5ab1 ] .
+
+_:N6c43e18a04094605b0b249747ccae9b9 sh:class hp:R7pxWOFI810disSa49P9mBh ;
+    sh:path [ sh:inversePath hp:RC2A3h4SFUS7L6DFLFfGllV ] .
+
+_:n77bd040138324b308783c415675d1d5ab6 sh:message "All people should have an access level" ;
+    sh:minCount 1 ;
+    sh:path hp:RCJaWiwRu0H17JaH2SCttq4 .
+
+_:n77bd040138324b308783c415675d1d5ab11 sh:message "Sacred items should be cared for by at least one person" ;
+    sh:minCount 1 ;
+    sh:path hp:R93nXbfTdGD8uNsKFdX3LXQ .
+
+_:n77bd040138324b308783c415675d1d5ab4 sh:message "People caring for sacred items must have humanApproval property" ;
+    sh:minCount 1 ;
+    sh:path hp:RSI0l4uEyriNyqJaIicRNi .
+
+_:n77bd040138324b308783c415675d1d5ab5 sh:hasValue true ;
+    sh:message "People caring for sacred items must have humanApproval = true" ;
+    sh:path hp:RSI0l4uEyriNyqJaIicRNi .
+
+_:n77bd040138324b308783c415675d1d5ab1 sh:path hp:RC2A3h4SFUS7L6DFLFfGllV ;
+    sh:qualifiedMinCount 1 ;
+    sh:qualifiedValueShape _:N6c43e18a04094605b0b249747ccae9b9 .
+

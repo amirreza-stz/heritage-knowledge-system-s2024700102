@@ -8,8 +8,6 @@ SELECT ?graph ?source ?confidence ?dateRecorded ?ritual ?cycle
 WHERE {
     GRAPH ?graph {
         ?ritual ex:belongsTo ?cycle .
-    }
-    GRAPH ?metadataGraph {
         ?graph ex:source ?source ;
             ex:confidence ?confidence ;
             ex:dateRecorded ?dateRecorded .

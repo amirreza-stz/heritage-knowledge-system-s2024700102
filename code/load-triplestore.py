@@ -3,7 +3,7 @@
 Triplestore Loading Helper Script
 Provides instructions for loading data into Fuseki or GraphDB
 
-Note: The easiest way is to use the Fuseki/GraphDB web UI and take screenshots.
+Note: The easiest way is to use the Fuseki web UI.
 This script provides a programmatic alternative using Fuseki's HTTP API.
 """
 
