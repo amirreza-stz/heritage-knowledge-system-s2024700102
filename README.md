@@ -44,19 +44,40 @@ The Heritage Knowledge System is an ontology-based system designed to model and 
 heritage-knowledge-system-s2024700102/
 ├── ontology/
 │   ├── urn_webprotege_ontology_f1486f8e-61de-449c-a0d0-d0b65f032faf.owl  # Original OWL ontology
-│   └── heritage-s2024700102.ttl                                          # Updated TTL ontology with equivalent-class axiom (286 triples)
+│   ├── heritage-ontology.owl                                             # OWL format ontology
+│   └── heritage-ontology-s2024700102.ttl                                 # Updated TTL ontology with equivalent-class axiom (~945 lines)
 ├── data/
-│   ├── heritage_base_dataset.ttl                                         # Main dataset: 30 people + 50 items (277 triples)
-│   └── example_data.ttl                                                  # Example instance data (79 triples)
+│   ├── heritage-base.ttl                                                  # Main dataset: 30 people + 50 items (~297 lines)
+│   ├── example_data.ttl                                                   # Example instance data (117 lines)
+│   ├── contested-claims-reification.ttl                                   # Question 2: RDF reification pattern (132 lines)
+│   ├── contested-claims-named.trig                                        # Question 2: Named graphs pattern (124 lines)
+│   ├── contested-claims-rdfstar.ttl                                       # Question 2: RDF-star pattern (102 lines)
+│   ├── violations.ttl                                                     # Question 3: Test data with violations (119 lines)
+│   └── fixed-data.ttl                                                     # Question 3: Corrected data (118 lines)
 ├── queries/
-│   ├── 00_verification_queries.sparql                                    # Verification queries
-│   ├── 01_basic_queries.sparql                                           # Basic exploration queries
+│   ├── 00_verification_queries.sparql                                     # Verification queries
+│   ├── 01_basic_queries.sparql                                            # Basic exploration queries
 │   ├── 02_inference_queries.sparql                                       # Inference testing queries
-│   ├── 03_validation_queries.sparql                                     # Data quality queries
-│   └── 04_advanced_queries.sparql                                       # Advanced analysis queries
+│   ├── 03_validation_queries.sparql                                      # Data quality queries
+│   ├── 04_advanced_queries.sparql                                        # Advanced analysis queries
+│   ├── q1-reification.rq                                                 # Question 2: Reification query
+│   ├── q2-named-graphs.rq                                                # Question 2: Named graphs query
+│   ├── q3-rdfstar.rq                                                     # Question 2: RDF-star query
+│   ├── q4-conflicting-claims.rq                                          # Question 2: Conflicting claims query
+│   └── q5-claims-by-source.rq                                            # Question 2: Claims by source query
 ├── shapes/
-│   └── validation_shapes.ttl                                             # SHACL validation shapes
-├── convert_owl_to_ttl.py                                                 # Conversion script
+│   └── validation_shapes.ttl                                             # Question 1: SHACL validation shapes (8 shapes)
+├── validation/
+│   ├── temporal-constraints.shacl                                        # Question 3: Temporal validation shapes (3 shapes)
+│   ├── owl-limitation-demo.owl                                           # Question 3: OWL limitation demonstration
+│   ├── validation-report-violations.txt                                  # Question 3: Validation report (violations)
+│   └── validation-report-clean.txt                                       # Question 3: Validation report (clean)
+├── code/
+│   ├── load-triplestore.py                                               # Triplestore loading helper
+│   ├── run-queries.py                                                    # SPARQL query execution script
+│   └── run-shacl-validation.py                                            # SHACL validation script
+├── convert_owl_to_ttl.py                                                 # OWL to TTL conversion script
+├── test_shacl.py                                                         # Question 1: SHACL validation test script
 ├── requirements.txt                                                       # Python dependencies
 └── README.md                                                              # This file
 ```
@@ -202,8 +223,9 @@ python convert_owl_to_ttl.py ontology/urn_webprotege_ontology_f1486f8e-61de-449c
 ### Loading the Ontology
 
 The ontology is available in both OWL and TTL formats:
-- **OWL**: `ontology/urn_webprotege_ontology_f1486f8e-61de-449c-a0d0-d0b65f032faf.owl` (original)
-- **TTL**: `ontology/heritage-s2024700102.ttl` (updated with equivalent-class axiom for SpiritualGuardian inference)
+- **OWL**: `ontology/urn_webprotege_ontology_f1486f8e-61de-449c-a0d0-d0b65f032faf.owl` (original from WebProtégé)
+- **OWL**: `ontology/heritage-ontology.owl` (OWL format)
+- **TTL**: `ontology/heritage-ontology-s2024700102.ttl` (updated with equivalent-class axiom for SpiritualGuardian inference, ~945 lines)
 
 ### Data Files
 
@@ -256,7 +278,7 @@ python code/run-queries.py http://localhost:3030/heritage-rdfstar/sparql
 - Ontology conversion (OWL → TTL)
 - Ontology updated with equivalent-class axiom for SpiritualGuardian inference
 - Data files created and verified
-- SPARQL queries created (43 queries across 5 files)
+- SPARQL queries created (10 query files: 5 main query files + 5 Question 2 specific queries)
 - SHACL validation shapes created
 - Documentation structure in place
 
@@ -321,19 +343,19 @@ SHACL complements OWL by providing **constraint validation** that OWL cannot pro
 
 **Why OWL Cannot Encode Temporal Access Constraints**
 
-OWL (Description Logics) fundamentally cannot enforce temporal access constraints like "IF recordingDate > restrictionEffectiveDate AND performerAccessLevel < requiredAccessLevel THEN violation" for several reasons:
+OWL (Description Logics) cannot enforce temporal constraints like "IF recordingDate > restrictionEffectiveDate AND performerAccessLevel < requiredAccessLevel THEN violation" for several reasons:
 
-1. **No Date Comparisons**: OWL has no built-in operators for comparing data property values (e.g., `date1 > date2`). It can only express class membership, property relationships, and logical combinations thereof.
+1. **No Date Comparisons**: OWL has no operators for comparing data property values (e.g., `date1 > date2`). It can only express class membership and property relationships.
 
-2. **No Conditional Logic**: OWL cannot express "if-then" rules based on data property values. It can define equivalent classes and restrictions, but cannot conditionally reject data.
+2. **No Conditional Logic**: OWL cannot express "if-then" rules based on data property values. It can define equivalent classes but cannot conditionally reject data.
 
-3. **Open-World Assumption**: OWL assumes incomplete knowledge. Missing data doesn't mean false—it means unknown. This prevents OWL from making closed-world assertions needed for validation.
+3. **Open-World Assumption**: OWL assumes incomplete knowledge. Missing data means unknown, not false. This prevents closed-world assertions needed for validation.
 
-4. **Monotonic Reasoning**: OWL only adds inferred knowledge; it never rejects or flags invalid data. It cannot report violations or errors.
+4. **Monotonic Reasoning**: OWL only adds inferred knowledge; it never rejects or flags invalid data. It cannot report violations.
 
-5. **No Constraint Violation Mechanism**: OWL has no way to report that data violates a constraint. It simply doesn't infer anything if conditions aren't met.
+5. **No Constraint Violation Mechanism**: OWL has no way to report constraint violations. It simply doesn't infer anything if conditions aren't met.
 
-**Fundamental Difference**: OWL (Description Logics) uses open-world, monotonic reasoning to derive new knowledge. SHACL (Constraint Languages) uses closed-world validation to enforce constraints and report violations. For temporal constraints requiring date comparisons and conditional logic, SHACL with SPARQL constraints is necessary.
+**Fundamental Difference**: OWL uses open-world, monotonic reasoning to derive new knowledge. SHACL uses closed-world validation to enforce constraints and report violations. For temporal constraints requiring date comparisons, SHACL with SPARQL constraints is necessary.
 
 ## Limits and Challenges
 
