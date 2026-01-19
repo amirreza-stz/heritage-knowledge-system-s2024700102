@@ -1,0 +1,19 @@
+# Query 10: Find recordings with their instruments
+# Lists all recordings and the instruments used in each
+
+PREFIX : <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT ?recording ?recordingLabel ?instrument ?instrumentLabel ?performer ?performerLabel
+WHERE {
+    ?recording rdf:type :Recording .
+    ?recording :usesInstrument ?instrument .
+    ?recording :performedBy ?performer .
+    ?recording rdfs:label ?recordingLabel .
+    FILTER(LANG(?recordingLabel) = "en" || LANG(?recordingLabel) = "")
+    ?instrument rdfs:label ?instrumentLabel .
+    FILTER(LANG(?instrumentLabel) = "en" || LANG(?instrumentLabel) = "")
+    ?performer rdfs:label ?performerLabel .
+    FILTER(LANG(?performerLabel) = "en" || LANG(?performerLabel) = "")
+}
+ORDER BY ?recordingLabel ?instrumentLabel

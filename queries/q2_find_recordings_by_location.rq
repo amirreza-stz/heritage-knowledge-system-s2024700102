@@ -1,0 +1,21 @@
+# Query 2: Find all recordings made in a specific location
+# Lists recordings with their performers and recording dates
+
+PREFIX : <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT ?recording ?recordingLabel ?performer ?performerLabel ?location ?locationLabel ?date
+WHERE {
+    ?recording rdf:type :Recording .
+    ?recording :performedBy ?performer .
+    ?recording :recordedAt ?location .
+    ?recording :recordingDate ?date .
+    ?recording rdfs:label ?recordingLabel .
+    FILTER(LANG(?recordingLabel) = "en" || LANG(?recordingLabel) = "")
+    ?performer rdfs:label ?performerLabel .
+    FILTER(LANG(?performerLabel) = "en" || LANG(?performerLabel) = "")
+    ?location rdfs:label ?locationLabel .
+    FILTER(LANG(?locationLabel) = "en" || LANG(?locationLabel) = "")
+}
+ORDER BY DESC(?date)

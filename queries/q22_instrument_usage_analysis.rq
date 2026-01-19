@@ -1,0 +1,32 @@
+# Query 22: Instrument Usage Analysis
+# Analyzes which instruments are used most and by whom
+
+PREFIX : <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+SELECT 
+    ?instrument ?instrumentLabel
+    (COUNT(DISTINCT ?performer) AS ?performersCount)
+    (COUNT(DISTINCT ?recording) AS ?recordingsCount)
+    (MIN(?accessRequired) AS ?minAccessRequired)
+    (GROUP_CONCAT(DISTINCT ?performerLabel; separator=", ") AS ?performers)
+    (GROUP_CONCAT(DISTINCT ?recordingLabel; separator="; ") AS ?recordings)
+WHERE {
+    {
+        ?performer :playsInstrument ?instrument .
+        ?performer rdfs:label ?performerLabel .
+        FILTER(LANG(?performerLabel) = "en" || LANG(?performerLabel) = "")
+    }
+    UNION
+    {
+        ?recording :usesInstrument ?instrument .
+        ?recording rdfs:label ?recordingLabel .
+        FILTER(LANG(?recordingLabel) = "en" || LANG(?recordingLabel) = "")
+    }
+    ?instrument rdfs:label ?instrumentLabel .
+    FILTER(LANG(?instrumentLabel) = "en" || LANG(?instrumentLabel) = "")
+    OPTIONAL { ?instrument :requiresAccessLevel ?accessRequired }
+}
+GROUP BY ?instrument ?instrumentLabel
+ORDER BY DESC(?performersCount) DESC(?recordingsCount)

@@ -1,0 +1,27 @@
+# Query 24: Approval Network Analysis
+# Analyzes approval relationships and hierarchies
+
+PREFIX : <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+SELECT 
+    ?elder ?elderLabel
+    (COUNT(DISTINCT ?approved) AS ?approvedCount)
+    (GROUP_CONCAT(DISTINCT ?approvedLabel; separator=", ") AS ?approvedPeople)
+    (GROUP_CONCAT(DISTINCT ?roleLabel; separator=", ") AS ?approvedRoles)
+WHERE {
+    ?approved :approvedBy ?elder .
+    ?elder rdf:type :TribalElder .
+    ?elder rdfs:label ?elderLabel .
+    FILTER(LANG(?elderLabel) = "en" || LANG(?elderLabel) = "")
+    ?approved rdfs:label ?approvedLabel .
+    FILTER(LANG(?approvedLabel) = "en" || LANG(?approvedLabel) = "")
+    OPTIONAL {
+        ?approved :hasRole ?role .
+        ?role rdfs:label ?roleLabel .
+        FILTER(LANG(?roleLabel) = "en" || LANG(?roleLabel) = "")
+    }
+}
+GROUP BY ?elder ?elderLabel
+ORDER BY DESC(?approvedCount) ?elderLabel

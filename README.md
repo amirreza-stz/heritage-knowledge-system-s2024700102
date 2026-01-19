@@ -1,365 +1,366 @@
-# Heritage Knowledge System - Final Project
+# Cultural Music Heritage Knowledge System
 
-This repository contains the implementation for the final project of the Social Semantic Web course taught by Prof. Dr. Suzan Üsküdarlı at Boğaziçi University CMPE.
+Final project for Social Semantic Web course (CMPE 58H) - Fall 2025
 
+## Student Information
 
-###  *** I had some variuos challenges during implementation of this project (Such as my hard illness, my migration to MacOS and compatibility problems with this OS, and the problems and challenges related to my mental health and connection bloch with my family and country and etc) but I tried to completely understand and answer all of the requirements of the project, using more time and also with the help of AI assistants (but I used them just as assistant and not a team-mate, and understood every part or help that I used them). 
-
-*** Also because of my challenges with MacOS, I will use an alternative Laptop from a friend to test and run protege, fuseki/graphDB.
-
-
-## Project Overview
-
-The Heritage Knowledge System is an ontology-based system designed to model and manage cultural heritage information, including artifacts, rituals, locations, people, and their relationships. The system supports access control, approval workflows, and cultural preservation documentation.
-
-## Learner Information
-
-- **Name**: Amirreza Sattarzadeh KhanehBargh 
+- **Name**: Amirreza Sattarzadeh KhanehBargh
 - **Student ID**: 2024700102
+- **Course**: Social Semantic Web (CMPE 58H)
+- **Institution**: Boğaziçi University
 
-## Limitations and Challenges
+## What This Project Is About
 
-**macOS Compatibility**
-   - GraphDB, Fuseki, and Protégé have compatibility issues on macOS
-   - Tried to use alternative device or virtual machine
+I built a knowledge system for cultural music heritage, focusing on Azerbaijani traditions like Ashiq (traditional bards) and Shaman rituals. The system uses semantic web technologies to model relationships between people, instruments, rituals, communities, and locations.
 
-
-**Date Format**
-   - Uses `xsd:date` for recording dates
-   - Could be extended to `xsd:dateTime` for more precision
-
-**Approval Process**
-   - Binary approval (true/false)
-   - Could be extended with approval levels or workflow states
-
-**Tool Compatibility**
-   - macOS issues with semantic web tools
-   - Required workaround approach
-
-**My hard illness and Iran connection block : I can not connect to my family and friends and this harms my focus and thinking power**
+The main goal is to preserve and manage information about:
+- Traditional musicians and their roles
+- Cultural instruments (Baglama, Dombra, Qopuz, Shaman Saz)
+- Musical works, stories, and rituals
+- Community relationships and mentorship
+- Access control for sensitive cultural information
 
 ## Project Structure
 
 ```
 heritage-knowledge-system-s2024700102/
-├── ontology/
-│   ├── urn_webprotege_ontology_f1486f8e-61de-449c-a0d0-d0b65f032faf.owl  # Original OWL ontology
-│   └── heritage-s2024700102.ttl                                          # Updated TTL ontology with equivalent-class axiom (286 triples)
-├── data/
-│   ├── heritage_base_dataset.ttl                                         # Main dataset: 30 people + 50 items (277 triples)
-│   └── example_data.ttl                                                  # Example instance data (79 triples)
-├── queries/
-│   ├── 00_verification_queries.sparql                                    # Verification queries
-│   ├── 01_basic_queries.sparql                                           # Basic exploration queries
-│   ├── 02_inference_queries.sparql                                       # Inference testing queries
-│   ├── 03_validation_queries.sparql                                     # Data quality queries
-│   └── 04_advanced_queries.sparql                                       # Advanced analysis queries
-├── shapes/
-│   └── validation_shapes.ttl                                             # SHACL validation shapes
-├── convert_owl_to_ttl.py                                                 # Conversion script
-├── requirements.txt                                                       # Python dependencies
-└── README.md                                                              # This file
+├── ontology/              # OWL ontology files
+│   ├── s2024700102heritage.ttl
+│   ├── s2024700102heritage.owl
+│   └── s2024700102heritage.rdf
+├── data/                  # RDF data files
+│   ├── heritage_base_dataset.ttl      # Main dataset
+│   ├── heritage_complete.ttl          # Ontology + data (for Protégé)
+│   ├── heritage_violations_dataset.ttl # Test violations
+│   ├── fixed-data.ttl                 # Corrected data
+│   ├── contested-claims-reification.ttl  # Question 2: RDF reification
+│   ├── contested-claims-named.trig       # Question 2: Named graphs
+│   └── contested-claims-rdfstar.ttl      # Question 2: RDF-star
+├── queries/               # SPARQL queries (30 total)
+│   ├── q1_find_all_ashiqs.rq
+│   ├── q2_find_recordings_by_location.rq
+│   ├── ... (q1-q15: basic queries)
+│   ├── ... (q16-q25: analytical queries)
+│   ├── q1-reification.rq              # Question 2 queries
+│   ├── q2-named-graphs.rq
+│   ├── q3-rdfstar.rq
+│   ├── q4-conflicting-claims.rq
+│   └── q5-claims-by-source.rq
+├── shapes/                # SHACL validation shapes
+│   └── validation_shapes.ttl
+├── validation/           # Validation reports and temporal constraints
+│   ├── temporal-constraints.shacl     # Question 3: Temporal validation
+│   ├── owl-limitation-demo.owl        # Question 3: OWL limitation demo
+│   ├── base_report_final.txt          # Validation report for fixed data
+│   └── violations_report.txt          # Validation report for violations
+├── code/                  # Python scripts
+│   ├── load-triplestore.py
+│   ├── run-queries.py
+│   ├── run-shacl-validation.py
+│   └── export-to-gephi.py
+├── screenshots/          
+└── requirements.txt      # dependencies
 ```
 
 ## Tools and Versions
 
-### Ontology Development
-- **Protégé**: Desktop Protégé (tested on Ubuntu)
-  - Used for: Ontology editing, adding equivalent-class axiom, inference testing
-  - Reasoner: HermiT 
-  - Note: Desktop Protégé had compatibility issues on macOS; tested on Ubuntu alternative device
+- **Protégé**: Desktop Protégé on ubuntu (latest version)
+  - Used for ontology editing and testing inference
+  - Reasoner: HermiT
 
-### Triplestore
-- **Apache Jena Fuseki**: Latest version (tested on Ubuntu)
-  - Used for: SPARQL query testing, data loading
 
-### Programming Language
-- **Python 3**
-  - Used for: OWL to TTL conversion, SHACL validation, data verification
+- **Triplestore**: Apache Jena Fuseki (latest version)
+  - Used for loading data and running SPARQL queries
 
-### Python Libraries
-- **rdflib**: >= 6.0.0
-  - Purpose: RDF parsing, manipulation, and serialization
-  - Used in: `convert_owl_to_ttl.py`, data verification scripts
-- **pyshacl**: >= 0.20.0
-  - Purpose: SHACL validation
-  - Used in: `code/run-shacl-validation.py` for validating data against SHACL shapes
-- **requests**: >= 2.28.0
-  - Purpose: HTTP requests for SPARQL query execution
-  - Used in: `code/run-queries.py` for querying triplestores
+- **Programming Language**: Python 3.7+
+  - Used for SHACL validation, data processing, and Gephi export
 
-### Standards and Formats
-- **OWL**: 2.0 (Web Ontology Language)
-- **RDF**: RDF 1.1 (Resource Description Framework)
-- **RDF-star**: RDF-star 1.1 (Annotated statements)
-- **TriG**: TriG format (Named graphs)
-- **SPARQL**: SPARQL 1.1 (Query language)
-- **SHACL**: SHACL 1.1 (Shapes Constraint Language)
-- **Turtle**: TTL syntax for RDF serialization
+- **Python Libraries**:
+  - `rdflib >= 6.0.0` - For working with RDF data
+  - `pyshacl >= 0.20.0` - For SHACL validation
+  - `requests >= 2.28.0` - For HTTP requests
 
-### Testing and Validation
-- **SHACL Validation**: Using pySHACL library
-  - Script: `test_shacl.py` (included in repository)
-  - Shapes: `shapes/validation_shapes.ttl` (8 validation shapes)
-  - Expected: 4 violations (by design, for testing)
+- **Gephi**: Latest version 
+
+## Setup Instructions
+
+```bash
+pip install -r requirements.txt
+```
+
+- Run Protege
+- Load `data/heritage_complete.ttl` for ontology viewing
+
+- Start server for opening fuseki: `./fuseki-server`
+- Open http://localhost:3030
+- Create dataset and upload files
+
+**For Question 2 (Contested Claims):**
+- Load `data/contested-claims-reification.ttl` into dataset `heritage-reification`
+- Load `data/contested-claims-named.trig` into dataset `heritage-named`
+- Load `data/contested-claims-rdfstar.ttl` into dataset `heritage-rdfstar`
+
+
+**Basic Queries (Q1-Q15)**
+**Analytical Queries (Q16-Q25)**
+**Question 2 Queries (for contested claims):**
+- q1-reification.rq: Find high-confidence claims (reification pattern)
+- q2-named-graphs.rq: Find conflicting claims (named graphs)
+- q3-rdfstar.rq: Count claims per source (RDF-star)
+- q4-conflicting-claims.rq: Find conflicting claims
+- q5-claims-by-source.rq: Count claims by source
+
+## Question 2: Multi-Perspective Knowledge Representation
+
+### The Problem
+
+Different communities have conflicting claims about cultural practices. For example, Tribe A says a ritual belongs to Lunar Cycle, while Tribe B says it belongs to Solar Cycle. I need to represent both claims with provenance (source, confidence, date) without creating logical contradictions.
+
+### Three Implementation Patterns
+
+**Pattern 1: RDF Reification**
+- File: `data/contested-claims-reification.ttl`
+- Uses `rdf:Statement` to represent claims
+- Each claim has rdf:subject, rdf:predicate, rdf:object, plus metadata (source, confidence, date)
+- Traditional approach, works everywhere, but verbose
+
+**Pattern 2: Named Graphs**
+- File: `data/contested-claims-named.trig`
+- Each claim in a separate named graph
+- Graph URI encodes metadata
+- Efficient, good for provenance, but requires TriG format
+
+**Pattern 3: RDF-star**
+- File: `data/contested-claims-rdfstar.ttl`
+- Uses nested triple syntax `<< >>` to annotate statements
+- Clean syntax, direct annotation
+- Modern approach, but requires RDF-star support
+
+
+## SHACL Validation
+
+created 12 SHACL validation shapes that check:
+
+**Basic Validations such as:**
+- Person validation: Access levels must be 1-3, human approval check
+- Recording validation: Must have date, performer, location
+- Cultural Item validation: Access levels and locations required
+- Sacred Item validation: Must have guardian, access level 2-3
+- Tribal Elder validation: Access level 3, human approval required
+- Instrument validation: Location required
+- Community membership: Person should belong to community
+- Person roles: Person should have at least one role
+- Recording access level: Complex SPARQL constraint
+
+**Advanced Validations:**
+- Mentorship validation: Mentor should have higher access level
+- Approval consistency: If approvedBy exists, humanApproval must be true
+- Access level hierarchy: Level 3 requires human approval
+- Competency-role matching: Role-competency consistency
+- Recording instrument consistency: Performer should play the instrument
+
+### Running Validation
+
+
+**to use the validation script:**
+```bash
+python code/run-shacl-validation.py data/heritage_base_dataset.ttl shapes/validation_shapes.ttl validation/report.txt
+```
+
+**Test with violations:**
+```bash
+python code/run-shacl-validation.py data/heritage_violations_dataset.ttl shapes/validation_shapes.ttl validation/report-violations.txt
+```
+
+**Question 3: Temporal constraints:**
+```bash
+python code/run-shacl-validation.py data/heritage_violations_dataset.ttl validation/temporal-constraints.shacl validation/violations_report.txt
+python code/run-shacl-validation.py data/fixed-data.ttl validation/temporal-constraints.shacl validation/base_report_final.txt
+```
+
+## Data Overview
+
+The `heritage_base_dataset.ttl` file contains:
+
+- **9 Locations**: Shusha, Baku, Ganja, Nakhchivan, Qarabağ, Tabriz, Istanbul, Altai, Oslo
+- **6 Communities**: Ashiq, Shaman, Musical Heritage, Ashiq Azerbaijan, Altai Shaman Lineage, Academic Research, Viking Heritage
+- **20+ People**: Tribal Elders, Ashiq Masters, Shaman Masters, Guardians, Researchers, Performers
+- **10+ Instruments**: Baglama, Dombra, Qopuz, Shaman Saz (some are sacred)
+- **10+ Musical Works**: Traditional works like Ashig Gharib, Koroglu, Leyli and Majnoon
+- **5+ Stories**: Cultural stories and narratives
+- **5+ Rituals**: Traditional rituals and ceremonies
+- **5+ Sacred Items**: Sacred instruments that need special access
+- **10+ Recordings**: Various performances with dates, locations, and access controls
+
+**Total**: Over 1000 triples with relationships and labels in both English and Azerbaijani
 
 ## Ontology Overview
 
 ### Main Classes
 
-- **CulturalEntity** (root class)
-  - **Person**: Represents individuals in the system
-    - Performer
-    - TribalElder
-    - Archaeologist
-    - Guardian
-  - **CulturalItem**: Represents cultural artifacts and practices
-    - Artifact
-    - SacredItem
-    - Ritual
-    - Instrument
-    - ArchaeologicalSite
-  - **Role**: Represents roles that people can have
-    - Guardian
-    - Researcher
-    - SpiritualGuardian
-  - **Location**: Represents geographical locations
-    - Region
-    - Site
-  - **AccessLevel**: Represents access control levels
-    - Public
-    - Restricted
-    - Sacred
+- **Person**: People in the system (with subclass TribalElder)
+- **CulturalItem**: Cultural artifacts (subclasses: Instrument, MusicalWork, Recording, Ritual, Story, SacredItem)
+- **Role**: Roles people can have (AshiqRole, DedeRole, GuardianRole, OzanRole, PerformerRole, ResearcherRole, ShamanRole)
+- **Competency**: Skills and knowledge (InstrumentSkill, PoeticSkill, RepertoireKnowledge, RitualKnowledge, StorytellingKnowledge)
+- **Community**: Cultural communities
+- **Location**: Geographic locations
 
-### Object Properties
+### Key Properties
 
-- `recordedAt`: Links cultural items to locations
-- `approvedBy`: Links items to tribal elders who approved them
-- `playsInstrument`: Links performers to instruments
-- `isCaredBy`: Links cultural items to people who care for them
-- `hasRole`: Links people to their roles
-- `aboutItem`: Links items to related items
-- `caresFor`: Inverse of isCaredBy
-- `hasAccessLevel`: Links people to their access levels
-- `isRoleOf`: Inverse of hasRole
-- `performs`: Links performers to rituals
-- `hasRequiredAccessLevel`: Links cultural items to required access levels
-- `locatedIn`: Links locations to parent locations
+- **Person relationships**: `hasRole`, `memberOfCommunity`, `knowsMusicalWork`, `knowsStory`, `playsInstrument`, `mentoredBy`, `performedInRitual`, `caresFor`, `hasCompetency`
+- **Recording**: `performedBy`, `recordedAt`, `usesInstrument`, `recordingDate`, `restrictionEffectiveDate`
+- **CulturalItem**: `locatedIn`, `isCaredForBy`, `requiresAccessLevel`
+- **Access control**: `hasAccessLevel` (1-3), `humanApproval` (boolean)
 
-### Data Properties
+## Design Decisions
 
-- `recordingDate`: Date when a cultural item was recorded (xsd:date)
-- `humanApproval`: Boolean indicating human approval status (xsd:boolean)
+### Access Control Model
 
-## Setup Instructions
+I implemented a three-tier access system:
+- Level 1: Public access
+- Level 2: Restricted access
+- Level 3: Sacred/Elder-only access
 
-### Prerequisites
+Both people and cultural items have access levels, which helps control who can access what information.
 
-1. **Python 3.7 or higher**
-2. **pip**: Python package manager
-3. **Protégé**: Desktop version (for ontology editing and inference testing)
-   - Download: https://protege.stanford.edu/
-   - Alternative: WebProtégé (browser-based)
-4. **Triplestore** (choose one):
-   - **Apache Jena Fuseki**: For SPARQL query testing
-     - Download: https://jena.apache.org/download/
-### Installation
+### Role-Based System
 
-1. **Clone or download this repository**
-
-2. **Install Python dependencies**:
-```bash
-pip install -r requirements.txt
-```
-
-This will install:
-- `rdflib >= 6.0.0` - For RDF processing
-- `pyshacl >= 0.20.0` - For SHACL validation
-
-3. **Install Protégé** (for ontology editing):
-   - Download from: https://protege.stanford.edu/
-   - Extract and run (Java required)
-
-4. **Install Triplestore** (choose one):
-   - **Fuseki**: Download from https://jena.apache.org/download/
-
-### Converting OWL to TTL
-
-To convert the OWL ontology file to TTL format:
-
-```bash
-python convert_owl_to_ttl.py ontology/urn_webprotege_ontology_f1486f8e-61de-449c-a0d0-d0b65f032faf.owl
-```
-
-Or specify an output file:
-
-```bash
-python convert_owl_to_ttl.py ontology/urn_webprotege_ontology_f1486f8e-61de-449c-a0d0-d0b65f032faf.owl ontology/heritage_ontology.ttl
-```
-
-## Usage
-
-### Loading the Ontology
-
-The ontology is available in both OWL and TTL formats:
-- **OWL**: `ontology/urn_webprotege_ontology_f1486f8e-61de-449c-a0d0-d0b65f032faf.owl` (original)
-- **TTL**: `ontology/heritage-s2024700102.ttl` (updated with equivalent-class axiom for SpiritualGuardian inference)
-
-### Data Files
-
-1. **`data/heritage-base.ttl`** - Main dataset (Question 1):
-   - **30 people** (2 elders, 5 guardians, 5 performers, 2 archaeologists, 16 general persons)
-   - **50 cultural items** (10 sacred items, 10 rituals, 10 instruments, 10 artifacts, 10 archaeological sites)
-   - Designed to enable inference of ≥5 SpiritualGuardians
-   - Includes human-approval violations for SHACL testing
-   - Uses student ID prefix: `http://example.org/heritage/s2024700102#`
-
-2. **`data/contested-claims-reification.ttl`** - Question 2: RDF reification pattern
-
-3. **`data/contested-claims-named.trig`** - Question 2: Named graphs pattern
-
-4. **`data/contested-claims-rdfstar.ttl`** - Question 2: RDF-star pattern
-
-5. **`data/violations.ttl`** - Question 3: Test data with violations (temporal, missing performer, invalid dates)
-
-6. **`data/fixed-data.ttl`** - Question 3: Corrected data with all violations fixed
-
-### Running SHACL Validation
-
-#### Question 1: Basic SHACL Validation
-```bash
-# Validate heritage-base.ttl against validation shapes
-python test_shacl.py
-```
-
-#### Question 3: Temporal Constraints Validation
-```bash
-# Validate violations (should find 10 violations)
-python code/run-shacl-validation.py data/violations.ttl validation/temporal-constraints.shacl validation/validation-report-violations.txt
-
-# Validate fixed data (should find 0 violations)
-python code/run-shacl-validation.py data/fixed-data.ttl validation/temporal-constraints.shacl validation/validation-report-clean.txt
-```
-
-### Running SPARQL Queries
-
-#### Question 2: Contested Claims Queries
-```bash
-# After loading data into Fuseki, run queries:
-python code/run-queries.py http://localhost:3030/heritage-reification/sparql
-python code/run-queries.py http://localhost:3030/heritage-named/sparql
-python code/run-queries.py http://localhost:3030/heritage-rdfstar/sparql
-```
-## Next Steps
-
-### Completed ✅
-- Ontology conversion (OWL → TTL)
-- Ontology updated with equivalent-class axiom for SpiritualGuardian inference
-- Data files created and verified
-- SPARQL queries created (43 queries across 5 files)
-- SHACL validation shapes created
-- Documentation structure in place
-
-### Testing Status ⏳
-- ✅ Protégé: Equivalent-class axiom added and tested
-- ✅ Fuseki: Data loaded and queries tested
-- ⏳ Inference: Verify 5 SpiritualGuardians inferred in triplestore
-- ⏳ SHACL Validation: Run `test_shacl.py` to validate data
-- ⏳ Documentation: Capture query results and screenshots
-
-## Brief Answer for Analysis Questions
-
-See `ANALYSIS_AND_DOCUMENTATION.md` for comprehensive analysis. Summary below:
-
-### Key Design Decisions
-
-1. **Hierarchical Class Structure**: Root `CulturalEntity` class provides common base for all entities, enabling flexible relationship modeling.
-
-2. **Access Control Model**: Three-tier system (Public, Restricted, Sacred) applied to both people and cultural items, supporting fine-grained access control.
-
-3. **Role-Based System**: Roles are separate entities, allowing people to have multiple roles and enabling inference of specialized roles (e.g., SpiritualGuardian). **Note**: `SpiritualGuardian` is a subclass of `Person` (not `Role`) because both `hasRole` and `caresFor` properties have domain `Person`, requiring `SpiritualGuardian ⊑ Person` to satisfy domain constraints.
-
-4. **Approval Workflow**: Links to TribalElder and tracks approval status, supporting cultural sensitivity requirements.
+Roles are separate entities. So:
+- A person can have multiple roles
+- Roles can be inferred (like SpiritualGuardian)
+- More flexible than making roles subclasses of Person
 
 ### OWL Reasoning vs SHACL Validation
 
-#### Why does OWL reasoning automatically classify individuals as SpiritualGuardian?
+**What OWL Can Do:**
+- Infer that people with GuardianRole who care for SacredItems have SpiritualGuardian roles
+- Add new knowledge to the knowledge base
+- Support open-world reasoning (missing data = unknown)
 
-OWL reasoning automatically classifies individuals as `SpiritualGuardian` because of the **equivalent-class axiom** defined in the ontology:
+**What OWL Cannot Do:**
+- Enforce constraints (like "must have humanApproval")
+- Reject invalid data
+- Compare data property values (like dates)
+- Report violations
 
+**Example:**
+```turtle
+# OWL can infer:
+:Person1 hasRole :GuardianRole1
+:Person1 caresFor :SacredItem1
+→ :GuardianRole1 rdf:type :SpiritualGuardian (inferred)
+
+# OWL cannot enforce:
+:Person1 caresFor :SacredItem1
+:Person1 humanApproval false
+→ OWL does NOT reject this (it's valid, just incomplete)
 ```
-SpiritualGuardian ≡ (hasRole some Guardian) and (caresFor some SacredItem)
+
+**What SHACL Can Do:**
+- Enforce required properties (minCount)
+- Validate data types and ranges
+- Check complex constraints via SPARQL
+- Report violations
+
+**What SHACL Cannot Do:**
+- Infer new knowledge
+- Perform OWL reasoning
+- Handle open-world assumptions
+
+**Example:**
+```turtle
+# SHACL can validate:
+:Person1 approvedBy :Elder1
+:Person1 humanApproval false
+→ SHACL reports violation: "Person approved by elder must have humanApproval = true"
+
+# SHACL cannot infer:
+:Person1 hasRole :GuardianRole1
+:Person1 caresFor :SacredItem1
+→ SHACL does NOT infer SpiritualGuardian (needs OWL reasoner)
 ```
 
-#### Why can't OWL axioms alone enforce the human approval requirement?
+Both are needed: OWL adds new knowledge, SHACL makes sure data is correct.
 
-OWL axioms **cannot enforce constraints** like "people caring for sacred items must have human approval" because:
+## Brief Answers to Analysis Questions
 
-1. **OWL is for inference, not validation**: OWL axioms describe what **can be inferred** from existing data, not what **must be true** or what **should be rejected**
-2. **OWL is monotonic**: OWL reasoning only adds new knowledge; it doesn't reject or flag invalid data
-3. **Open-world assumption**: OWL assumes incomplete knowledge - missing `humanApproval` doesn't mean it's false, it means it's unknown
+### Question 1: OWL  vs SHACL  
 
-**What OWL CAN do**: Define that "if someone has humanApproval=true AND cares for a sacred item, then they are an ApprovedGuardian" (inference)
-**What OWL CANNOT do**: Reject or flag data where "someone cares for a sacred item but humanApproval=false" (validation)
+**Why does OWL reasoning automatically classify individuals as SpiritualGuardian?**
 
-#### How does SHACL complement OWL in this scenario?
+OWL automatically classifies individuals as SpiritualGuardian because of the equivalent-class  I defined in the ontology. It says that SpiritualGuardian is equivalent to a GuardianRole that is held by a Person who caresFor at least one SacredItem. When the reasoner runs, it checks each GuardianRole: if the person holding that role cares for a sacred item, it infers that the person is a SpiritualGuardian. This shows how OWL can derive new knowledge from existing data using logical definitions.
 
-SHACL complements OWL by providing **constraint validation** that OWL cannot provide:
+**Why can't OWL axioms alone enforce the human approval requirement?**
 
-1. **OWL handles inference** (what can be derived):
-   - Infers that people with Guardian roles caring for SacredItems are SpiritualGuardians
-   - Adds new knowledge to the knowledge base
+OWL can't enforce constraints like "people caring for sacred items must have human approval" because OWL is designed for inference and can not have validation. OWL uses monotonic reasoning (only adds knowledge, never rejects) and the open-world assumption (missing data means unknown, not false). OWL can infer that "if someone has humanApproval=true AND cares for a sacred item, then they are an ApprovedGuardian," but it can't reject or flag data where "someone cares for a sacred item but humanApproval=false." OWL just doesn't infer anything if conditions aren't met; it doesn't report violations.
 
-2. **SHACL handles validation** (what must be true):
-   - Enforces that people caring for sacred items MUST have `humanApproval = true`
-   - Reports violations when constraints are not met
-   - Validates data quality and business rules
+**How does SHACL complement OWL in this scenario?**
 
-**Together**: OWL enriches the knowledge base with inferred knowledge, while SHACL ensures data quality and constraint compliance. Both are essential for a complete semantic web system.
+SHACL complements OWL by providing constraint validation that OWL can't do. OWL handles inference and SHACL handles validation.
+ Together, OWL enriches the knowledge base with inferred knowledge, while SHACL ensures data quality and constraint compliance. Both are needed for a complete knwoledge system.
 
-### OWL Limitation for Temporal Constraints
+### Question 3: OWL Limitation for Temporal Constraints 
 
 **Why OWL Cannot Encode Temporal Access Constraints**
 
-OWL (Description Logics) fundamentally cannot enforce temporal access constraints like "IF recordingDate > restrictionEffectiveDate AND performerAccessLevel < requiredAccessLevel THEN violation" for several reasons:
+OWL can't enforce temporal constraints like "IF recordingDate > restrictionEffectiveDate AND performerAccessLevel < requiredAccessLevel THEN violation" for several reasons:
 
-1. **No Date Comparisons**: OWL has no built-in operators for comparing data property values (e.g., `date1 > date2`). It can only express class membership, property relationships, and logical combinations thereof.
+1. **No Date Comparisons**: OWL has no operators for comparing data property values (such as date1 > date2).
 
-2. **No Conditional Logic**: OWL cannot express "if-then" rules based on data property values. It can define equivalent classes and restrictions, but cannot conditionally reject data.
+2. **No Conditional Logic**: OWL can't express "if-then" rules based on data property values.
 
-3. **Open-World Assumption**: OWL assumes incomplete knowledge. Missing data doesn't mean false—it means unknown. This prevents OWL from making closed-world assertions needed for validation.
+3. **Open-World Assumption**: OWL assumes incomplete knowledge. Missing data means unknown, not false. 
 
-4. **Monotonic Reasoning**: OWL only adds inferred knowledge; it never rejects or flags invalid data. It cannot report violations or errors.
+4. **Monotonic Reasoning**: OWL only adds inferred knowledge; it never rejects or flags invalid data so it can't report violations.
 
-5. **No Constraint Violation Mechanism**: OWL has no way to report that data violates a constraint. It simply doesn't infer anything if conditions aren't met.
+**Fundamental Difference**: OWL uses open-world, monotonic reasoning to derive new knowledge. SHACL uses closed-world validation to enforce constraints and report violations. For temporal constraints requiring date comparisons, SHACL with SPARQL constraints is necessary. 
 
-**Fundamental Difference**: OWL (Description Logics) uses open-world, monotonic reasoning to derive new knowledge. SHACL (Constraint Languages) uses closed-world validation to enforce constraints and report violations. For temporal constraints requiring date comparisons and conditional logic, SHACL with SPARQL constraints is necessary.
+## Gephi Network Visualization
 
-## Limits and Challenges
+I added network visualization using Gephi:
 
-### Technical Challenges
+1. **Export to GEXF:**
+   ```bash
+   python code/export-to-gephi.py data/heritage_base_dataset.ttl visualizations/heritage_network.gexf
+   ```
 
-1. **macOS Compatibility**: GraphDB, Fuseki, and Protégé desktop had compatibility issues on macOS. Workaround: Testing deferred to alternative device.
+2. **Import into Gephi:**
+   - Open Gephi → File → Open → Select `visualizations/heritage_network.gexf`
+   - Apply layout (I used ForceAtlas 2)
+   - Color nodes by type, size by degree
+   - Show node labels (not edge labels)
+   - Export as PNG/SVG
 
-2. **WebProtégé URIs**: Non-human-readable URIs make queries verbose. Mitigated with proper prefix usage and documentation.
+## Known Limitations
 
-3. **Inference Testing**: Requires equivalent-class axiom in Protégé and triplestore for testing. Axiom definition prepared but testing deferred.
+1. **Date Precision**: I used `xsd:date` which has day-level precision. We could extend to `xsd:dateTime` for more precision.
 
-### Design Limitations
+2. **Access Control**: Three-tier system (1-3). Maybe could be more granular system,
 
-1. **Date Precision**: Uses `xsd:date`; could be extended to `xsd:dateTime` for more precision.
+3. **Approval Process**: Binary approval (true/false). Could extend 
 
-2. **Access Control**: Simple three-tier system; could be extended with more granular permissions.
+6. **macOS Compatibility**: I had some issues running Protégé, Fuseki, and GraphDB on macOS. I used an alternative device for testing and this took lots of time and effort.
 
-3. **Approval Process**: Binary approval; could be extended with approval levels or workflow states.
+7. **my private life problems about Iran and illness and health (body and mental)**: I had so complpex time during implementation of this project and had different problems such as disconnection from my family and country with prtests and dangerous situation in Iran, also my hard illness and don't having mental and body normal health. 
 
-### Future Improvements
 
-1. Enhanced inference with more equivalent-class axioms
-2. Extended SHACL validation with comprehensive shapes
-3. Query optimization and indexing
-4. Visualization of ontology structure
+
+## Future Improvements
+
+- Add more equivalent-class axioms for additional inference
+- Create more SHACL shapes for validation
+- Optimize queries and add indexing
+- Improve network visualization
+- Add geographic mapping
+- Link to external knowledge bases
 
 ## License
 
-This project is part of an academic course assignment.
+This project is for educational purposes as part of my Master's degree in Computer Engineering and Science at Boğaziçi University.
+
+## Acknowledgments
+
+- Azerbaijani cultural music heritage
+- Ashiq tradition
+- Traditional instruments and musical works
+- Cultural communities and their preservation efforts

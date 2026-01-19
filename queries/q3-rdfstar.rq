@@ -1,15 +1,21 @@
-# Query 3: Find all claims with confidence > 0.8 (RDF-star pattern)
-# For dataset: heritage-rdfstar
+# Query 3: Count claims per source (RDF-star Pattern)
+# Question 2: Multi-Perspective Knowledge Representation
+# 
+# This query counts how many claims each source (tribe) has made.
+# Uses RDF-star nested triple syntax << >> to query annotated statements.
 
-PREFIX ex: <http://example.org/heritage/s2024700102#>
+PREFIX : <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
-SELECT ?ritual ?cycle ?source ?confidence ?dateRecorded
+SELECT ?source ?sourceLabel (COUNT(*) AS ?claimCount) (AVG(?confidence) AS ?avgConfidence)
 WHERE {
-    << ?ritual ex:belongsTo ?cycle >>
-        ex:source ?source ;
-        ex:confidence ?confidence ;
-        ex:dateRecorded ?dateRecorded .
-    FILTER (?confidence > 0.8)
+    << ?ritual :belongsTo ?cycle >>
+        :source ?source ;
+        :confidence ?confidence .
+    ?source rdfs:label ?sourceLabel .
+    FILTER(LANG(?sourceLabel) = "en" || LANG(?sourceLabel) = "")
 }
-ORDER BY DESC(?confidence)
+GROUP BY ?source ?sourceLabel
+ORDER BY DESC(?claimCount)

@@ -1,0 +1,46 @@
+# Query 23: Location Cultural Density
+# Analyzes cultural richness by location
+
+PREFIX : <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+SELECT 
+    ?location ?locationLabel
+    (COUNT(DISTINCT ?item) AS ?totalItems)
+    (COUNT(DISTINCT ?instrument) AS ?instruments)
+    (COUNT(DISTINCT ?work) AS ?musicalWorks)
+    (COUNT(DISTINCT ?recording) AS ?recordings)
+    (COUNT(DISTINCT ?person) AS ?people)
+    (COUNT(DISTINCT ?sacredItem) AS ?sacredItems)
+WHERE {
+    ?location rdf:type :Location .
+    ?location rdfs:label ?locationLabel .
+    FILTER(LANG(?locationLabel) = "en" || LANG(?locationLabel) = "")
+    OPTIONAL {
+        ?item :locatedIn ?location .
+        ?item rdf:type :CulturalItem .
+    }
+    OPTIONAL {
+        ?instrument :locatedIn ?location .
+        ?instrument rdf:type :Instrument .
+    }
+    OPTIONAL {
+        ?work :locatedIn ?location .
+        ?work rdf:type :MusicalWork .
+    }
+    OPTIONAL {
+        ?recording :recordedAt ?location .
+        ?recording rdf:type :Recording .
+    }
+    OPTIONAL {
+        ?person :memberOfCommunity ?community .
+        ?community :locatedIn ?location .
+    }
+    OPTIONAL {
+        ?sacredItem :locatedIn ?location .
+        ?sacredItem rdf:type :SacredItem .
+    }
+}
+GROUP BY ?location ?locationLabel
+ORDER BY DESC(?totalItems)

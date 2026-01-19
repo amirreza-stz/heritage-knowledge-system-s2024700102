@@ -1,0 +1,17 @@
+# Query 1: Find all Ashiq performers and their instruments
+# Finds all people with Ashiq role and the instruments they play
+
+PREFIX : <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT ?person ?personLabel ?instrument ?instrumentLabel
+WHERE {
+    ?person :hasRole ?role .
+    ?role rdf:type :AshiqRole .
+    ?person :playsInstrument ?instrument .
+    ?person rdfs:label ?personLabel .
+    FILTER(LANG(?personLabel) = "en" || LANG(?personLabel) = "")
+    ?instrument rdfs:label ?instrumentLabel .
+    FILTER(LANG(?instrumentLabel) = "en" || LANG(?instrumentLabel) = "")
+}
+ORDER BY ?personLabel

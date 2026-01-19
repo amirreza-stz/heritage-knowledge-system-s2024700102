@@ -1,0 +1,31 @@
+# Query 13: Find all cultural items by location
+# Lists instruments, musical works, stories, and rituals with their locations
+
+PREFIX : <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+SELECT ?item ?itemLabel ?itemType ?location ?locationLabel ?accessLevel
+WHERE {
+    ?item rdf:type :CulturalItem .
+    ?item :locatedIn ?location .
+    ?item rdfs:label ?itemLabel .
+    FILTER(LANG(?itemLabel) = "en" || LANG(?itemLabel) = "")
+    ?location rdfs:label ?locationLabel .
+    FILTER(LANG(?locationLabel) = "en" || LANG(?locationLabel) = "")
+    OPTIONAL { ?item :requiresAccessLevel ?accessLevel }
+    {
+        ?item rdf:type :Instrument .
+        BIND("Instrument" AS ?itemType)
+    } UNION {
+        ?item rdf:type :MusicalWork .
+        BIND("MusicalWork" AS ?itemType)
+    } UNION {
+        ?item rdf:type :Story .
+        BIND("Story" AS ?itemType)
+    } UNION {
+        ?item rdf:type :Ritual .
+        BIND("Ritual" AS ?itemType)
+    }
+}
+ORDER BY ?locationLabel ?itemType ?itemLabel

@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
-    <group id="Folder Repository, directory=, recursive=true, Auto-Update=true, version=2" prefer="public" xml:base="">
-        <uri id="Automatically generated entry, Timestamp=1768616352693" name="duplicate:urn:webprotege:ontology:f1486f8e-61de-449c-a0d0-d0b65f032faf" uri="heritage-ontology.owl"/>
-        <uri id="Automatically generated entry, Timestamp=1768616352693" name="duplicate:urn:webprotege:ontology:f1486f8e-61de-449c-a0d0-d0b65f032faf" uri="urn_webprotege_ontology_f1486f8e-61de-449c-a0d0-d0b65f032faf.owl"/>
-    </group>
-</catalog>

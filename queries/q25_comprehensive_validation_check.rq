@@ -1,0 +1,82 @@
+# Query 25: Comprehensive Validation Check
+# Identifies potential data quality issues
+
+PREFIX : <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT 
+    ?issueType
+    ?entity ?entityLabel
+    ?details
+WHERE {
+    {
+        # Issue 1: Person without role
+        BIND("Person without role" AS ?issueType)
+        ?entity rdf:type :Person .
+        ?entity rdfs:label ?entityLabel .
+        FILTER(LANG(?entityLabel) = "en" || LANG(?entityLabel) = "")
+        FILTER NOT EXISTS { ?entity :hasRole ?role }
+        BIND("Person should have at least one role" AS ?details)
+    }
+    UNION
+    {
+        # Issue 2: Sacred item without guardian
+        BIND("Sacred item without guardian" AS ?issueType)
+        ?entity rdf:type :SacredItem .
+        ?entity rdfs:label ?entityLabel .
+        FILTER(LANG(?entityLabel) = "en" || LANG(?entityLabel) = "")
+        FILTER NOT EXISTS { ?guardian :caresFor ?entity }
+        BIND("Sacred item must have at least one guardian" AS ?details)
+    }
+    UNION
+    {
+        # Issue 3: Recording without date
+        BIND("Recording without date" AS ?issueType)
+        ?entity rdf:type :Recording .
+        ?entity rdfs:label ?entityLabel .
+        FILTER(LANG(?entityLabel) = "en" || LANG(?entityLabel) = "")
+        FILTER NOT EXISTS { ?entity :recordingDate ?date }
+        BIND("Recording must have a recording date" AS ?details)
+    }
+    UNION
+    {
+        # Issue 4: Cultural item without location
+        BIND("Cultural item without location" AS ?issueType)
+        ?entity rdf:type :CulturalItem .
+        ?entity rdfs:label ?entityLabel .
+        FILTER(LANG(?entityLabel) = "en" || LANG(?entityLabel) = "")
+        FILTER NOT EXISTS { ?entity :locatedIn ?location }
+        BIND("Cultural item must have a location" AS ?details)
+    }
+    UNION
+    {
+        # Issue 5: Person approved but no humanApproval
+        BIND("Approved person without humanApproval" AS ?issueType)
+        ?entity rdf:type :Person .
+        ?entity :approvedBy ?elder .
+        ?entity rdfs:label ?entityLabel .
+        FILTER(LANG(?entityLabel) = "en" || LANG(?entityLabel) = "")
+        OPTIONAL { ?entity :humanApproval ?approval }
+        FILTER (!bound(?approval) || ?approval != true)
+        BIND("Person approved by elder must have humanApproval=true" AS ?details)
+    }
+    UNION
+    {
+        # Issue 6: Access level violation in recordings
+        BIND("Recording access level violation" AS ?issueType)
+        ?entity rdf:type :Recording .
+        ?entity :performedBy ?performer .
+        ?entity :usesInstrument ?instrument .
+        ?entity :recordingDate ?recordingDate .
+        ?entity rdfs:label ?entityLabel .
+        FILTER(LANG(?entityLabel) = "en" || LANG(?entityLabel) = "")
+        ?instrument :restrictionEffectiveDate ?restrictionDate .
+        ?instrument :requiresAccessLevel ?itemAccess .
+        ?performer :hasAccessLevel ?performerAccess .
+        FILTER (?recordingDate > ?restrictionDate && ?performerAccess < ?itemAccess)
+        BIND(CONCAT("Performer access level ", STR(?performerAccess), " < required ", STR(?itemAccess)) AS ?details)
+    }
+}
+ORDER BY ?issueType ?entityLabel
