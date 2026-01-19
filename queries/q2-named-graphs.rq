@@ -14,9 +14,9 @@ SELECT ?ritual ?ritualLabel ?cycle1 ?cycle1Label ?source1 ?source1Label ?confide
 WHERE {
     GRAPH ?graph1 {
         ?ritual :belongsTo ?cycle1 .
+        ?graph1 :source ?source1 ;
+                :confidence ?confidence1 .
     }
-    ?graph1 :source ?source1 ;
-            :confidence ?confidence1 .
     ?ritual rdfs:label ?ritualLabel .
     FILTER(LANG(?ritualLabel) = "en" || LANG(?ritualLabel) = "")
     ?cycle1 rdfs:label ?cycle1Label .
@@ -26,9 +26,9 @@ WHERE {
     
     GRAPH ?graph2 {
         ?ritual :belongsTo ?cycle2 .
+        ?graph2 :source ?source2 ;
+                :confidence ?confidence2 .
     }
-    ?graph2 :source ?source2 ;
-            :confidence ?confidence2 .
     ?cycle2 rdfs:label ?cycle2Label .
     FILTER(LANG(?cycle2Label) = "en" || LANG(?cycle2Label) = "")
     ?source2 rdfs:label ?source2Label .
