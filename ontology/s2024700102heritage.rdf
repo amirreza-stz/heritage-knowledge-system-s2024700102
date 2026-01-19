@@ -1,0 +1,566 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage/"
+     xml:base="http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.w3.org/2001/XMLSchema#date -->
+
+    <rdfs:Datatype rdf:about="http://www.w3.org/2001/XMLSchema#date"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#approvedBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#approvedBy">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#approves"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Person"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#TribalElder"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#approves -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#approves">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#TribalElder"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Person"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#caresFor -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#caresFor">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Person"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#CulturalItem"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#hasCompetency -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#hasCompetency">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Person"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Competency"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#hasLocatedItem -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#hasLocatedItem">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#locatedIn"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Location"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#CulturalItem"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#hasMember -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#hasMember">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#memberOfCommunity"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Community"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Person"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#hasRecording -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#hasRecording">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#performedBy"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Person"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Recording"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#hasRecordingAt -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#hasRecordingAt">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#recordedAt"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Location"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Recording"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#hasRole -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#hasRole">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#isRoleOf"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Person"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Role"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#isCaredForBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#isCaredForBy">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#CulturalItem"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Person"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#isRoleOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#isRoleOf">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Role"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Person"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#knowsMusicalWork -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#knowsMusicalWork">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Person"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#MusicalWork"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#knowsStory -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#knowsStory">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Person"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Story"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#locatedIn -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#locatedIn">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#CulturalItem"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Location"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#memberOfCommunity -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#memberOfCommunity">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Person"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Community"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#mentoredBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#mentoredBy">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Person"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Person"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#performedBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#performedBy">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Recording"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Person"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#performedInRitual -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#performedInRitual">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Person"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Ritual"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#playsInstrument -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#playsInstrument">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Person"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Instrument"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#recordedAt -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#recordedAt">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Recording"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Location"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#usesInstrument -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#usesInstrument">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Recording"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Instrument"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#hasAccessLevel -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#hasAccessLevel">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Person"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#humanApproval -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#humanApproval">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Person"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#recordingDate -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#recordingDate">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Recording"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#requiresAccessLevel -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#requiresAccessLevel">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#CulturalItem"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#restrictionEffectiveDate -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#restrictionEffectiveDate">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Recording"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#AshiqRole -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#AshiqRole">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Role"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Baglama -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Baglama">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Instrument"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Community -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Community">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#CulturalEntity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Competency -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Competency">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#CulturalEntity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#CulturalEntity -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#CulturalEntity"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#CulturalItem -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#CulturalItem">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#CulturalEntity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#DedeRole -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#DedeRole">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Role"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Dombra -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Dombra">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Instrument"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#GuardianRole -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#GuardianRole">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Role"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Instrument -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Instrument">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#CulturalItem"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#InstrumentSkill -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#InstrumentSkill">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Competency"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Location -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Location">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#CulturalEntity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#MusicalWork -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#MusicalWork">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#CulturalItem"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#OzanRole -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#OzanRole">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Role"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#PerformerRole -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#PerformerRole">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Role"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Person -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Person">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#CulturalEntity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#PoeticSkill -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#PoeticSkill">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Competency"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Qopuz -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Qopuz">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Instrument"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Recording -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Recording">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#CulturalItem"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#RepertoireKnowledge -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#RepertoireKnowledge">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Competency"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#ResearcherRole -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#ResearcherRole">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Role"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Ritual -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Ritual">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#CulturalItem"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#RitualKnowledge -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#RitualKnowledge">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Competency"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Role -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Role">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#CulturalEntity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#SacredItem -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#SacredItem">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#CulturalItem"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#ShamanRole -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#ShamanRole">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Role"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#ShamanSaz -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#ShamanSaz">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Instrument"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#SpiritualGuardian -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#SpiritualGuardian">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#caresFor"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#SacredItem"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#hasRole"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#GuardianRole"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Role"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Story -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Story">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#CulturalItem"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#StorytellingKnowledge -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#StorytellingKnowledge">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Competency"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#TribalElder -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#TribalElder">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Person"/>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi -->
+

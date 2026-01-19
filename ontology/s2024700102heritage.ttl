@@ -1,0 +1,359 @@
+@prefix : <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage/> .
+
+<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage> rdf:type owl:Ontology .
+
+#################################################################
+#    Datatypes
+#################################################################
+
+###  http://www.w3.org/2001/XMLSchema#date
+xsd:date rdf:type rdfs:Datatype .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#approvedBy
+:approvedBy rdf:type owl:ObjectProperty ;
+            rdfs:subPropertyOf owl:topObjectProperty ;
+            owl:inverseOf :approves ;
+            rdfs:domain :Person ;
+            rdfs:range :TribalElder .
+
+
+###  http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#approves
+:approves rdf:type owl:ObjectProperty ;
+          rdfs:domain :TribalElder ;
+          rdfs:range :Person .
+
+
+###  http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#caresFor
+:caresFor rdf:type owl:ObjectProperty ;
+          rdfs:domain :Person ;
+          rdfs:range :CulturalItem .
+
+
+###  http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#hasCompetency
+:hasCompetency rdf:type owl:ObjectProperty ;
+               rdfs:domain :Person ;
+               rdfs:range :Competency .
+
+
+###  http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#hasLocatedItem
+:hasLocatedItem rdf:type owl:ObjectProperty ;
+                owl:inverseOf :locatedIn ;
+                rdfs:domain :Location ;
+                rdfs:range :CulturalItem .
+
+
+###  http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#hasMember
+:hasMember rdf:type owl:ObjectProperty ;
+           owl:inverseOf :memberOfCommunity ;
+           rdfs:domain :Community ;
+           rdfs:range :Person .
+
+
+###  http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#hasRecording
+:hasRecording rdf:type owl:ObjectProperty ;
+              owl:inverseOf :performedBy ;
+              rdfs:domain :Person ;
+              rdfs:range :Recording .
+
+
+###  http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#hasRecordingAt
+:hasRecordingAt rdf:type owl:ObjectProperty ;
+                owl:inverseOf :recordedAt ;
+                rdfs:domain :Location ;
+                rdfs:range :Recording .
+
+
+###  http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#hasRole
+:hasRole rdf:type owl:ObjectProperty ;
+         owl:inverseOf :isRoleOf ;
+         rdfs:domain :Person ;
+         rdfs:range :Role .
+
+
+###  http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#isCaredForBy
+:isCaredForBy rdf:type owl:ObjectProperty ;
+              rdfs:domain :CulturalItem ;
+              rdfs:range :Person .
+
+
+###  http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#isRoleOf
+:isRoleOf rdf:type owl:ObjectProperty ;
+          rdfs:domain :Role ;
+          rdfs:range :Person .
+
+
+###  http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#knowsMusicalWork
+:knowsMusicalWork rdf:type owl:ObjectProperty ;
+                  rdfs:domain :Person ;
+                  rdfs:range :MusicalWork .
+
+
+###  http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#knowsStory
+:knowsStory rdf:type owl:ObjectProperty ;
+            rdfs:domain :Person ;
+            rdfs:range :Story .
+
+
+###  http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#locatedIn
+:locatedIn rdf:type owl:ObjectProperty ;
+           rdfs:domain :CulturalItem ;
+           rdfs:range :Location .
+
+
+###  http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#memberOfCommunity
+:memberOfCommunity rdf:type owl:ObjectProperty ;
+                   rdfs:domain :Person ;
+                   rdfs:range :Community .
+
+
+###  http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#mentoredBy
+:mentoredBy rdf:type owl:ObjectProperty ;
+            rdfs:domain :Person ;
+            rdfs:range :Person .
+
+
+###  http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#performedBy
+:performedBy rdf:type owl:ObjectProperty ;
+             rdfs:domain :Recording ;
+             rdfs:range :Person .
+
+
+###  http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#performedInRitual
+:performedInRitual rdf:type owl:ObjectProperty ;
+                   rdfs:domain :Person ;
+                   rdfs:range :Ritual .
+
+
+###  http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#playsInstrument
+:playsInstrument rdf:type owl:ObjectProperty ;
+                 rdfs:domain :Person ;
+                 rdfs:range :Instrument .
+
+
+###  http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#recordedAt
+:recordedAt rdf:type owl:ObjectProperty ;
+            rdfs:domain :Recording ;
+            rdfs:range :Location .
+
+
+###  http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#usesInstrument
+:usesInstrument rdf:type owl:ObjectProperty ;
+                rdfs:domain :Recording ;
+                rdfs:range :Instrument .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#hasAccessLevel
+:hasAccessLevel rdf:type owl:DatatypeProperty ;
+                rdfs:domain :Person ;
+                rdfs:range xsd:integer .
+
+
+###  http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#humanApproval
+:humanApproval rdf:type owl:DatatypeProperty ;
+               rdfs:domain :Person ;
+               rdfs:range xsd:boolean .
+
+
+###  http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#recordingDate
+:recordingDate rdf:type owl:DatatypeProperty ;
+               rdfs:domain :Recording ;
+               rdfs:range xsd:date .
+
+
+###  http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#requiresAccessLevel
+:requiresAccessLevel rdf:type owl:DatatypeProperty ;
+                     rdfs:domain :CulturalItem ;
+                     rdfs:range xsd:integer .
+
+
+###  http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#restrictionEffectiveDate
+:restrictionEffectiveDate rdf:type owl:DatatypeProperty ;
+                          rdfs:domain :Recording ;
+                          rdfs:range xsd:date .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#AshiqRole
+:AshiqRole rdf:type owl:Class ;
+           rdfs:subClassOf :Role .
+
+
+###  http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Baglama
+:Baglama rdf:type owl:Class ;
+         rdfs:subClassOf :Instrument .
+
+
+###  http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Community
+:Community rdf:type owl:Class ;
+           rdfs:subClassOf :CulturalEntity .
+
+
+###  http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Competency
+:Competency rdf:type owl:Class ;
+            rdfs:subClassOf :CulturalEntity .
+
+
+###  http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#CulturalEntity
+:CulturalEntity rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#CulturalItem
+:CulturalItem rdf:type owl:Class ;
+              rdfs:subClassOf :CulturalEntity .
+
+
+###  http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#DedeRole
+:DedeRole rdf:type owl:Class ;
+          rdfs:subClassOf :Role .
+
+
+###  http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Dombra
+:Dombra rdf:type owl:Class ;
+        rdfs:subClassOf :Instrument .
+
+
+###  http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#GuardianRole
+:GuardianRole rdf:type owl:Class ;
+              rdfs:subClassOf :Role .
+
+
+###  http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Instrument
+:Instrument rdf:type owl:Class ;
+            rdfs:subClassOf :CulturalItem .
+
+
+###  http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#InstrumentSkill
+:InstrumentSkill rdf:type owl:Class ;
+                 rdfs:subClassOf :Competency .
+
+
+###  http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Location
+:Location rdf:type owl:Class ;
+          rdfs:subClassOf :CulturalEntity .
+
+
+###  http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#MusicalWork
+:MusicalWork rdf:type owl:Class ;
+             rdfs:subClassOf :CulturalItem .
+
+
+###  http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#OzanRole
+:OzanRole rdf:type owl:Class ;
+          rdfs:subClassOf :Role .
+
+
+###  http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#PerformerRole
+:PerformerRole rdf:type owl:Class ;
+               rdfs:subClassOf :Role .
+
+
+###  http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Person
+:Person rdf:type owl:Class ;
+        rdfs:subClassOf :CulturalEntity .
+
+
+###  http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#PoeticSkill
+:PoeticSkill rdf:type owl:Class ;
+             rdfs:subClassOf :Competency .
+
+
+###  http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Qopuz
+:Qopuz rdf:type owl:Class ;
+       rdfs:subClassOf :Instrument .
+
+
+###  http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Recording
+:Recording rdf:type owl:Class ;
+           rdfs:subClassOf :CulturalItem .
+
+
+###  http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#RepertoireKnowledge
+:RepertoireKnowledge rdf:type owl:Class ;
+                     rdfs:subClassOf :Competency .
+
+
+###  http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#ResearcherRole
+:ResearcherRole rdf:type owl:Class ;
+                rdfs:subClassOf :Role .
+
+
+###  http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Ritual
+:Ritual rdf:type owl:Class ;
+        rdfs:subClassOf :CulturalItem .
+
+
+###  http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#RitualKnowledge
+:RitualKnowledge rdf:type owl:Class ;
+                 rdfs:subClassOf :Competency .
+
+
+###  http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Role
+:Role rdf:type owl:Class ;
+      rdfs:subClassOf :CulturalEntity .
+
+
+###  http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#SacredItem
+:SacredItem rdf:type owl:Class ;
+            rdfs:subClassOf :CulturalItem .
+
+
+###  http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#ShamanRole
+:ShamanRole rdf:type owl:Class ;
+            rdfs:subClassOf :Role .
+
+
+###  http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#ShamanSaz
+:ShamanSaz rdf:type owl:Class ;
+           rdfs:subClassOf :Instrument .
+
+
+###  http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#SpiritualGuardian
+:SpiritualGuardian rdf:type owl:Class ;
+                   owl:equivalentClass [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                                                owl:onProperty :caresFor ;
+                                                                owl:someValuesFrom :SacredItem
+                                                              ]
+                                                              [ rdf:type owl:Restriction ;
+                                                                owl:onProperty :hasRole ;
+                                                                owl:someValuesFrom :GuardianRole
+                                                              ]
+                                                            ) ;
+                                         rdf:type owl:Class
+                                       ] ;
+                   rdfs:subClassOf :Role .
+
+
+###  http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Story
+:Story rdf:type owl:Class ;
+       rdfs:subClassOf :CulturalItem .
+
+
+###  http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#StorytellingKnowledge
+:StorytellingKnowledge rdf:type owl:Class ;
+                       rdfs:subClassOf :Competency .
+
+
+###  http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#TribalElder
+:TribalElder rdf:type owl:Class ;
+             rdfs:subClassOf :Person .
+
+
+###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi
