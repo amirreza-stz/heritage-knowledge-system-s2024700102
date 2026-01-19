@@ -1,0 +1,15 @@
+# Query 6: Find all people who participate in rituals
+# Lists rituals and the people who perform in them
+
+PREFIX : <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT ?ritual ?ritualLabel ?person ?personLabel ?location ?locationLabel
+WHERE {
+    ?person :performedInRitual ?ritual .
+    ?ritual :locatedIn ?location .
+    ?ritual rdfs:label ?ritualLabel .
+    ?person rdfs:label ?personLabel .
+    ?location rdfs:label ?locationLabel .
+}
+ORDER BY ?ritualLabel ?personLabel

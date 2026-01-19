@@ -74,14 +74,12 @@ def main():
                 object=SH.ValidationResult
             ))
             print(f"Total violations found: {len(violations)}")
-            print("Expected: 4 violations (by design, for testing)")
             print()
             print("Detailed Report:")
             print("-" * 60)
             print(results_text)
         else:
-            print("No violations found!")
-            print("(Note: Your data is designed to have 4 violations)")
+            print("✓ No violations found! Data conforms to all SHACL shapes.")
         
         # Save report
         if results_graph:

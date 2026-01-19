@@ -1,0 +1,15 @@
+# Query 8: Find musical works associated with locations
+# Shows which musical works are linked to which locations
+
+PREFIX : <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT ?work ?workLabel ?location ?locationLabel ?accessLevel
+WHERE {
+    ?work rdf:type :MusicalWork .
+    ?work :locatedIn ?location .
+    ?work :requiresAccessLevel ?accessLevel .
+    ?work rdfs:label ?workLabel .
+    ?location rdfs:label ?locationLabel .
+}
+ORDER BY ?locationLabel ?workLabel

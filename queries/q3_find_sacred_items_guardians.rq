@@ -1,0 +1,17 @@
+# Query 3: Find all sacred items and their guardians
+# Identifies sacred cultural items and who cares for them
+
+PREFIX : <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT ?item ?itemLabel ?guardian ?guardianLabel ?location ?locationLabel ?accessLevel
+WHERE {
+    ?item rdf:type :SacredItem .
+    ?item :isCaredForBy ?guardian .
+    ?item :locatedIn ?location .
+    ?item :requiresAccessLevel ?accessLevel .
+    ?item rdfs:label ?itemLabel .
+    ?guardian rdfs:label ?guardianLabel .
+    ?location rdfs:label ?locationLabel .
+}
+ORDER BY DESC(?accessLevel)

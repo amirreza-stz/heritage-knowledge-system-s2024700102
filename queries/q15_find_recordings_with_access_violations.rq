@@ -1,0 +1,24 @@
+# Query 15: Find recordings with potential access level violations
+# Identifies recordings where performer access level may be insufficient for the instrument
+
+PREFIX : <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT ?recording ?recordingLabel ?performer ?performerLabel ?instrument ?instrumentLabel 
+       ?recordingDate ?restrictionDate ?performerAccess ?itemAccess
+WHERE {
+    ?recording rdf:type :Recording .
+    ?recording :performedBy ?performer .
+    ?recording :usesInstrument ?instrument .
+    ?recording :recordingDate ?recordingDate .
+    ?recording rdfs:label ?recordingLabel .
+    ?performer rdfs:label ?performerLabel .
+    ?performer :hasAccessLevel ?performerAccess .
+    ?instrument rdfs:label ?instrumentLabel .
+    ?instrument :requiresAccessLevel ?itemAccess .
+    OPTIONAL { ?instrument :restrictionEffectiveDate ?restrictionDate }
+    FILTER (?performerAccess < ?itemAccess)
+}
+ORDER BY ?recordingLabel

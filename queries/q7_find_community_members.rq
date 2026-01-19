@@ -1,0 +1,14 @@
+# Query 7: Find all members of a community
+# Lists people belonging to different communities
+
+PREFIX : <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT ?community ?communityLabel ?person ?personLabel ?accessLevel
+WHERE {
+    ?person :memberOfCommunity ?community .
+    ?person :hasAccessLevel ?accessLevel .
+    ?community rdfs:label ?communityLabel .
+    ?person rdfs:label ?personLabel .
+}
+ORDER BY ?communityLabel ?personLabel
