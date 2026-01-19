@@ -1,0 +1,52 @@
+@prefix : <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# ============================================
+# INTENTIONAL VIOLATIONS FOR TESTING
+# ============================================
+
+# Violation 1: Person without required role
+:PersonWithoutRole rdf:type :Person ;
+                   rdfs:label "Person Without Role"@en ;
+                   :hasAccessLevel 1 ;
+                   :humanApproval true .
+
+# Violation 2: Recording without date
+:RecordingWithoutDate rdf:type :Recording ;
+                     rdfs:label "Recording Without Date"@en ;
+                     :performedBy :PersonWithoutRole ;
+                     :recordedAt :Baku .
+
+# Violation 3: Sacred item without guardian
+:SacredItemWithoutGuardian rdf:type :SacredItem ;
+                           rdfs:label "Sacred Item Without Guardian"@en ;
+                           :locatedIn :Shusha ;
+                           :requiresAccessLevel 2 .  # Also wrong access level
+
+# Violation 4: Tribal elder with wrong access level
+:TribalElderWrongLevel rdf:type :TribalElder ;
+                       rdfs:label "Tribal Elder Wrong Level"@en ;
+                       :hasAccessLevel 1 ;  # Should be 3
+                       :humanApproval false .  # Should be true
+
+# Violation 5: Cultural item without location
+:CulturalItemNoLocation rdf:type :MusicalWork ;
+                        rdfs:label "Musical Work Without Location"@en ;
+                        :requiresAccessLevel 1 .
+
+# Violation 6: Recording date after restriction date
+:RecordingDateViolation rdf:type :Recording ;
+                        rdfs:label "Recording Date Violation"@en ;
+                        :performedBy :PersonWithoutRole ;
+                        :recordedAt :Baku ;
+                        :recordingDate "2020-01-01"^^xsd:date ;
+                        :restrictionEffectiveDate "2019-12-31"^^xsd:date .
+
+# Additional location for testing
+:Baku rdf:type :Location ;
+      rdfs:label "Baku"@en .
+
+:Shusha rdf:type :Location ;
+        rdfs:label "Shusha"@en .
