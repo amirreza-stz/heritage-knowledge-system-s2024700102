@@ -1,0 +1,1209 @@
+<?xml version="1.0" ?>
+<gexf xmlns:ns0="http://www.gexf.net/1.3/viz" xmlns="http://www.gexf.net/1.3" xmlns:viz="http://www.gexf.net/1.3/viz" version="1.3">
+  <meta lastmodifieddate="2026-01-19">
+    <creator>Heritage Knowledge System Export</creator>
+    <description>Cultural Heritage Knowledge Base Network</description>
+  </meta>
+  <graph mode="static" defaultedgetype="directed">
+    <attributes class="node">
+      <attribute id="type" title="Type" type="string"/>
+      <attribute id="access_level" title="Access Level" type="integer"/>
+    </attributes>
+    <nodes>
+      <node id="n0" label="Dombra Playing Skill">
+        <attvalues>
+          <attvalue for="type" value="InstrumentSkill"/>
+        </attvalues>
+        <ns0:size value="10"/>
+        <ns0:color r="180" g="180" b="180"/>
+      </node>
+      <node id="n1" label="Performer Role">
+        <attvalues>
+          <attvalue for="type" value="PerformerRole"/>
+        </attvalues>
+        <ns0:size value="10"/>
+        <ns0:color r="180" g="180" b="180"/>
+      </node>
+      <node id="n2" label="isCaredForBy">
+        <attvalues>
+          <attvalue for="type" value="Entity"/>
+        </attvalues>
+        <ns0:size value="10"/>
+        <ns0:color r="180" g="180" b="180"/>
+      </node>
+      <node id="n3" label="Viking Heritage Community">
+        <attvalues>
+          <attvalue for="type" value="Community"/>
+        </attvalues>
+        <ns0:size value="14"/>
+        <ns0:color r="150" g="200" b="100"/>
+      </node>
+      <node id="n4" label="ShamanRole">
+        <attvalues>
+          <attvalue for="type" value="Entity"/>
+        </attvalues>
+        <ns0:size value="10"/>
+        <ns0:color r="180" g="180" b="180"/>
+      </node>
+      <node id="n5" label="hasAccessLevel">
+        <attvalues>
+          <attvalue for="type" value="Entity"/>
+        </attvalues>
+        <ns0:size value="10"/>
+        <ns0:color r="180" g="180" b="180"/>
+      </node>
+      <node id="n6" label="Baglama">
+        <attvalues>
+          <attvalue for="type" value="Entity"/>
+        </attvalues>
+        <ns0:size value="10"/>
+        <ns0:color r="180" g="180" b="180"/>
+      </node>
+      <node id="n7" label="playsInstrument">
+        <attvalues>
+          <attvalue for="type" value="Entity"/>
+        </attvalues>
+        <ns0:size value="10"/>
+        <ns0:color r="180" g="180" b="180"/>
+      </node>
+      <node id="n8" label="Dede Role">
+        <attvalues>
+          <attvalue for="type" value="DedeRole"/>
+        </attvalues>
+        <ns0:size value="10"/>
+        <ns0:color r="180" g="180" b="180"/>
+      </node>
+      <node id="n9" label="performedBy">
+        <attvalues>
+          <attvalue for="type" value="Entity"/>
+        </attvalues>
+        <ns0:size value="10"/>
+        <ns0:color r="180" g="180" b="180"/>
+      </node>
+      <node id="n10" label="Traditional Baglama of Shusha">
+        <attvalues>
+          <attvalue for="type" value="Baglama"/>
+        </attvalues>
+        <ns0:size value="10"/>
+        <ns0:color r="180" g="180" b="180"/>
+      </node>
+      <node id="n11" label="Guardian of Qopuz">
+        <attvalues>
+          <attvalue for="type" value="GuardianRole"/>
+        </attvalues>
+        <ns0:size value="10"/>
+        <ns0:color r="180" g="180" b="180"/>
+      </node>
+      <node id="n12" label="recordedAt">
+        <attvalues>
+          <attvalue for="type" value="Entity"/>
+        </attvalues>
+        <ns0:size value="10"/>
+        <ns0:color r="180" g="180" b="180"/>
+      </node>
+      <node id="n13" label="Sacred Shaman Saz of Altai">
+        <attvalues>
+          <attvalue for="type" value="ShamanSaz"/>
+        </attvalues>
+        <ns0:size value="10"/>
+        <ns0:color r="200" g="200" b="100"/>
+      </node>
+      <node id="n14" label="TribalElder">
+        <attvalues>
+          <attvalue for="type" value="Entity"/>
+        </attvalues>
+        <ns0:size value="10"/>
+        <ns0:color r="180" g="180" b="180"/>
+      </node>
+      <node id="n15" label="Harvest Ritual">
+        <attvalues>
+          <attvalue for="type" value="Ritual"/>
+        </attvalues>
+        <ns0:size value="10"/>
+        <ns0:color r="180" g="180" b="180"/>
+      </node>
+      <node id="n16" label="Shusha">
+        <attvalues>
+          <attvalue for="type" value="Location"/>
+        </attvalues>
+        <ns0:size value="12"/>
+        <ns0:color r="200" g="100" b="100"/>
+      </node>
+      <node id="n17" label="InstrumentSkill">
+        <attvalues>
+          <attvalue for="type" value="Entity"/>
+        </attvalues>
+        <ns0:size value="10"/>
+        <ns0:color r="180" g="180" b="180"/>
+      </node>
+      <node id="n18" label="Competency">
+        <attvalues>
+          <attvalue for="type" value="Entity"/>
+        </attvalues>
+        <ns0:size value="10"/>
+        <ns0:color r="180" g="180" b="180"/>
+      </node>
+      <node id="n19" label="Instrument">
+        <attvalues>
+          <attvalue for="type" value="Entity"/>
+        </attvalues>
+        <ns0:size value="10"/>
+        <ns0:color r="180" g="180" b="180"/>
+      </node>
+      <node id="n20" label="Tabriz">
+        <attvalues>
+          <attvalue for="type" value="Location"/>
+        </attvalues>
+        <ns0:size value="12"/>
+        <ns0:color r="200" g="100" b="100"/>
+      </node>
+      <node id="n21" label="Elder Tengri Baatar">
+        <attvalues>
+          <attvalue for="type" value="TribalElder"/>
+        </attvalues>
+        <ns0:size value="20"/>
+        <ns0:color r="100" g="150" b="200"/>
+      </node>
+      <node id="n22" label="Ashiq Role">
+        <attvalues>
+          <attvalue for="type" value="AshiqRole"/>
+        </attvalues>
+        <ns0:size value="10"/>
+        <ns0:color r="180" g="180" b="180"/>
+      </node>
+      <node id="n23" label="CulturalEntity">
+        <attvalues>
+          <attvalue for="type" value="Entity"/>
+        </attvalues>
+        <ns0:size value="10"/>
+        <ns0:color r="180" g="180" b="180"/>
+      </node>
+      <node id="n24" label="Baglama Playing Skill">
+        <attvalues>
+          <attvalue for="type" value="InstrumentSkill"/>
+        </attvalues>
+        <ns0:size value="10"/>
+        <ns0:color r="180" g="180" b="180"/>
+      </node>
+      <node id="n25" label="Ashiq Community">
+        <attvalues>
+          <attvalue for="type" value="Community"/>
+        </attvalues>
+        <ns0:size value="14"/>
+        <ns0:color r="150" g="200" b="100"/>
+      </node>
+      <node id="n26" label="Viking Saga">
+        <attvalues>
+          <attvalue for="type" value="Story"/>
+        </attvalues>
+        <ns0:size value="10"/>
+        <ns0:color r="180" g="180" b="180"/>
+      </node>
+      <node id="n27" label="RitualKnowledge">
+        <attvalues>
+          <attvalue for="type" value="Entity"/>
+        </attvalues>
+        <ns0:size value="10"/>
+        <ns0:color r="180" g="180" b="180"/>
+      </node>
+      <node id="n28" label="caresFor">
+        <attvalues>
+          <attvalue for="type" value="Entity"/>
+        </attvalues>
+        <ns0:size value="10"/>
+        <ns0:color r="180" g="180" b="180"/>
+      </node>
+      <node id="n29" label="Dastan Koroghlu">
+        <attvalues>
+          <attvalue for="type" value="MusicalWork"/>
+        </attvalues>
+        <ns0:size value="10"/>
+        <ns0:color r="180" g="180" b="180"/>
+      </node>
+      <node id="n30" label="Erik Guardian of Viking Collection">
+        <attvalues>
+          <attvalue for="type" value="Person"/>
+        </attvalues>
+        <ns0:size value="15"/>
+        <ns0:color r="100" g="150" b="200"/>
+      </node>
+      <node id="n31" label="Nakhchivan">
+        <attvalues>
+          <attvalue for="type" value="Location"/>
+        </attvalues>
+        <ns0:size value="12"/>
+        <ns0:color r="200" g="100" b="100"/>
+      </node>
+      <node id="n32" label="mentoredBy">
+        <attvalues>
+          <attvalue for="type" value="Entity"/>
+        </attvalues>
+        <ns0:size value="10"/>
+        <ns0:color r="180" g="180" b="180"/>
+      </node>
+      <node id="n33" label="knowsMusicalWork">
+        <attvalues>
+          <attvalue for="type" value="Entity"/>
+        </attvalues>
+        <ns0:size value="10"/>
+        <ns0:color r="180" g="180" b="180"/>
+      </node>
+      <node id="n34" label="Karabakh">
+        <attvalues>
+          <attvalue for="type" value="Location"/>
+        </attvalues>
+        <ns0:size value="12"/>
+        <ns0:color r="200" g="100" b="100"/>
+      </node>
+      <node id="n35" label="Mehdi Guardian of Qopuz">
+        <attvalues>
+          <attvalue for="type" value="Person"/>
+        </attvalues>
+        <ns0:size value="15"/>
+        <ns0:color r="100" g="150" b="200"/>
+      </node>
+      <node id="n36" label="Dombra">
+        <attvalues>
+          <attvalue for="type" value="Entity"/>
+        </attvalues>
+        <ns0:size value="10"/>
+        <ns0:color r="180" g="180" b="180"/>
+      </node>
+      <node id="n37" label="Location">
+        <attvalues>
+          <attvalue for="type" value="Entity"/>
+        </attvalues>
+        <ns0:size value="10"/>
+        <ns0:color r="180" g="180" b="180"/>
+      </node>
+      <node id="n38" label="hasLocatedItem">
+        <attvalues>
+          <attvalue for="type" value="Entity"/>
+        </attvalues>
+        <ns0:size value="10"/>
+        <ns0:color r="180" g="180" b="180"/>
+      </node>
+      <node id="n39" label="Shaman Ritual Knowledge">
+        <attvalues>
+          <attvalue for="type" value="RitualKnowledge"/>
+        </attvalues>
+        <ns0:size value="10"/>
+        <ns0:color r="180" g="180" b="180"/>
+      </node>
+      <node id="n40" label="Altai Shaman Lineage">
+        <attvalues>
+          <attvalue for="type" value="Community"/>
+        </attvalues>
+        <ns0:size value="14"/>
+        <ns0:color r="150" g="200" b="100"/>
+      </node>
+      <node id="n41" label="Ashig Gharib Performance 2020">
+        <attvalues>
+          <attvalue for="type" value="Recording"/>
+        </attvalues>
+        <ns0:size value="10"/>
+        <ns0:color r="180" g="180" b="180"/>
+      </node>
+      <node id="n42" label="hasMember">
+        <attvalues>
+          <attvalue for="type" value="Entity"/>
+        </attvalues>
+        <ns0:size value="10"/>
+        <ns0:color r="180" g="180" b="180"/>
+      </node>
+      <node id="n43" label="Musical Heritage Community">
+        <attvalues>
+          <attvalue for="type" value="Community"/>
+        </attvalues>
+        <ns0:size value="14"/>
+        <ns0:color r="150" g="200" b="100"/>
+      </node>
+      <node id="n44" label="approvedBy">
+        <attvalues>
+          <attvalue for="type" value="Entity"/>
+        </attvalues>
+        <ns0:size value="10"/>
+        <ns0:color r="180" g="180" b="180"/>
+      </node>
+      <node id="n45" label="OzanRole">
+        <attvalues>
+          <attvalue for="type" value="Entity"/>
+        </attvalues>
+        <ns0:size value="10"/>
+        <ns0:color r="180" g="180" b="180"/>
+      </node>
+      <node id="n46" label="hasCompetency">
+        <attvalues>
+          <attvalue for="type" value="Entity"/>
+        </attvalues>
+        <ns0:size value="10"/>
+        <ns0:color r="180" g="180" b="180"/>
+      </node>
+      <node id="n47" label="Guardian of Sacred Collection">
+        <attvalues>
+          <attvalue for="type" value="GuardianRole"/>
+        </attvalues>
+        <ns0:size value="10"/>
+        <ns0:color r="180" g="180" b="180"/>
+      </node>
+      <node id="n48" label="Koroglu Epic 2019">
+        <attvalues>
+          <attvalue for="type" value="Recording"/>
+        </attvalues>
+        <ns0:size value="10"/>
+        <ns0:color r="180" g="180" b="180"/>
+      </node>
+      <node id="n49" label="Oslo">
+        <attvalues>
+          <attvalue for="type" value="Location"/>
+        </attvalues>
+        <ns0:size value="12"/>
+        <ns0:color r="200" g="100" b="100"/>
+      </node>
+      <node id="n50" label="recordingDate">
+        <attvalues>
+          <attvalue for="type" value="Entity"/>
+        </attvalues>
+        <ns0:size value="10"/>
+        <ns0:color r="180" g="180" b="180"/>
+      </node>
+      <node id="n51" label="Master Baglama of Baku">
+        <attvalues>
+          <attvalue for="type" value="Baglama"/>
+        </attvalues>
+        <ns0:size value="10"/>
+        <ns0:color r="180" g="180" b="180"/>
+      </node>
+      <node id="n52" label="Shaman Aylana">
+        <attvalues>
+          <attvalue for="type" value="Person"/>
+        </attvalues>
+        <ns0:size value="15"/>
+        <ns0:color r="100" g="150" b="200"/>
+      </node>
+      <node id="n53" label="hasRole">
+        <attvalues>
+          <attvalue for="type" value="Entity"/>
+        </attvalues>
+        <ns0:size value="10"/>
+        <ns0:color r="180" g="180" b="180"/>
+      </node>
+      <node id="n54" label="requiresAccessLevel">
+        <attvalues>
+          <attvalue for="type" value="Entity"/>
+        </attvalues>
+        <ns0:size value="10"/>
+        <ns0:color r="180" g="180" b="180"/>
+      </node>
+      <node id="n55" label="knowsStory">
+        <attvalues>
+          <attvalue for="type" value="Entity"/>
+        </attvalues>
+        <ns0:size value="10"/>
+        <ns0:color r="180" g="180" b="180"/>
+      </node>
+      <node id="n56" label="AshiqRole">
+        <attvalues>
+          <attvalue for="type" value="Entity"/>
+        </attvalues>
+        <ns0:size value="10"/>
+        <ns0:color r="180" g="180" b="180"/>
+      </node>
+      <node id="n57" label="Guardian Farida">
+        <attvalues>
+          <attvalue for="type" value="Person"/>
+        </attvalues>
+        <ns0:size value="15"/>
+        <ns0:color r="100" g="150" b="200"/>
+      </node>
+      <node id="n58" label="Baglama Recording 2024">
+        <attvalues>
+          <attvalue for="type" value="Recording"/>
+        </attvalues>
+        <ns0:size value="10"/>
+        <ns0:color r="180" g="180" b="180"/>
+      </node>
+      <node id="n59" label="ResearcherRole">
+        <attvalues>
+          <attvalue for="type" value="Entity"/>
+        </attvalues>
+        <ns0:size value="10"/>
+        <ns0:color r="180" g="180" b="180"/>
+      </node>
+      <node id="n60" label="Elder Hasan Dede">
+        <attvalues>
+          <attvalue for="type" value="TribalElder"/>
+        </attvalues>
+        <ns0:size value="20"/>
+        <ns0:color r="100" g="150" b="200"/>
+      </node>
+      <node id="n61" label="The Story of Koroglu">
+        <attvalues>
+          <attvalue for="type" value="Story"/>
+        </attvalues>
+        <ns0:size value="10"/>
+        <ns0:color r="180" g="180" b="180"/>
+      </node>
+      <node id="n62" label="Recording">
+        <attvalues>
+          <attvalue for="type" value="Entity"/>
+        </attvalues>
+        <ns0:size value="10"/>
+        <ns0:color r="180" g="180" b="180"/>
+      </node>
+      <node id="n63" label="Qopuz Playing Skill">
+        <attvalues>
+          <attvalue for="type" value="InstrumentSkill"/>
+        </attvalues>
+        <ns0:size value="10"/>
+        <ns0:color r="180" g="180" b="180"/>
+      </node>
+      <node id="n64" label="Traditional Poetry Skill">
+        <attvalues>
+          <attvalue for="type" value="PoeticSkill"/>
+        </attvalues>
+        <ns0:size value="10"/>
+        <ns0:color r="180" g="180" b="180"/>
+      </node>
+      <node id="n65" label="locatedIn">
+        <attvalues>
+          <attvalue for="type" value="Entity"/>
+        </attvalues>
+        <ns0:size value="10"/>
+        <ns0:color r="180" g="180" b="180"/>
+      </node>
+      <node id="n66" label="Nakhchivan Dombra">
+        <attvalues>
+          <attvalue for="type" value="Dombra"/>
+        </attvalues>
+        <ns0:size value="10"/>
+        <ns0:color r="180" g="180" b="180"/>
+      </node>
+      <node id="n67" label="Spirit Chant of Altai">
+        <attvalues>
+          <attvalue for="type" value="MusicalWork"/>
+        </attvalues>
+        <ns0:size value="10"/>
+        <ns0:color r="180" g="180" b="180"/>
+      </node>
+      <node id="n68" label="Baglama of Tabriz">
+        <attvalues>
+          <attvalue for="type" value="Baglama"/>
+        </attvalues>
+        <ns0:size value="10"/>
+        <ns0:color r="200" g="200" b="100"/>
+      </node>
+      <node id="n69" label="performedInRitual">
+        <attvalues>
+          <attvalue for="type" value="Entity"/>
+        </attvalues>
+        <ns0:size value="10"/>
+        <ns0:color r="180" g="180" b="180"/>
+      </node>
+      <node id="n70" label="Ali Ashiq Tabriz">
+        <attvalues>
+          <attvalue for="type" value="Person"/>
+        </attvalues>
+        <ns0:size value="15"/>
+        <ns0:color r="100" g="150" b="200"/>
+      </node>
+      <node id="n71" label="Story">
+        <attvalues>
+          <attvalue for="type" value="Entity"/>
+        </attvalues>
+        <ns0:size value="10"/>
+        <ns0:color r="180" g="180" b="180"/>
+      </node>
+      <node id="n72" label="hasRecordingAt">
+        <attvalues>
+          <attvalue for="type" value="Entity"/>
+        </attvalues>
+        <ns0:size value="10"/>
+        <ns0:color r="180" g="180" b="180"/>
+      </node>
+      <node id="n73" label="RepertoireKnowledge">
+        <attvalues>
+          <attvalue for="type" value="Entity"/>
+        </attvalues>
+        <ns0:size value="10"/>
+        <ns0:color r="180" g="180" b="180"/>
+      </node>
+      <node id="n74" label="Shaman Ritual Song">
+        <attvalues>
+          <attvalue for="type" value="MusicalWork"/>
+        </attvalues>
+        <ns0:size value="10"/>
+        <ns0:color r="180" g="180" b="180"/>
+      </node>
+      <node id="n75" label="Epic Storytelling Knowledge">
+        <attvalues>
+          <attvalue for="type" value="StorytellingKnowledge"/>
+        </attvalues>
+        <ns0:size value="10"/>
+        <ns0:color r="180" g="180" b="180"/>
+      </node>
+      <node id="n76" label="Ozan Role">
+        <attvalues>
+          <attvalue for="type" value="OzanRole"/>
+        </attvalues>
+        <ns0:size value="10"/>
+        <ns0:color r="180" g="180" b="180"/>
+      </node>
+      <node id="n77" label="Spring Ritual">
+        <attvalues>
+          <attvalue for="type" value="Ritual"/>
+        </attvalues>
+        <ns0:size value="10"/>
+        <ns0:color r="180" g="180" b="180"/>
+      </node>
+      <node id="n78" label="Academic Research Community">
+        <attvalues>
+          <attvalue for="type" value="Community"/>
+        </attvalues>
+        <ns0:size value="14"/>
+        <ns0:color r="150" g="200" b="100"/>
+      </node>
+      <node id="n79" label="Ashiq Hava of Tabriz">
+        <attvalues>
+          <attvalue for="type" value="MusicalWork"/>
+        </attvalues>
+        <ns0:size value="10"/>
+        <ns0:color r="180" g="180" b="180"/>
+      </node>
+      <node id="n80" label="Karabakh Dombra">
+        <attvalues>
+          <attvalue for="type" value="Dombra"/>
+        </attvalues>
+        <ns0:size value="10"/>
+        <ns0:color r="180" g="180" b="180"/>
+      </node>
+      <node id="n81" label="Arman Guardian of Shaman Saz">
+        <attvalues>
+          <attvalue for="type" value="Person"/>
+        </attvalues>
+        <ns0:size value="15"/>
+        <ns0:color r="100" g="150" b="200"/>
+      </node>
+      <node id="n82" label="Baku">
+        <attvalues>
+          <attvalue for="type" value="Location"/>
+        </attvalues>
+        <ns0:size value="12"/>
+        <ns0:color r="200" g="100" b="100"/>
+      </node>
+      <node id="n83" label="SacredItem">
+        <attvalues>
+          <attvalue for="type" value="Entity"/>
+        </attvalues>
+        <ns0:size value="10"/>
+        <ns0:color r="180" g="180" b="180"/>
+      </node>
+      <node id="n84" label="Elder Ali">
+        <attvalues>
+          <attvalue for="type" value="TribalElder"/>
+        </attvalues>
+        <ns0:size value="20"/>
+        <ns0:color r="100" g="150" b="200"/>
+      </node>
+      <node id="n85" label="DedeRole">
+        <attvalues>
+          <attvalue for="type" value="Entity"/>
+        </attvalues>
+        <ns0:size value="10"/>
+        <ns0:color r="180" g="180" b="180"/>
+      </node>
+      <node id="n86" label="Leyli and Majnoon">
+        <attvalues>
+          <attvalue for="type" value="MusicalWork"/>
+        </attvalues>
+        <ns0:size value="10"/>
+        <ns0:color r="180" g="180" b="180"/>
+      </node>
+      <node id="n87" label="Ashiq Majlis">
+        <attvalues>
+          <attvalue for="type" value="Ritual"/>
+        </attvalues>
+        <ns0:size value="10"/>
+        <ns0:color r="180" g="180" b="180"/>
+      </node>
+      <node id="n88" label="Community">
+        <attvalues>
+          <attvalue for="type" value="Entity"/>
+        </attvalues>
+        <ns0:size value="10"/>
+        <ns0:color r="180" g="180" b="180"/>
+      </node>
+      <node id="n89" label="MusicalWork">
+        <attvalues>
+          <attvalue for="type" value="Entity"/>
+        </attvalues>
+        <ns0:size value="10"/>
+        <ns0:color r="180" g="180" b="180"/>
+      </node>
+      <node id="n90" label="usesInstrument">
+        <attvalues>
+          <attvalue for="type" value="Entity"/>
+        </attvalues>
+        <ns0:size value="10"/>
+        <ns0:color r="180" g="180" b="180"/>
+      </node>
+      <node id="n91" label="Bolat Guardian of Shaman Saz">
+        <attvalues>
+          <attvalue for="type" value="Person"/>
+        </attvalues>
+        <ns0:size value="15"/>
+        <ns0:color r="100" g="150" b="200"/>
+      </node>
+      <node id="n92" label="Guardian of Shaman Saz">
+        <attvalues>
+          <attvalue for="type" value="GuardianRole"/>
+        </attvalues>
+        <ns0:size value="10"/>
+        <ns0:color r="180" g="180" b="180"/>
+      </node>
+      <node id="n93" label="Dombra of Tabriz">
+        <attvalues>
+          <attvalue for="type" value="Dombra"/>
+        </attvalues>
+        <ns0:size value="10"/>
+        <ns0:color r="200" g="200" b="100"/>
+      </node>
+      <node id="n94" label="restrictionEffectiveDate">
+        <attvalues>
+          <attvalue for="type" value="Entity"/>
+        </attvalues>
+        <ns0:size value="10"/>
+        <ns0:color r="180" g="180" b="180"/>
+      </node>
+      <node id="n95" label="Altai">
+        <attvalues>
+          <attvalue for="type" value="Location"/>
+        </attvalues>
+        <ns0:size value="12"/>
+        <ns0:color r="200" g="100" b="100"/>
+      </node>
+      <node id="n96" label="Koroglu">
+        <attvalues>
+          <attvalue for="type" value="MusicalWork"/>
+        </attvalues>
+        <ns0:size value="10"/>
+        <ns0:color r="180" g="180" b="180"/>
+      </node>
+      <node id="n97" label="CulturalItem">
+        <attvalues>
+          <attvalue for="type" value="Entity"/>
+        </attvalues>
+        <ns0:size value="10"/>
+        <ns0:color r="180" g="180" b="180"/>
+      </node>
+      <node id="n98" label="Shaman Saz Recording 2026">
+        <attvalues>
+          <attvalue for="type" value="Recording"/>
+        </attvalues>
+        <ns0:size value="10"/>
+        <ns0:color r="180" g="180" b="180"/>
+      </node>
+      <node id="n99" label="PoeticSkill">
+        <attvalues>
+          <attvalue for="type" value="Entity"/>
+        </attvalues>
+        <ns0:size value="10"/>
+        <ns0:color r="180" g="180" b="180"/>
+      </node>
+      <node id="n100" label="Shaman Ritual 2021">
+        <attvalues>
+          <attvalue for="type" value="Recording"/>
+        </attvalues>
+        <ns0:size value="10"/>
+        <ns0:color r="180" g="180" b="180"/>
+      </node>
+      <node id="n101" label="Ritual">
+        <attvalues>
+          <attvalue for="type" value="Entity"/>
+        </attvalues>
+        <ns0:size value="10"/>
+        <ns0:color r="180" g="180" b="180"/>
+      </node>
+      <node id="n102" label="Istanbul">
+        <attvalues>
+          <attvalue for="type" value="Location"/>
+        </attvalues>
+        <ns0:size value="12"/>
+        <ns0:color r="200" g="100" b="100"/>
+      </node>
+      <node id="n103" label="Ashiq Community Azerbaijan">
+        <attvalues>
+          <attvalue for="type" value="Community"/>
+        </attvalues>
+        <ns0:size value="14"/>
+        <ns0:color r="150" g="200" b="100"/>
+      </node>
+      <node id="n104" label="Performer Emil">
+        <attvalues>
+          <attvalue for="type" value="Person"/>
+        </attvalues>
+        <ns0:size value="15"/>
+        <ns0:color r="100" g="150" b="200"/>
+      </node>
+      <node id="n105" label="Researcher Leyla">
+        <attvalues>
+          <attvalue for="type" value="Person"/>
+        </attvalues>
+        <ns0:size value="15"/>
+        <ns0:color r="100" g="150" b="200"/>
+      </node>
+      <node id="n106" label="Classical Repertoire Knowledge">
+        <attvalues>
+          <attvalue for="type" value="RepertoireKnowledge"/>
+        </attvalues>
+        <ns0:size value="10"/>
+        <ns0:color r="180" g="180" b="180"/>
+      </node>
+      <node id="n107" label="Story of Dede Korkut">
+        <attvalues>
+          <attvalue for="type" value="Story"/>
+        </attvalues>
+        <ns0:size value="10"/>
+        <ns0:color r="180" g="180" b="180"/>
+      </node>
+      <node id="n108" label="Spring Ritual Performance 2020">
+        <attvalues>
+          <attvalue for="type" value="Recording"/>
+        </attvalues>
+        <ns0:size value="10"/>
+        <ns0:color r="180" g="180" b="180"/>
+      </node>
+      <node id="n109" label="The Story of Ashig Gharib">
+        <attvalues>
+          <attvalue for="type" value="Story"/>
+        </attvalues>
+        <ns0:size value="10"/>
+        <ns0:color r="180" g="180" b="180"/>
+      </node>
+      <node id="n110" label="Sacred Qopuz of Tabriz">
+        <attvalues>
+          <attvalue for="type" value="Qopuz"/>
+        </attvalues>
+        <ns0:size value="10"/>
+        <ns0:color r="200" g="200" b="100"/>
+      </node>
+      <node id="n111" label="memberOfCommunity">
+        <attvalues>
+          <attvalue for="type" value="Entity"/>
+        </attvalues>
+        <ns0:size value="10"/>
+        <ns0:color r="180" g="180" b="180"/>
+      </node>
+      <node id="n112" label="Qopuz">
+        <attvalues>
+          <attvalue for="type" value="Entity"/>
+        </attvalues>
+        <ns0:size value="10"/>
+        <ns0:color r="180" g="180" b="180"/>
+      </node>
+      <node id="n113" label="Kamran Ozan">
+        <attvalues>
+          <attvalue for="type" value="Person"/>
+        </attvalues>
+        <ns0:size value="15"/>
+        <ns0:color r="100" g="150" b="200"/>
+      </node>
+      <node id="n114" label="Ritual Shaman Saz of Nakhchivan">
+        <attvalues>
+          <attvalue for="type" value="ShamanSaz"/>
+        </attvalues>
+        <ns0:size value="10"/>
+        <ns0:color r="180" g="180" b="180"/>
+      </node>
+      <node id="n115" label="Ashiq Rashid">
+        <attvalues>
+          <attvalue for="type" value="Person"/>
+        </attvalues>
+        <ns0:size value="15"/>
+        <ns0:color r="100" g="150" b="200"/>
+      </node>
+      <node id="n116" label="Ashiq Nigar">
+        <attvalues>
+          <attvalue for="type" value="Person"/>
+        </attvalues>
+        <ns0:size value="15"/>
+        <ns0:color r="100" g="150" b="200"/>
+      </node>
+      <node id="n117" label="Spirit Journey">
+        <attvalues>
+          <attvalue for="type" value="Story"/>
+        </attvalues>
+        <ns0:size value="10"/>
+        <ns0:color r="180" g="180" b="180"/>
+      </node>
+      <node id="n118" label="Shaman Community">
+        <attvalues>
+          <attvalue for="type" value="Community"/>
+        </attvalues>
+        <ns0:size value="14"/>
+        <ns0:color r="150" g="200" b="100"/>
+      </node>
+      <node id="n119" label="StorytellingKnowledge">
+        <attvalues>
+          <attvalue for="type" value="Entity"/>
+        </attvalues>
+        <ns0:size value="10"/>
+        <ns0:color r="180" g="180" b="180"/>
+      </node>
+      <node id="n120" label="Researcher Role">
+        <attvalues>
+          <attvalue for="type" value="ResearcherRole"/>
+        </attvalues>
+        <ns0:size value="10"/>
+        <ns0:color r="180" g="180" b="180"/>
+      </node>
+      <node id="n121" label="Person">
+        <attvalues>
+          <attvalue for="type" value="Entity"/>
+        </attvalues>
+        <ns0:size value="10"/>
+        <ns0:color r="180" g="180" b="180"/>
+      </node>
+      <node id="n122" label="Folk Tune of Baku">
+        <attvalues>
+          <attvalue for="type" value="MusicalWork"/>
+        </attvalues>
+        <ns0:size value="10"/>
+        <ns0:color r="180" g="180" b="180"/>
+      </node>
+      <node id="n123" label="Elder Sigurd">
+        <attvalues>
+          <attvalue for="type" value="TribalElder"/>
+        </attvalues>
+        <ns0:size value="20"/>
+        <ns0:color r="100" g="150" b="200"/>
+      </node>
+      <node id="n124" label="Qopuz Recording 2026 (VIOLATION)">
+        <attvalues>
+          <attvalue for="type" value="Recording"/>
+        </attvalues>
+        <ns0:size value="10"/>
+        <ns0:color r="180" g="180" b="180"/>
+      </node>
+      <node id="n125" label="approves">
+        <attvalues>
+          <attvalue for="type" value="Entity"/>
+        </attvalues>
+        <ns0:size value="10"/>
+        <ns0:color r="180" g="180" b="180"/>
+      </node>
+      <node id="n126" label="Role">
+        <attvalues>
+          <attvalue for="type" value="Entity"/>
+        </attvalues>
+        <ns0:size value="10"/>
+        <ns0:color r="180" g="180" b="180"/>
+      </node>
+      <node id="n127" label="PerformerRole">
+        <attvalues>
+          <attvalue for="type" value="Entity"/>
+        </attvalues>
+        <ns0:size value="10"/>
+        <ns0:color r="180" g="180" b="180"/>
+      </node>
+      <node id="n128" label="humanApproval">
+        <attvalues>
+          <attvalue for="type" value="Entity"/>
+        </attvalues>
+        <ns0:size value="10"/>
+        <ns0:color r="180" g="180" b="180"/>
+      </node>
+      <node id="n129" label="Sacred Qopuz of Ganja">
+        <attvalues>
+          <attvalue for="type" value="SacredItem"/>
+        </attvalues>
+        <ns0:size value="10"/>
+        <ns0:color r="180" g="180" b="180"/>
+      </node>
+      <node id="n130" label="Mustafa Dede">
+        <attvalues>
+          <attvalue for="type" value="Person"/>
+        </attvalues>
+        <ns0:size value="15"/>
+        <ns0:color r="100" g="150" b="200"/>
+      </node>
+      <node id="n131" label="ShamanSaz">
+        <attvalues>
+          <attvalue for="type" value="Entity"/>
+        </attvalues>
+        <ns0:size value="10"/>
+        <ns0:color r="180" g="180" b="180"/>
+      </node>
+      <node id="n132" label="Ayla Shaman">
+        <attvalues>
+          <attvalue for="type" value="Person"/>
+        </attvalues>
+        <ns0:size value="15"/>
+        <ns0:color r="100" g="150" b="200"/>
+      </node>
+      <node id="n133" label="Ashig Gharib">
+        <attvalues>
+          <attvalue for="type" value="MusicalWork"/>
+        </attvalues>
+        <ns0:size value="10"/>
+        <ns0:color r="180" g="180" b="180"/>
+      </node>
+      <node id="n134" label="Leyli and Majnoon 2022">
+        <attvalues>
+          <attvalue for="type" value="Recording"/>
+        </attvalues>
+        <ns0:size value="10"/>
+        <ns0:color r="180" g="180" b="180"/>
+      </node>
+      <node id="n135" label="isRoleOf">
+        <attvalues>
+          <attvalue for="type" value="Entity"/>
+        </attvalues>
+        <ns0:size value="10"/>
+        <ns0:color r="180" g="180" b="180"/>
+      </node>
+      <node id="n136" label="SpiritualGuardian">
+        <attvalues>
+          <attvalue for="type" value="Entity"/>
+        </attvalues>
+        <ns0:size value="10"/>
+        <ns0:color r="180" g="180" b="180"/>
+      </node>
+      <node id="n137" label="Ancient Qopuz of Ganja">
+        <attvalues>
+          <attvalue for="type" value="Qopuz"/>
+        </attvalues>
+        <ns0:size value="10"/>
+        <ns0:color r="180" g="180" b="180"/>
+      </node>
+      <node id="n138" label="hasRecording">
+        <attvalues>
+          <attvalue for="type" value="Entity"/>
+        </attvalues>
+        <ns0:size value="10"/>
+        <ns0:color r="180" g="180" b="180"/>
+      </node>
+      <node id="n139" label="Sacred Baglama of Shusha">
+        <attvalues>
+          <attvalue for="type" value="SacredItem"/>
+        </attvalues>
+        <ns0:size value="10"/>
+        <ns0:color r="180" g="180" b="180"/>
+      </node>
+      <node id="n140" label="Shaman Role">
+        <attvalues>
+          <attvalue for="type" value="ShamanRole"/>
+        </attvalues>
+        <ns0:size value="10"/>
+        <ns0:color r="180" g="180" b="180"/>
+      </node>
+      <node id="n141" label="Researcher Lina">
+        <attvalues>
+          <attvalue for="type" value="Person"/>
+        </attvalues>
+        <ns0:size value="15"/>
+        <ns0:color r="100" g="150" b="200"/>
+      </node>
+      <node id="n142" label="Zahra Guardian of Qopuz">
+        <attvalues>
+          <attvalue for="type" value="Person"/>
+        </attvalues>
+        <ns0:size value="15"/>
+        <ns0:color r="100" g="150" b="200"/>
+      </node>
+      <node id="n143" label="Shaman Healing Ritual">
+        <attvalues>
+          <attvalue for="type" value="Ritual"/>
+        </attvalues>
+        <ns0:size value="10"/>
+        <ns0:color r="180" g="180" b="180"/>
+      </node>
+      <node id="n144" label="Ganja">
+        <attvalues>
+          <attvalue for="type" value="Location"/>
+        </attvalues>
+        <ns0:size value="12"/>
+        <ns0:color r="200" g="100" b="100"/>
+      </node>
+      <node id="n145" label="GuardianRole">
+        <attvalues>
+          <attvalue for="type" value="Entity"/>
+        </attvalues>
+        <ns0:size value="10"/>
+        <ns0:color r="180" g="180" b="180"/>
+      </node>
+    </nodes>
+    <edges>
+      <edge id="e0" source="n84" target="n8" label="hasRole" weight="1.0"/>
+      <edge id="e1" source="n130" target="n8" label="hasRole" weight="1.0"/>
+      <edge id="e2" source="n115" target="n22" label="hasRole" weight="1.0"/>
+      <edge id="e3" source="n116" target="n22" label="hasRole" weight="1.0"/>
+      <edge id="e4" source="n70" target="n22" label="hasRole" weight="1.0"/>
+      <edge id="e5" source="n116" target="n76" label="hasRole" weight="1.0"/>
+      <edge id="e6" source="n113" target="n76" label="hasRole" weight="1.0"/>
+      <edge id="e7" source="n52" target="n140" label="hasRole" weight="1.0"/>
+      <edge id="e8" source="n132" target="n140" label="hasRole" weight="1.0"/>
+      <edge id="e9" source="n57" target="n11" label="hasRole" weight="1.0"/>
+      <edge id="e10" source="n35" target="n11" label="hasRole" weight="1.0"/>
+      <edge id="e11" source="n142" target="n11" label="hasRole" weight="1.0"/>
+      <edge id="e12" source="n105" target="n120" label="hasRole" weight="1.0"/>
+      <edge id="e13" source="n141" target="n120" label="hasRole" weight="1.0"/>
+      <edge id="e14" source="n104" target="n1" label="hasRole" weight="1.0"/>
+      <edge id="e15" source="n81" target="n92" label="hasRole" weight="1.0"/>
+      <edge id="e16" source="n91" target="n92" label="hasRole" weight="1.0"/>
+      <edge id="e17" source="n30" target="n47" label="hasRole" weight="1.0"/>
+      <edge id="e18" source="n84" target="n25" label="memberOfCommunity" weight="1.0"/>
+      <edge id="e19" source="n115" target="n25" label="memberOfCommunity" weight="1.0"/>
+      <edge id="e20" source="n116" target="n25" label="memberOfCommunity" weight="1.0"/>
+      <edge id="e21" source="n104" target="n25" label="memberOfCommunity" weight="1.0"/>
+      <edge id="e22" source="n60" target="n103" label="memberOfCommunity" weight="1.0"/>
+      <edge id="e23" source="n70" target="n103" label="memberOfCommunity" weight="1.0"/>
+      <edge id="e24" source="n113" target="n103" label="memberOfCommunity" weight="1.0"/>
+      <edge id="e25" source="n130" target="n103" label="memberOfCommunity" weight="1.0"/>
+      <edge id="e26" source="n35" target="n103" label="memberOfCommunity" weight="1.0"/>
+      <edge id="e27" source="n142" target="n103" label="memberOfCommunity" weight="1.0"/>
+      <edge id="e28" source="n21" target="n40" label="memberOfCommunity" weight="1.0"/>
+      <edge id="e29" source="n132" target="n40" label="memberOfCommunity" weight="1.0"/>
+      <edge id="e30" source="n81" target="n40" label="memberOfCommunity" weight="1.0"/>
+      <edge id="e31" source="n91" target="n40" label="memberOfCommunity" weight="1.0"/>
+      <edge id="e32" source="n123" target="n3" label="memberOfCommunity" weight="1.0"/>
+      <edge id="e33" source="n30" target="n3" label="memberOfCommunity" weight="1.0"/>
+      <edge id="e34" source="n52" target="n118" label="memberOfCommunity" weight="1.0"/>
+      <edge id="e35" source="n57" target="n43" label="memberOfCommunity" weight="1.0"/>
+      <edge id="e36" source="n105" target="n43" label="memberOfCommunity" weight="1.0"/>
+      <edge id="e37" source="n141" target="n78" label="memberOfCommunity" weight="1.0"/>
+      <edge id="e38" source="n115" target="n10" label="playsInstrument" weight="1.0"/>
+      <edge id="e39" source="n115" target="n80" label="playsInstrument" weight="1.0"/>
+      <edge id="e40" source="n116" target="n51" label="playsInstrument" weight="1.0"/>
+      <edge id="e41" source="n104" target="n51" label="playsInstrument" weight="1.0"/>
+      <edge id="e42" source="n116" target="n137" label="playsInstrument" weight="1.0"/>
+      <edge id="e43" source="n52" target="n114" label="playsInstrument" weight="1.0"/>
+      <edge id="e44" source="n70" target="n110" label="playsInstrument" weight="1.0"/>
+      <edge id="e45" source="n113" target="n110" label="playsInstrument" weight="1.0"/>
+      <edge id="e46" source="n35" target="n110" label="playsInstrument" weight="1.0"/>
+      <edge id="e47" source="n70" target="n68" label="playsInstrument" weight="1.0"/>
+      <edge id="e48" source="n132" target="n13" label="playsInstrument" weight="1.0"/>
+      <edge id="e49" source="n84" target="n133" label="knowsMusicalWork" weight="1.0"/>
+      <edge id="e50" source="n115" target="n133" label="knowsMusicalWork" weight="1.0"/>
+      <edge id="e51" source="n116" target="n133" label="knowsMusicalWork" weight="1.0"/>
+      <edge id="e52" source="n105" target="n133" label="knowsMusicalWork" weight="1.0"/>
+      <edge id="e53" source="n104" target="n133" label="knowsMusicalWork" weight="1.0"/>
+      <edge id="e54" source="n84" target="n96" label="knowsMusicalWork" weight="1.0"/>
+      <edge id="e55" source="n115" target="n96" label="knowsMusicalWork" weight="1.0"/>
+      <edge id="e56" source="n105" target="n96" label="knowsMusicalWork" weight="1.0"/>
+      <edge id="e57" source="n116" target="n86" label="knowsMusicalWork" weight="1.0"/>
+      <edge id="e58" source="n105" target="n86" label="knowsMusicalWork" weight="1.0"/>
+      <edge id="e59" source="n52" target="n74" label="knowsMusicalWork" weight="1.0"/>
+      <edge id="e60" source="n70" target="n29" label="knowsMusicalWork" weight="1.0"/>
+      <edge id="e61" source="n70" target="n79" label="knowsMusicalWork" weight="1.0"/>
+      <edge id="e62" source="n113" target="n122" label="knowsMusicalWork" weight="1.0"/>
+      <edge id="e63" source="n132" target="n67" label="knowsMusicalWork" weight="1.0"/>
+      <edge id="e64" source="n84" target="n109" label="knowsStory" weight="1.0"/>
+      <edge id="e65" source="n115" target="n109" label="knowsStory" weight="1.0"/>
+      <edge id="e66" source="n105" target="n109" label="knowsStory" weight="1.0"/>
+      <edge id="e67" source="n84" target="n61" label="knowsStory" weight="1.0"/>
+      <edge id="e68" source="n116" target="n61" label="knowsStory" weight="1.0"/>
+      <edge id="e69" source="n105" target="n61" label="knowsStory" weight="1.0"/>
+      <edge id="e70" source="n70" target="n107" label="knowsStory" weight="1.0"/>
+      <edge id="e71" source="n130" target="n107" label="knowsStory" weight="1.0"/>
+      <edge id="e72" source="n141" target="n107" label="knowsStory" weight="1.0"/>
+      <edge id="e73" source="n132" target="n117" label="knowsStory" weight="1.0"/>
+      <edge id="e74" source="n141" target="n26" label="knowsStory" weight="1.0"/>
+      <edge id="e75" source="n115" target="n77" label="performedInRitual" weight="1.0"/>
+      <edge id="e76" source="n52" target="n77" label="performedInRitual" weight="1.0"/>
+      <edge id="e77" source="n52" target="n15" label="performedInRitual" weight="1.0"/>
+      <edge id="e78" source="n70" target="n87" label="performedInRitual" weight="1.0"/>
+      <edge id="e79" source="n132" target="n143" label="performedInRitual" weight="1.0"/>
+      <edge id="e80" source="n84" target="n139" label="caresFor" weight="1.0"/>
+      <edge id="e81" source="n57" target="n139" label="caresFor" weight="1.0"/>
+      <edge id="e82" source="n115" target="n10" label="caresFor" weight="1.0"/>
+      <edge id="e83" source="n115" target="n80" label="caresFor" weight="1.0"/>
+      <edge id="e84" source="n52" target="n114" label="caresFor" weight="1.0"/>
+      <edge id="e85" source="n52" target="n129" label="caresFor" weight="1.0"/>
+      <edge id="e86" source="n57" target="n129" label="caresFor" weight="1.0"/>
+      <edge id="e87" source="n35" target="n110" label="caresFor" weight="1.0"/>
+      <edge id="e88" source="n142" target="n110" label="caresFor" weight="1.0"/>
+      <edge id="e89" source="n30" target="n110" label="caresFor" weight="1.0"/>
+      <edge id="e90" source="n81" target="n13" label="caresFor" weight="1.0"/>
+      <edge id="e91" source="n91" target="n13" label="caresFor" weight="1.0"/>
+      <edge id="e92" source="n115" target="n24" label="hasCompetency" weight="1.0"/>
+      <edge id="e93" source="n116" target="n24" label="hasCompetency" weight="1.0"/>
+      <edge id="e94" source="n104" target="n24" label="hasCompetency" weight="1.0"/>
+      <edge id="e95" source="n70" target="n24" label="hasCompetency" weight="1.0"/>
+      <edge id="e96" source="n115" target="n0" label="hasCompetency" weight="1.0"/>
+      <edge id="e97" source="n115" target="n64" label="hasCompetency" weight="1.0"/>
+      <edge id="e98" source="n116" target="n64" label="hasCompetency" weight="1.0"/>
+      <edge id="e99" source="n115" target="n106" label="hasCompetency" weight="1.0"/>
+      <edge id="e100" source="n116" target="n63" label="hasCompetency" weight="1.0"/>
+      <edge id="e101" source="n70" target="n63" label="hasCompetency" weight="1.0"/>
+      <edge id="e102" source="n116" target="n75" label="hasCompetency" weight="1.0"/>
+      <edge id="e103" source="n52" target="n39" label="hasCompetency" weight="1.0"/>
+      <edge id="e104" source="n116" target="n115" label="mentoredBy" weight="1.0"/>
+      <edge id="e105" source="n104" target="n115" label="mentoredBy" weight="1.0"/>
+      <edge id="e106" source="n115" target="n84" label="approvedBy" weight="1.0"/>
+      <edge id="e107" source="n116" target="n84" label="approvedBy" weight="1.0"/>
+      <edge id="e108" source="n70" target="n60" label="approvedBy" weight="1.0"/>
+      <edge id="e109" source="n130" target="n60" label="approvedBy" weight="1.0"/>
+      <edge id="e110" source="n142" target="n60" label="approvedBy" weight="1.0"/>
+      <edge id="e111" source="n132" target="n21" label="approvedBy" weight="1.0"/>
+      <edge id="e112" source="n91" target="n21" label="approvedBy" weight="1.0"/>
+      <edge id="e113" source="n41" target="n115" label="performedBy" weight="1.0"/>
+      <edge id="e114" source="n108" target="n115" label="performedBy" weight="1.0"/>
+      <edge id="e115" source="n48" target="n116" label="performedBy" weight="1.0"/>
+      <edge id="e116" source="n134" target="n116" label="performedBy" weight="1.0"/>
+      <edge id="e117" source="n100" target="n52" label="performedBy" weight="1.0"/>
+      <edge id="e118" source="n108" target="n52" label="performedBy" weight="1.0"/>
+      <edge id="e119" source="n124" target="n35" label="performedBy" weight="1.0"/>
+      <edge id="e120" source="n58" target="n70" label="performedBy" weight="1.0"/>
+      <edge id="e121" source="n98" target="n132" label="performedBy" weight="1.0"/>
+      <edge id="e122" source="n41" target="n10" label="usesInstrument" weight="1.0"/>
+      <edge id="e123" source="n108" target="n10" label="usesInstrument" weight="1.0"/>
+      <edge id="e124" source="n41" target="n80" label="usesInstrument" weight="1.0"/>
+      <edge id="e125" source="n48" target="n51" label="usesInstrument" weight="1.0"/>
+      <edge id="e126" source="n48" target="n137" label="usesInstrument" weight="1.0"/>
+      <edge id="e127" source="n134" target="n137" label="usesInstrument" weight="1.0"/>
+      <edge id="e128" source="n100" target="n114" label="usesInstrument" weight="1.0"/>
+      <edge id="e129" source="n108" target="n114" label="usesInstrument" weight="1.0"/>
+      <edge id="e130" source="n124" target="n110" label="usesInstrument" weight="1.0"/>
+      <edge id="e131" source="n58" target="n68" label="usesInstrument" weight="1.0"/>
+      <edge id="e132" source="n98" target="n13" label="usesInstrument" weight="1.0"/>
+      <edge id="e133" source="n41" target="n16" label="recordedAt" weight="1.0"/>
+      <edge id="e134" source="n48" target="n34" label="recordedAt" weight="1.0"/>
+      <edge id="e135" source="n100" target="n31" label="recordedAt" weight="1.0"/>
+      <edge id="e136" source="n108" target="n31" label="recordedAt" weight="1.0"/>
+      <edge id="e137" source="n134" target="n144" label="recordedAt" weight="1.0"/>
+      <edge id="e138" source="n124" target="n20" label="recordedAt" weight="1.0"/>
+      <edge id="e139" source="n58" target="n102" label="recordedAt" weight="1.0"/>
+      <edge id="e140" source="n98" target="n95" label="recordedAt" weight="1.0"/>
+      <edge id="e141" source="n10" target="n16" label="locatedIn" weight="1.0"/>
+      <edge id="e142" source="n133" target="n16" label="locatedIn" weight="1.0"/>
+      <edge id="e143" source="n109" target="n16" label="locatedIn" weight="1.0"/>
+      <edge id="e144" source="n139" target="n16" label="locatedIn" weight="1.0"/>
+      <edge id="e145" source="n51" target="n82" label="locatedIn" weight="1.0"/>
+      <edge id="e146" source="n122" target="n82" label="locatedIn" weight="1.0"/>
+      <edge id="e147" source="n80" target="n34" label="locatedIn" weight="1.0"/>
+      <edge id="e148" source="n96" target="n34" label="locatedIn" weight="1.0"/>
+      <edge id="e149" source="n61" target="n34" label="locatedIn" weight="1.0"/>
+      <edge id="e150" source="n15" target="n34" label="locatedIn" weight="1.0"/>
+      <edge id="e151" source="n66" target="n31" label="locatedIn" weight="1.0"/>
+      <edge id="e152" source="n114" target="n31" label="locatedIn" weight="1.0"/>
+      <edge id="e153" source="n74" target="n31" label="locatedIn" weight="1.0"/>
+      <edge id="e154" source="n77" target="n31" label="locatedIn" weight="1.0"/>
+      <edge id="e155" source="n137" target="n144" label="locatedIn" weight="1.0"/>
+      <edge id="e156" source="n86" target="n144" label="locatedIn" weight="1.0"/>
+      <edge id="e157" source="n129" target="n144" label="locatedIn" weight="1.0"/>
+      <edge id="e158" source="n110" target="n20" label="locatedIn" weight="1.0"/>
+      <edge id="e159" source="n68" target="n20" label="locatedIn" weight="1.0"/>
+      <edge id="e160" source="n93" target="n20" label="locatedIn" weight="1.0"/>
+      <edge id="e161" source="n29" target="n20" label="locatedIn" weight="1.0"/>
+      <edge id="e162" source="n79" target="n20" label="locatedIn" weight="1.0"/>
+      <edge id="e163" source="n107" target="n20" label="locatedIn" weight="1.0"/>
+      <edge id="e164" source="n87" target="n20" label="locatedIn" weight="1.0"/>
+      <edge id="e165" source="n13" target="n95" label="locatedIn" weight="1.0"/>
+      <edge id="e166" source="n67" target="n95" label="locatedIn" weight="1.0"/>
+      <edge id="e167" source="n117" target="n95" label="locatedIn" weight="1.0"/>
+      <edge id="e168" source="n143" target="n95" label="locatedIn" weight="1.0"/>
+      <edge id="e169" source="n26" target="n49" label="locatedIn" weight="1.0"/>
+    </edges>
+  </graph>
+</gexf>

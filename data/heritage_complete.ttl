@@ -1,0 +1,1022 @@
+@prefix : <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage/> .
+
+<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage> rdf:type owl:Ontology .
+
+#################################################################
+#    Datatypes
+#################################################################
+
+###  http://www.w3.org/2001/XMLSchema#date
+xsd:date rdf:type rdfs:Datatype .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#approvedBy
+:approvedBy rdf:type owl:ObjectProperty ;
+            rdfs:subPropertyOf owl:topObjectProperty ;
+            owl:inverseOf :approves ;
+            rdfs:domain :Person ;
+            rdfs:range :TribalElder .
+
+
+###  http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#approves
+:approves rdf:type owl:ObjectProperty ;
+          rdfs:domain :TribalElder ;
+          rdfs:range :Person .
+
+
+###  http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#caresFor
+:caresFor rdf:type owl:ObjectProperty ;
+          rdfs:domain :Person ;
+          rdfs:range :CulturalItem .
+
+
+###  http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#hasCompetency
+:hasCompetency rdf:type owl:ObjectProperty ;
+               rdfs:domain :Person ;
+               rdfs:range :Competency .
+
+
+###  http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#hasLocatedItem
+:hasLocatedItem rdf:type owl:ObjectProperty ;
+                owl:inverseOf :locatedIn ;
+                rdfs:domain :Location ;
+                rdfs:range :CulturalItem .
+
+
+###  http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#hasMember
+:hasMember rdf:type owl:ObjectProperty ;
+           owl:inverseOf :memberOfCommunity ;
+           rdfs:domain :Community ;
+           rdfs:range :Person .
+
+
+###  http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#hasRecording
+:hasRecording rdf:type owl:ObjectProperty ;
+              owl:inverseOf :performedBy ;
+              rdfs:domain :Person ;
+              rdfs:range :Recording .
+
+
+###  http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#hasRecordingAt
+:hasRecordingAt rdf:type owl:ObjectProperty ;
+                owl:inverseOf :recordedAt ;
+                rdfs:domain :Location ;
+                rdfs:range :Recording .
+
+
+###  http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#hasRole
+:hasRole rdf:type owl:ObjectProperty ;
+         owl:inverseOf :isRoleOf ;
+         rdfs:domain :Person ;
+         rdfs:range :Role .
+
+
+###  http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#isCaredForBy
+:isCaredForBy rdf:type owl:ObjectProperty ;
+              rdfs:domain :CulturalItem ;
+              rdfs:range :Person .
+
+
+###  http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#isRoleOf
+:isRoleOf rdf:type owl:ObjectProperty ;
+          rdfs:domain :Role ;
+          rdfs:range :Person .
+
+
+###  http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#knowsMusicalWork
+:knowsMusicalWork rdf:type owl:ObjectProperty ;
+                  rdfs:domain :Person ;
+                  rdfs:range :MusicalWork .
+
+
+###  http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#knowsStory
+:knowsStory rdf:type owl:ObjectProperty ;
+            rdfs:domain :Person ;
+            rdfs:range :Story .
+
+
+###  http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#locatedIn
+:locatedIn rdf:type owl:ObjectProperty ;
+           rdfs:domain :CulturalItem ;
+           rdfs:range :Location .
+
+
+###  http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#memberOfCommunity
+:memberOfCommunity rdf:type owl:ObjectProperty ;
+                   rdfs:domain :Person ;
+                   rdfs:range :Community .
+
+
+###  http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#mentoredBy
+:mentoredBy rdf:type owl:ObjectProperty ;
+            rdfs:domain :Person ;
+            rdfs:range :Person .
+
+
+###  http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#performedBy
+:performedBy rdf:type owl:ObjectProperty ;
+             rdfs:domain :Recording ;
+             rdfs:range :Person .
+
+
+###  http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#performedInRitual
+:performedInRitual rdf:type owl:ObjectProperty ;
+                   rdfs:domain :Person ;
+                   rdfs:range :Ritual .
+
+
+###  http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#playsInstrument
+:playsInstrument rdf:type owl:ObjectProperty ;
+                 rdfs:domain :Person ;
+                 rdfs:range :Instrument .
+
+
+###  http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#recordedAt
+:recordedAt rdf:type owl:ObjectProperty ;
+            rdfs:domain :Recording ;
+            rdfs:range :Location .
+
+
+###  http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#usesInstrument
+:usesInstrument rdf:type owl:ObjectProperty ;
+                rdfs:domain :Recording ;
+                rdfs:range :Instrument .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#hasAccessLevel
+:hasAccessLevel rdf:type owl:DatatypeProperty ;
+                rdfs:domain :Person ;
+                rdfs:range xsd:integer .
+
+
+###  http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#humanApproval
+:humanApproval rdf:type owl:DatatypeProperty ;
+               rdfs:domain :Person ;
+               rdfs:range xsd:boolean .
+
+
+###  http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#recordingDate
+:recordingDate rdf:type owl:DatatypeProperty ;
+               rdfs:domain :Recording ;
+               rdfs:range xsd:date .
+
+
+###  http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#requiresAccessLevel
+:requiresAccessLevel rdf:type owl:DatatypeProperty ;
+                     rdfs:domain :CulturalItem ;
+                     rdfs:range xsd:integer .
+
+
+###  http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#restrictionEffectiveDate
+:restrictionEffectiveDate rdf:type owl:DatatypeProperty ;
+                          rdfs:domain :Recording ;
+                          rdfs:range xsd:date .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#AshiqRole
+:AshiqRole rdf:type owl:Class ;
+           rdfs:subClassOf :Role .
+
+
+###  http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Baglama
+:Baglama rdf:type owl:Class ;
+         rdfs:subClassOf :Instrument .
+
+
+###  http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Community
+:Community rdf:type owl:Class ;
+           rdfs:subClassOf :CulturalEntity .
+
+
+###  http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Competency
+:Competency rdf:type owl:Class ;
+            rdfs:subClassOf :CulturalEntity .
+
+
+###  http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#CulturalEntity
+:CulturalEntity rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#CulturalItem
+:CulturalItem rdf:type owl:Class ;
+              rdfs:subClassOf :CulturalEntity .
+
+
+###  http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#DedeRole
+:DedeRole rdf:type owl:Class ;
+          rdfs:subClassOf :Role .
+
+
+###  http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Dombra
+:Dombra rdf:type owl:Class ;
+        rdfs:subClassOf :Instrument .
+
+
+###  http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#GuardianRole
+:GuardianRole rdf:type owl:Class ;
+              rdfs:subClassOf :Role .
+
+
+###  http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Instrument
+:Instrument rdf:type owl:Class ;
+            rdfs:subClassOf :CulturalItem .
+
+
+###  http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#InstrumentSkill
+:InstrumentSkill rdf:type owl:Class ;
+                 rdfs:subClassOf :Competency .
+
+
+###  http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Location
+:Location rdf:type owl:Class ;
+          rdfs:subClassOf :CulturalEntity .
+
+
+###  http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#MusicalWork
+:MusicalWork rdf:type owl:Class ;
+             rdfs:subClassOf :CulturalItem .
+
+
+###  http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#OzanRole
+:OzanRole rdf:type owl:Class ;
+          rdfs:subClassOf :Role .
+
+
+###  http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#PerformerRole
+:PerformerRole rdf:type owl:Class ;
+               rdfs:subClassOf :Role .
+
+
+###  http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Person
+:Person rdf:type owl:Class ;
+        rdfs:subClassOf :CulturalEntity .
+
+
+###  http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#PoeticSkill
+:PoeticSkill rdf:type owl:Class ;
+             rdfs:subClassOf :Competency .
+
+
+###  http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Qopuz
+:Qopuz rdf:type owl:Class ;
+       rdfs:subClassOf :Instrument .
+
+
+###  http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Recording
+:Recording rdf:type owl:Class ;
+           rdfs:subClassOf :CulturalItem .
+
+
+###  http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#RepertoireKnowledge
+:RepertoireKnowledge rdf:type owl:Class ;
+                     rdfs:subClassOf :Competency .
+
+
+###  http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#ResearcherRole
+:ResearcherRole rdf:type owl:Class ;
+                rdfs:subClassOf :Role .
+
+
+###  http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Ritual
+:Ritual rdf:type owl:Class ;
+        rdfs:subClassOf :CulturalItem .
+
+
+###  http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#RitualKnowledge
+:RitualKnowledge rdf:type owl:Class ;
+                 rdfs:subClassOf :Competency .
+
+
+###  http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Role
+:Role rdf:type owl:Class ;
+      rdfs:subClassOf :CulturalEntity .
+
+
+###  http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#SacredItem
+:SacredItem rdf:type owl:Class ;
+            rdfs:subClassOf :CulturalItem .
+
+
+###  http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#ShamanRole
+:ShamanRole rdf:type owl:Class ;
+            rdfs:subClassOf :Role .
+
+
+###  http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#ShamanSaz
+:ShamanSaz rdf:type owl:Class ;
+           rdfs:subClassOf :Instrument .
+
+
+###  http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#SpiritualGuardian
+:SpiritualGuardian rdf:type owl:Class ;
+                   owl:equivalentClass [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                                                owl:onProperty :caresFor ;
+                                                                owl:someValuesFrom :SacredItem
+                                                              ]
+                                                              [ rdf:type owl:Restriction ;
+                                                                owl:onProperty :hasRole ;
+                                                                owl:someValuesFrom :GuardianRole
+                                                              ]
+                                                            ) ;
+                                         rdf:type owl:Class
+                                       ] ;
+                   rdfs:subClassOf :Role .
+
+
+###  http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Story
+:Story rdf:type owl:Class ;
+       rdfs:subClassOf :CulturalItem .
+
+
+###  http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#StorytellingKnowledge
+:StorytellingKnowledge rdf:type owl:Class ;
+                       rdfs:subClassOf :Competency .
+
+
+###  http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#TribalElder
+:TribalElder rdf:type owl:Class ;
+             rdfs:subClassOf :Person .
+
+
+###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi
+
+#################################################################
+# LOCATIONS
+#################################################################
+
+:Shusha rdf:type :Location ;
+        rdfs:label "Shusha"@en ;
+        rdfs:label "Şuşa"@az .
+
+:Baku rdf:type :Location ;
+      rdfs:label "Baku"@en ;
+      rdfs:label "Bakı"@az .
+
+:Ganja rdf:type :Location ;
+       rdfs:label "Ganja"@en ;
+       rdfs:label "Gəncə"@az .
+
+:Nakhchivan rdf:type :Location ;
+            rdfs:label "Nakhchivan"@en ;
+            rdfs:label "Naxçıvan"@az .
+
+:Qarabağ rdf:type :Location ;
+         rdfs:label "Qarabağ"@az ;
+         rdfs:label "Karabakh"@en .
+
+:Tabriz rdf:type :Location ;
+        rdfs:label "Tabriz"@en ;
+        rdfs:label "Təbriz"@az .
+
+:Istanbul rdf:type :Location ;
+          rdfs:label "Istanbul"@en ;
+          rdfs:label "İstanbul"@az .
+
+:Altai rdf:type :Location ;
+       rdfs:label "Altai"@en ;
+       rdfs:label "Altay"@az .
+
+:Oslo rdf:type :Location ;
+      rdfs:label "Oslo"@en .
+
+#################################################################
+# COMMUNITIES
+#################################################################
+
+:AshiqCommunity rdf:type :Community ;
+                rdfs:label "Ashiq Community"@en ;
+                rdfs:label "Aşıq Cəmiyyəti"@az .
+
+:ShamanCommunity rdf:type :Community ;
+                 rdfs:label "Shaman Community"@en ;
+                 rdfs:label "Şaman Cəmiyyəti"@az .
+
+:MusicalHeritageCommunity rdf:type :Community ;
+                          rdfs:label "Musical Heritage Community"@en ;
+                          rdfs:label "Musiqi İrs Cəmiyyəti"@az .
+
+:AshiqCommunityAzerbaijan rdf:type :Community ;
+                          rdfs:label "Ashiq Community Azerbaijan"@en ;
+                          rdfs:label "Azərbaycan Aşıq Cəmiyyəti"@az .
+
+:AltaiShamanLineage rdf:type :Community ;
+                    rdfs:label "Altai Shaman Lineage"@en ;
+                    rdfs:label "Altay Şaman Nəsli"@az .
+
+:AcademicResearchCommunity rdf:type :Community ;
+                            rdfs:label "Academic Research Community"@en ;
+                            rdfs:label "Akademik Tədqiqat Cəmiyyəti"@az .
+
+:VikingHeritageCommunity rdf:type :Community ;
+                         rdfs:label "Viking Heritage Community"@en ;
+                         rdfs:label "Vikinq İrs Cəmiyyəti"@az .
+
+#################################################################
+# ROLES
+#################################################################
+
+:RoleAshiq rdf:type :AshiqRole ;
+           rdfs:label "Ashiq Role"@en ;
+           rdfs:label "Aşıq Rolu"@az .
+
+:RoleOzan rdf:type :OzanRole ;
+          rdfs:label "Ozan Role"@en ;
+          rdfs:label "Ozan Rolu"@az .
+
+:RoleDede rdf:type :DedeRole ;
+          rdfs:label "Dede Role"@en ;
+          rdfs:label "Dədə Rolu"@az .
+
+:RoleShaman rdf:type :ShamanRole ;
+            rdfs:label "Shaman Role"@en ;
+            rdfs:label "Şaman Rolu"@az .
+
+:RolePerformer rdf:type :PerformerRole ;
+               rdfs:label "Performer Role"@en ;
+               rdfs:label "İfaçı Rolu"@az .
+
+:RoleResearcher rdf:type :ResearcherRole ;
+                rdfs:label "Researcher Role"@en ;
+                rdfs:label "Tədqiqatçı Rolu"@az .
+
+:RoleGuardianQopuz rdf:type :GuardianRole ;
+                    rdfs:label "Guardian of Qopuz"@en ;
+                    rdfs:label "Qopuz Qoruyucusu"@az .
+
+:RoleGuardianShamanSaz rdf:type :GuardianRole ;
+                        rdfs:label "Guardian of Shaman Saz"@en ;
+                        rdfs:label "Şaman Sazı Qoruyucusu"@az .
+
+:RoleGuardianSacredCollection rdf:type :GuardianRole ;
+                               rdfs:label "Guardian of Sacred Collection"@en ;
+                               rdfs:label "Müqəddəs Kolleksiya Qoruyucusu"@az .
+
+#################################################################
+# INSTRUMENTS
+#################################################################
+
+:BaglamaShusha rdf:type :Baglama ;
+               rdfs:label "Traditional Baglama of Shusha"@en ;
+               rdfs:label "Şuşa Ənənəvi Bağlaması"@az ;
+               :locatedIn :Shusha ;
+               :requiresAccessLevel 2 .
+
+:BaglamaBaku rdf:type :Baglama ;
+             rdfs:label "Master Baglama of Baku"@en ;
+             rdfs:label "Bakı Usta Bağlaması"@az ;
+             :locatedIn :Baku ;
+             :requiresAccessLevel 1 .
+
+:DombraQarabagh rdf:type :Dombra ;
+                rdfs:label "Qarabağ Dombra"@az ;
+                rdfs:label "Karabakh Dombra"@en ;
+                :locatedIn :Qarabağ ;
+                :requiresAccessLevel 2 .
+
+:DombraNakhchivan rdf:type :Dombra ;
+                  rdfs:label "Nakhchivan Dombra"@az ;
+                  rdfs:label "Nakhchivan Dombra"@en ;
+                  :locatedIn :Nakhchivan ;
+                  :requiresAccessLevel 1 .
+
+:QopuzGanja rdf:type :Qopuz ;
+            rdfs:label "Ancient Qopuz of Ganja"@en ;
+            rdfs:label "Gəncə Qədim Qopuzu"@az ;
+            :locatedIn :Ganja ;
+            :requiresAccessLevel 3 .
+
+:ShamanSazNakhchivan rdf:type :ShamanSaz ;
+                     rdfs:label "Ritual Shaman Saz of Nakhchivan"@en ;
+                     rdfs:label "Naxçıvan Ritual Şaman Sazı"@az ;
+                     :locatedIn :Nakhchivan ;
+                     :requiresAccessLevel 3 .
+
+:SacredQopuzTabriz rdf:type :Qopuz, :Instrument, :SacredItem ;
+                   rdfs:label "Sacred Qopuz of Tabriz"@en ;
+                   rdfs:label "Təbriz Müqəddəs Qopuzu"@az ;
+                   :locatedIn :Tabriz ;
+                   :requiresAccessLevel 2 ;
+                   :restrictionEffectiveDate "2025-01-01"^^xsd:date .
+
+:SacredShamanSazAltai rdf:type :ShamanSaz, :Instrument, :SacredItem ;
+                      rdfs:label "Sacred Shaman Saz of Altai"@en ;
+                      rdfs:label "Altay Müqəddəs Şaman Sazı"@az ;
+                      :locatedIn :Altai ;
+                      :requiresAccessLevel 2 ;
+                      :restrictionEffectiveDate "2024-09-01"^^xsd:date .
+
+:BaglamaTabriz rdf:type :Baglama, :Instrument ;
+               rdfs:label "Baglama of Tabriz"@en ;
+               rdfs:label "Təbriz Bağlaması"@az ;
+               :locatedIn :Tabriz ;
+               :requiresAccessLevel 1 ;
+               :restrictionEffectiveDate "1900-01-01"^^xsd:date .
+
+:DombraTabriz rdf:type :Dombra, :Instrument ;
+              rdfs:label "Dombra of Tabriz"@en ;
+              rdfs:label "Təbriz Dombrası"@az ;
+              :locatedIn :Tabriz ;
+              :requiresAccessLevel 1 ;
+              :restrictionEffectiveDate "1900-01-01"^^xsd:date .
+
+#################################################################
+# MUSICAL WORKS
+#################################################################
+
+:AshigGharib rdf:type :MusicalWork ;
+             rdfs:label "Ashig Gharib"@en ;
+             rdfs:label "Aşıq Qərib"@az ;
+             :locatedIn :Shusha ;
+             :requiresAccessLevel 1 .
+
+:Koroglu rdf:type :MusicalWork ;
+         rdfs:label "Koroglu"@en ;
+         rdfs:label "Koroğlu"@az ;
+         :locatedIn :Qarabağ ;
+         :requiresAccessLevel 1 .
+
+:LeyliMajnoon rdf:type :MusicalWork ;
+              rdfs:label "Leyli and Majnoon"@en ;
+              rdfs:label "Leyli və Məcnun"@az ;
+              :locatedIn :Ganja ;
+              :requiresAccessLevel 1 .
+
+:ShamanRitualSong rdf:type :MusicalWork ;
+                  rdfs:label "Shaman Ritual Song"@en ;
+                  rdfs:label "Şaman Ritual Mahnısı"@az ;
+                  :locatedIn :Nakhchivan ;
+                  :requiresAccessLevel 3 .
+
+:DastanKoroghlu rdf:type :MusicalWork ;
+                rdfs:label "Dastan Koroghlu"@en ;
+                rdfs:label "Dastan Koroğlu"@az ;
+                :locatedIn :Tabriz ;
+                :requiresAccessLevel 1 .
+
+:AshiqHavaTabriz rdf:type :MusicalWork ;
+                 rdfs:label "Ashiq Hava of Tabriz"@en ;
+                 rdfs:label "Təbriz Aşıq Havası"@az ;
+                 :locatedIn :Tabriz ;
+                 :requiresAccessLevel 1 .
+
+:SpiritChantAltai rdf:type :MusicalWork ;
+                  rdfs:label "Spirit Chant of Altai"@en ;
+                  rdfs:label "Altay Ruh Nəğməsi"@az ;
+                  :locatedIn :Altai ;
+                  :requiresAccessLevel 2 .
+
+:FolkTuneBaku rdf:type :MusicalWork ;
+              rdfs:label "Folk Tune of Baku"@en ;
+              rdfs:label "Bakı Xalq Nəğməsi"@az ;
+              :locatedIn :Baku ;
+              :requiresAccessLevel 1 .
+
+#################################################################
+# STORIES
+#################################################################
+
+:AshigGharibStory rdf:type :Story ;
+                  rdfs:label "The Story of Ashig Gharib"@en ;
+                  rdfs:label "Aşıq Qərib Hekayəsi"@az ;
+                  :locatedIn :Shusha ;
+                  :requiresAccessLevel 1 .
+
+:KorogluStory rdf:type :Story ;
+              rdfs:label "The Story of Koroglu"@en ;
+              rdfs:label "Koroğlu Hekayəsi"@az ;
+              :locatedIn :Qarabağ ;
+              :requiresAccessLevel 1 .
+
+:StoryDedeKorkut rdf:type :Story ;
+                 rdfs:label "Story of Dede Korkut"@en ;
+                 rdfs:label "Dədə Qorqud Hekayəsi"@az ;
+                 :locatedIn :Tabriz ;
+                 :requiresAccessLevel 1 .
+
+:StorySpiritJourney rdf:type :Story ;
+                    rdfs:label "Spirit Journey"@en ;
+                    rdfs:label "Ruh Səyahəti"@az ;
+                    :locatedIn :Altai ;
+                    :requiresAccessLevel 2 .
+
+:StoryVikingSaga rdf:type :Story ;
+                 rdfs:label "Viking Saga"@en ;
+                 rdfs:label "Vikinq Dastanı"@az ;
+                 :locatedIn :Oslo ;
+                 :requiresAccessLevel 1 .
+
+#################################################################
+# RITUALS
+#################################################################
+
+:SpringRitual rdf:type :Ritual ;
+              rdfs:label "Spring Ritual"@en ;
+              rdfs:label "Yaz Ritualı"@az ;
+              :locatedIn :Nakhchivan ;
+              :requiresAccessLevel 3 .
+
+:HarvestRitual rdf:type :Ritual ;
+               rdfs:label "Harvest Ritual"@en ;
+               rdfs:label "Məhsul Ritualı"@az ;
+               :locatedIn :Qarabağ ;
+               :requiresAccessLevel 2 .
+
+:RitualAshiqMajlis rdf:type :Ritual ;
+                   rdfs:label "Ashiq Majlis"@en ;
+                   rdfs:label "Aşıq Məclisi"@az ;
+                   :locatedIn :Tabriz ;
+                   :requiresAccessLevel 1 ;
+                   :restrictionEffectiveDate "2020-01-01"^^xsd:date .
+
+:RitualShamanHealing rdf:type :Ritual ;
+                     rdfs:label "Shaman Healing Ritual"@en ;
+                     rdfs:label "Şaman Müalicə Ritualı"@az ;
+                     :locatedIn :Altai ;
+                     :requiresAccessLevel 2 ;
+                     :restrictionEffectiveDate "2024-09-01"^^xsd:date .
+
+#################################################################
+# SACRED ITEMS
+#################################################################
+
+:SacredBaglamaShusha rdf:type :SacredItem ;
+                      rdfs:label "Sacred Baglama of Shusha"@en ;
+                      rdfs:label "Şuşa Müqəddəs Bağlaması"@az ;
+                      :locatedIn :Shusha ;
+                      :requiresAccessLevel 3 .
+
+:SacredQopuzGanja rdf:type :SacredItem ;
+                  rdfs:label "Sacred Qopuz of Ganja"@en ;
+                  rdfs:label "Gəncə Müqəddəs Qopuzu"@az ;
+                  :locatedIn :Ganja ;
+                  :requiresAccessLevel 3 .
+
+#################################################################
+# COMPETENCIES
+#################################################################
+
+:SkillBaglamaPlaying rdf:type :InstrumentSkill ;
+                     rdfs:label "Baglama Playing Skill"@en ;
+                     rdfs:label "Bağlama Çalma Bacarığı"@az .
+
+:SkillDombraPlaying rdf:type :InstrumentSkill ;
+                    rdfs:label "Dombra Playing Skill"@en ;
+                    rdfs:label "Dombra Çalma Bacarığı"@az .
+
+:SkillQopuzPlaying rdf:type :InstrumentSkill ;
+                  rdfs:label "Qopuz Playing Skill"@en ;
+                  rdfs:label "Qopuz Çalma Bacarığı"@az .
+
+:SkillTraditionalPoetry rdf:type :PoeticSkill ;
+                        rdfs:label "Traditional Poetry Skill"@en ;
+                        rdfs:label "Ənənəvi Şeir Bacarığı"@az .
+
+:KnowledgeClassicalRepertoire rdf:type :RepertoireKnowledge ;
+                              rdfs:label "Classical Repertoire Knowledge"@en ;
+                              rdfs:label "Klassik Repertuar Bilgisi"@az .
+
+:KnowledgeShamanRitual rdf:type :RitualKnowledge ;
+                       rdfs:label "Shaman Ritual Knowledge"@en ;
+                       rdfs:label "Şaman Ritual Bilgisi"@az .
+
+:KnowledgeEpicStorytelling rdf:type :StorytellingKnowledge ;
+                           rdfs:label "Epic Storytelling Knowledge"@en ;
+                           rdfs:label "Epik Hekayəçilik Bilgisi"@az .
+
+#################################################################
+# TRIBAL ELDERS
+#################################################################
+
+:ElderAli rdf:type :TribalElder ;
+          rdfs:label "Elder Ali"@en ;
+          rdfs:label "Ağsaqqal Əli"@az ;
+          :hasRole :RoleDede ;
+          :memberOfCommunity :AshiqCommunity ;
+          :hasAccessLevel 3 ;
+          :humanApproval true ;
+          :caresFor :SacredBaglamaShusha ;
+          :knowsMusicalWork :AshigGharib, :Koroglu ;
+          :knowsStory :AshigGharibStory, :KorogluStory .
+
+:ElderHasanDede rdf:type :TribalElder ;
+                rdfs:label "Elder Hasan Dede"@en ;
+                rdfs:label "Ağsaqqal Həsən Dədə"@az ;
+                :memberOfCommunity :AshiqCommunityAzerbaijan ;
+                :hasAccessLevel 3 ;
+                :humanApproval true .
+
+:ElderTengriBaatar rdf:type :TribalElder ;
+                   rdfs:label "Elder Tengri Baatar"@en ;
+                   rdfs:label "Ağsaqqal Tengri Baatar"@az ;
+                   :memberOfCommunity :AltaiShamanLineage ;
+                   :hasAccessLevel 3 ;
+                   :humanApproval true .
+
+:ElderSigurd rdf:type :TribalElder ;
+             rdfs:label "Elder Sigurd"@en ;
+             rdfs:label "Ağsaqqal Sigurd"@az ;
+             :memberOfCommunity :VikingHeritageCommunity ;
+             :hasAccessLevel 3 ;
+             :humanApproval true .
+
+#################################################################
+# PEOPLE
+#################################################################
+
+# Azerbaijani Ashiq Masters
+:AshiqRashid rdf:type :Person ;
+             rdfs:label "Ashiq Rashid"@en ;
+             rdfs:label "Aşıq Rəşid"@az ;
+             :hasRole :RoleAshiq ;
+             :memberOfCommunity :AshiqCommunity ;
+             :hasAccessLevel 2 ;
+             :humanApproval true ;
+             :approvedBy :ElderAli ;
+             :playsInstrument :BaglamaShusha, :DombraQarabagh ;
+             :hasCompetency :SkillBaglamaPlaying, :SkillDombraPlaying, :SkillTraditionalPoetry, :KnowledgeClassicalRepertoire ;
+             :knowsMusicalWork :AshigGharib, :Koroglu ;
+             :knowsStory :AshigGharibStory ;
+             :performedInRitual :SpringRitual ;
+             :caresFor :BaglamaShusha, :DombraQarabagh .
+
+:AshiqNigar rdf:type :Person ;
+            rdfs:label "Ashiq Nigar"@en ;
+            rdfs:label "Aşıq Nigar"@az ;
+            :hasRole :RoleAshiq, :RoleOzan ;
+            :memberOfCommunity :AshiqCommunity ;
+            :hasAccessLevel 2 ;
+            :humanApproval true ;
+            :approvedBy :ElderAli ;
+            :playsInstrument :BaglamaBaku, :QopuzGanja ;
+            :hasCompetency :SkillBaglamaPlaying, :SkillQopuzPlaying, :SkillTraditionalPoetry, :KnowledgeEpicStorytelling ;
+            :knowsMusicalWork :LeyliMajnoon, :AshigGharib ;
+            :knowsStory :KorogluStory ;
+            :mentoredBy :AshiqRashid .
+
+# Shaman Master
+:ShamanAylana rdf:type :Person ;
+              rdfs:label "Shaman Aylana"@en ;
+              rdfs:label "Şaman Aylana"@az ;
+              :hasRole :RoleShaman ;
+              :memberOfCommunity :ShamanCommunity ;
+              :hasAccessLevel 3 ;
+              :humanApproval true ;
+              :playsInstrument :ShamanSazNakhchivan ;
+              :hasCompetency :KnowledgeShamanRitual ;
+              :knowsMusicalWork :ShamanRitualSong ;
+              :performedInRitual :SpringRitual, :HarvestRitual ;
+              :caresFor :ShamanSazNakhchivan, :SacredQopuzGanja .
+
+# Guardian
+:GuardianFarida rdf:type :Person ;
+                rdfs:label "Guardian Farida"@en ;
+                rdfs:label "Qoruyucu Farida"@az ;
+                :hasRole :RoleGuardianQopuz ;
+                :memberOfCommunity :MusicalHeritageCommunity ;
+                :hasAccessLevel 3 ;
+                :humanApproval true ;
+                :caresFor :SacredBaglamaShusha, :SacredQopuzGanja .
+
+# Researcher
+:ResearcherLeyla rdf:type :Person ;
+                 rdfs:label "Researcher Leyla"@en ;
+                 rdfs:label "Tədqiqatçı Leyla"@az ;
+                 :hasRole :RoleResearcher ;
+                 :memberOfCommunity :MusicalHeritageCommunity ;
+                 :hasAccessLevel 1 ;
+                 :humanApproval true ;
+                 :knowsMusicalWork :AshigGharib, :Koroglu, :LeyliMajnoon ;
+                 :knowsStory :AshigGharibStory, :KorogluStory .
+
+# Performer
+:PerformerEmil rdf:type :Person ;
+               rdfs:label "Performer Emil"@en ;
+               rdfs:label "İfaçı Emil"@az ;
+               :hasRole :RolePerformer ;
+               :memberOfCommunity :AshiqCommunity ;
+               :hasAccessLevel 1 ;
+               :humanApproval false ;
+               :playsInstrument :BaglamaBaku ;
+               :hasCompetency :SkillBaglamaPlaying ;
+               :knowsMusicalWork :AshigGharib ;
+               :mentoredBy :AshiqRashid .
+
+# People from user's data
+:AliAshiqTabriz rdf:type :Person ;
+                rdfs:label "Ali Ashiq Tabriz"@en ;
+                rdfs:label "Əli Aşıq Təbriz"@az ;
+                :memberOfCommunity :AshiqCommunityAzerbaijan ;
+                :hasRole :RoleAshiq ;
+                :playsInstrument :SacredQopuzTabriz, :BaglamaTabriz ;
+                :hasCompetency :SkillQopuzPlaying, :SkillBaglamaPlaying ;
+                :knowsMusicalWork :DastanKoroghlu, :AshiqHavaTabriz ;
+                :knowsStory :StoryDedeKorkut ;
+                :hasAccessLevel 2 ;
+                :humanApproval true ;
+                :approvedBy :ElderHasanDede ;
+                :performedInRitual :RitualAshiqMajlis .
+
+:KamranOzan rdf:type :Person ;
+            rdfs:label "Kamran Ozan"@en ;
+            rdfs:label "Kamran Ozan"@az ;
+            :memberOfCommunity :AshiqCommunityAzerbaijan ;
+            :hasRole :RoleOzan ;
+            :playsInstrument :SacredQopuzTabriz ;
+            :knowsMusicalWork :FolkTuneBaku ;
+            :hasAccessLevel 1 ;
+            :humanApproval true .
+
+:MustafaDede rdf:type :Person ;
+             rdfs:label "Mustafa Dede"@en ;
+             rdfs:label "Mustafa Dədə"@az ;
+             :memberOfCommunity :AshiqCommunityAzerbaijan ;
+             :hasRole :RoleDede ;
+             :knowsStory :StoryDedeKorkut ;
+             :hasAccessLevel 2 ;
+             :humanApproval true ;
+             :approvedBy :ElderHasanDede .
+
+:AylaShaman rdf:type :Person ;
+            rdfs:label "Ayla Shaman"@en ;
+            rdfs:label "Ayla Şaman"@az ;
+            :memberOfCommunity :AltaiShamanLineage ;
+            :hasRole :RoleShaman ;
+            :playsInstrument :SacredShamanSazAltai ;
+            :knowsMusicalWork :SpiritChantAltai ;
+            :knowsStory :StorySpiritJourney ;
+            :hasAccessLevel 2 ;
+            :humanApproval true ;
+            :approvedBy :ElderTengriBaatar ;
+            :performedInRitual :RitualShamanHealing .
+
+:ResearcherLina rdf:type :Person ;
+                rdfs:label "Researcher Lina"@en ;
+                rdfs:label "Tədqiqatçı Lina"@az ;
+                :memberOfCommunity :AcademicResearchCommunity ;
+                :hasRole :RoleResearcher ;
+                :hasAccessLevel 1 ;
+                :humanApproval true ;
+                :knowsStory :StoryDedeKorkut, :StoryVikingSaga .
+
+#################################################################
+# INFERENCE TEST PEOPLE: SpiritualGuardian (via OWL inference)
+# These should be inferred as SpiritualGuardian because they:
+#   - haveRole some GuardianRole
+#   - caresFor some SacredItem
+#################################################################
+
+:MehdiGuardianQopuz rdf:type :Person ;
+                    rdfs:label "Mehdi Guardian of Qopuz"@en ;
+                    rdfs:label "Mehdi Qopuz Qoruyucusu"@az ;
+                    :memberOfCommunity :AshiqCommunityAzerbaijan ;
+                    :hasRole :RoleGuardianQopuz ;
+                    :caresFor :SacredQopuzTabriz ;
+                    :playsInstrument :SacredQopuzTabriz ;
+                    :hasAccessLevel 1 ;
+                    :humanApproval false .
+# Note: Should be inferred as SpiritualGuardian but lacks humanApproval
+# Note: RecordingQopuzViolation2026 is an intentional access level violation for testing
+
+:ZahraGuardianQopuz rdf:type :Person ;
+                    rdfs:label "Zahra Guardian of Qopuz"@en ;
+                    rdfs:label "Zəhra Qopuz Qoruyucusu"@az ;
+                    :memberOfCommunity :AshiqCommunityAzerbaijan ;
+                    :hasRole :RoleGuardianQopuz ;
+                    :caresFor :SacredQopuzTabriz ;
+                    :hasAccessLevel 2 ;
+                    :humanApproval true ;
+                    :approvedBy :ElderHasanDede .
+# Note: Should be inferred as SpiritualGuardian
+
+:ArmanGuardianShamanSaz rdf:type :Person ;
+                         rdfs:label "Arman Guardian of Shaman Saz"@en ;
+                         rdfs:label "Arman Şaman Sazı Qoruyucusu"@az ;
+                         :memberOfCommunity :AltaiShamanLineage ;
+                         :hasRole :RoleGuardianShamanSaz ;
+                         :caresFor :SacredShamanSazAltai ;
+                         :hasAccessLevel 1 ;
+                         :humanApproval false .
+# Note: Should be inferred as SpiritualGuardian but lacks humanApproval
+
+:BolatGuardianShamanSaz rdf:type :Person ;
+                        rdfs:label "Bolat Guardian of Shaman Saz"@en ;
+                        rdfs:label "Bolat Şaman Sazı Qoruyucusu"@az ;
+                        :memberOfCommunity :AltaiShamanLineage ;
+                        :hasRole :RoleGuardianShamanSaz ;
+                        :caresFor :SacredShamanSazAltai ;
+                        :hasAccessLevel 2 ;
+                        :humanApproval true ;
+                        :approvedBy :ElderTengriBaatar .
+# Note: Should be inferred as SpiritualGuardian
+
+:ErikGuardianViking rdf:type :Person ;
+                    rdfs:label "Erik Guardian of Viking Collection"@en ;
+                    rdfs:label "Erik Vikinq Kolleksiyası Qoruyucusu"@az ;
+                    :memberOfCommunity :VikingHeritageCommunity ;
+                    :hasRole :RoleGuardianSacredCollection ;
+                    :caresFor :SacredQopuzTabriz ;
+                    :hasAccessLevel 1 ;
+                    :humanApproval false .
+# Note: Should be inferred as SpiritualGuardian but lacks humanApproval and has low access
+
+#################################################################
+# RECORDINGS
+#################################################################
+
+:RecordingAshigGharib2020 rdf:type :Recording ;
+                          rdfs:label "Ashig Gharib Performance 2020"@en ;
+                          rdfs:label "Aşıq Qərib İfası 2020"@az ;
+                          :performedBy :AshiqRashid ;
+                          :recordedAt :Shusha ;
+                          :recordingDate "2020-05-15"^^xsd:date ;
+                          :restrictionEffectiveDate "2020-05-15"^^xsd:date ;
+                          :usesInstrument :BaglamaShusha ;
+                          :usesInstrument :DombraQarabagh .
+
+:RecordingKoroglu2019 rdf:type :Recording ;
+                       rdfs:label "Koroglu Epic 2019"@en ;
+                       rdfs:label "Koroğlu Epik 2019"@az ;
+                       :performedBy :AshiqNigar ;
+                       :recordedAt :Qarabağ ;
+                       :recordingDate "2019-08-20"^^xsd:date ;
+                       :restrictionEffectiveDate "2019-08-20"^^xsd:date ;
+                       :usesInstrument :BaglamaBaku ;
+                       :usesInstrument :QopuzGanja .
+
+:RecordingShamanRitual2021 rdf:type :Recording ;
+                            rdfs:label "Shaman Ritual 2021"@en ;
+                            rdfs:label "Şaman Ritualı 2021"@az ;
+                            :performedBy :ShamanAylana ;
+                            :recordedAt :Nakhchivan ;
+                            :recordingDate "2021-03-21"^^xsd:date ;
+                            :restrictionEffectiveDate "2021-03-21"^^xsd:date ;
+                            :usesInstrument :ShamanSazNakhchivan .
+
+:RecordingLeyliMajnoon2022 rdf:type :Recording ;
+                            rdfs:label "Leyli and Majnoon 2022"@en ;
+                            rdfs:label "Leyli və Məcnun 2022"@az ;
+                            :performedBy :AshiqNigar ;
+                            :recordedAt :Ganja ;
+                            :recordingDate "2022-07-10"^^xsd:date ;
+                            :restrictionEffectiveDate "2022-07-10"^^xsd:date ;
+                            :usesInstrument :QopuzGanja .
+
+:RecordingSpringRitual2020 rdf:type :Recording ;
+                            rdfs:label "Spring Ritual Performance 2020"@en ;
+                            rdfs:label "Yaz Ritualı İfası 2020"@az ;
+                            :performedBy :AshiqRashid ;
+                            :performedBy :ShamanAylana ;
+                            :recordedAt :Nakhchivan ;
+                            :recordingDate "2020-04-15"^^xsd:date ;
+                            :restrictionEffectiveDate "2020-04-15"^^xsd:date ;
+                            :usesInstrument :BaglamaShusha ;
+                            :usesInstrument :ShamanSazNakhchivan .
+
+# VIOLATION: recordingDate (2026) > restrictionEffectiveDate (2025) 
+# AND performer access (1) < item required (2)
+:RecordingQopuzViolation2026 rdf:type :Recording ;
+                              rdfs:label "Qopuz Recording 2026 (VIOLATION)"@en ;
+                              rdfs:label "Qopuz Qeydi 2026 (Pozuntulu)"@az ;
+                              :performedBy :MehdiGuardianQopuz ;
+                              :usesInstrument :SacredQopuzTabriz ;
+                              :recordedAt :Tabriz ;
+                              :recordingDate "2026-01-10"^^xsd:date .
+# Note: Missing restrictionEffectiveDate - should be validated by SHACL
+
+# Compliant: before restriction effective date
+:RecordingBaglama2024 rdf:type :Recording ;
+                       rdfs:label "Baglama Recording 2024"@en ;
+                       rdfs:label "Bağlama Qeydi 2024"@az ;
+                       :performedBy :AliAshiqTabriz ;
+                       :usesInstrument :BaglamaTabriz ;
+                       :recordedAt :Istanbul ;
+                       :recordingDate "2024-05-20"^^xsd:date ;
+                       :restrictionEffectiveDate "2024-05-20"^^xsd:date .
+
+# Compliant: high-access performer on sacred item after restriction date
+:RecordingShamanSaz2026 rdf:type :Recording ;
+                        rdfs:label "Shaman Saz Recording 2026"@en ;
+                        rdfs:label "Şaman Sazı Qeydi 2026"@az ;
+                        :performedBy :AylaShaman ;
+                        :usesInstrument :SacredShamanSazAltai ;
+                        :recordedAt :Altai ;
+                        :recordingDate "2026-01-12"^^xsd:date ;
+                        :restrictionEffectiveDate "2026-01-12"^^xsd:date .

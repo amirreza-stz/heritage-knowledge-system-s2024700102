@@ -1,0 +1,563 @@
+<?xml version="1.0"?>
+<Ontology xmlns="http://www.w3.org/2002/07/owl#"
+     xml:base="http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     ontologyIRI="http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage">
+    <Prefix name="" IRI="http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage/"/>
+    <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
+    <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+    <Prefix name="xml" IRI="http://www.w3.org/XML/1998/namespace"/>
+    <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
+    <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
+    <Declaration>
+        <Class IRI="#AshiqRole"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Baglama"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Community"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Competency"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#CulturalEntity"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#CulturalItem"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#DedeRole"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Dombra"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#GuardianRole"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Instrument"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#InstrumentSkill"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Location"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#MusicalWork"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#OzanRole"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#PerformerRole"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Person"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#PoeticSkill"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Qopuz"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Recording"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#RepertoireKnowledge"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#ResearcherRole"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Ritual"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#RitualKnowledge"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Role"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#SacredItem"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#ShamanRole"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#ShamanSaz"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#SpiritualGuardian"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Story"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#StorytellingKnowledge"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#TribalElder"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#approvedBy"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#approves"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#caresFor"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasCompetency"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasLocatedItem"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasMember"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasRecording"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasRecordingAt"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasRole"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isCaredForBy"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isRoleOf"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#knowsMusicalWork"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#knowsStory"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#locatedIn"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#memberOfCommunity"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#mentoredBy"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#performedBy"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#performedInRitual"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#playsInstrument"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#recordedAt"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#usesInstrument"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasAccessLevel"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#humanApproval"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#recordingDate"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#requiresAccessLevel"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#restrictionEffectiveDate"/>
+    </Declaration>
+    <Declaration>
+        <Datatype abbreviatedIRI="xsd:date"/>
+    </Declaration>
+    <EquivalentClasses>
+        <Class IRI="#SpiritualGuardian"/>
+        <ObjectIntersectionOf>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#caresFor"/>
+                <Class IRI="#SacredItem"/>
+            </ObjectSomeValuesFrom>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#hasRole"/>
+                <Class IRI="#GuardianRole"/>
+            </ObjectSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <SubClassOf>
+        <Class IRI="#AshiqRole"/>
+        <Class IRI="#Role"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Baglama"/>
+        <Class IRI="#Instrument"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Community"/>
+        <Class IRI="#CulturalEntity"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Competency"/>
+        <Class IRI="#CulturalEntity"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#CulturalItem"/>
+        <Class IRI="#CulturalEntity"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#DedeRole"/>
+        <Class IRI="#Role"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Dombra"/>
+        <Class IRI="#Instrument"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#GuardianRole"/>
+        <Class IRI="#Role"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Instrument"/>
+        <Class IRI="#CulturalItem"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#InstrumentSkill"/>
+        <Class IRI="#Competency"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Location"/>
+        <Class IRI="#CulturalEntity"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#MusicalWork"/>
+        <Class IRI="#CulturalItem"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#OzanRole"/>
+        <Class IRI="#Role"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#PerformerRole"/>
+        <Class IRI="#Role"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Person"/>
+        <Class IRI="#CulturalEntity"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#PoeticSkill"/>
+        <Class IRI="#Competency"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Qopuz"/>
+        <Class IRI="#Instrument"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Recording"/>
+        <Class IRI="#CulturalItem"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#RepertoireKnowledge"/>
+        <Class IRI="#Competency"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#ResearcherRole"/>
+        <Class IRI="#Role"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Ritual"/>
+        <Class IRI="#CulturalItem"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#RitualKnowledge"/>
+        <Class IRI="#Competency"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Role"/>
+        <Class IRI="#CulturalEntity"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#SacredItem"/>
+        <Class IRI="#CulturalItem"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#ShamanRole"/>
+        <Class IRI="#Role"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#ShamanSaz"/>
+        <Class IRI="#Instrument"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#SpiritualGuardian"/>
+        <Class IRI="#Role"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Story"/>
+        <Class IRI="#CulturalItem"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#StorytellingKnowledge"/>
+        <Class IRI="#Competency"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#TribalElder"/>
+        <Class IRI="#Person"/>
+    </SubClassOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#approvedBy"/>
+        <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
+    </SubObjectPropertyOf>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#approvedBy"/>
+        <ObjectProperty IRI="#approves"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#hasLocatedItem"/>
+        <ObjectProperty IRI="#locatedIn"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#hasMember"/>
+        <ObjectProperty IRI="#memberOfCommunity"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#hasRecording"/>
+        <ObjectProperty IRI="#performedBy"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#hasRecordingAt"/>
+        <ObjectProperty IRI="#recordedAt"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#hasRole"/>
+        <ObjectProperty IRI="#isRoleOf"/>
+    </InverseObjectProperties>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#approvedBy"/>
+        <Class IRI="#Person"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#approves"/>
+        <Class IRI="#TribalElder"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#caresFor"/>
+        <Class IRI="#Person"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasCompetency"/>
+        <Class IRI="#Person"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasLocatedItem"/>
+        <Class IRI="#Location"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasMember"/>
+        <Class IRI="#Community"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasRecording"/>
+        <Class IRI="#Person"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasRecordingAt"/>
+        <Class IRI="#Location"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasRole"/>
+        <Class IRI="#Person"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#isCaredForBy"/>
+        <Class IRI="#CulturalItem"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#isRoleOf"/>
+        <Class IRI="#Role"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#knowsMusicalWork"/>
+        <Class IRI="#Person"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#knowsStory"/>
+        <Class IRI="#Person"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#locatedIn"/>
+        <Class IRI="#CulturalItem"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#memberOfCommunity"/>
+        <Class IRI="#Person"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#mentoredBy"/>
+        <Class IRI="#Person"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#performedBy"/>
+        <Class IRI="#Recording"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#performedInRitual"/>
+        <Class IRI="#Person"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#playsInstrument"/>
+        <Class IRI="#Person"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#recordedAt"/>
+        <Class IRI="#Recording"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#usesInstrument"/>
+        <Class IRI="#Recording"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#approvedBy"/>
+        <Class IRI="#TribalElder"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#approves"/>
+        <Class IRI="#Person"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#caresFor"/>
+        <Class IRI="#CulturalItem"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasCompetency"/>
+        <Class IRI="#Competency"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasLocatedItem"/>
+        <Class IRI="#CulturalItem"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasMember"/>
+        <Class IRI="#Person"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasRecording"/>
+        <Class IRI="#Recording"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasRecordingAt"/>
+        <Class IRI="#Recording"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasRole"/>
+        <Class IRI="#Role"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#isCaredForBy"/>
+        <Class IRI="#Person"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#isRoleOf"/>
+        <Class IRI="#Person"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#knowsMusicalWork"/>
+        <Class IRI="#MusicalWork"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#knowsStory"/>
+        <Class IRI="#Story"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#locatedIn"/>
+        <Class IRI="#Location"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#memberOfCommunity"/>
+        <Class IRI="#Community"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#mentoredBy"/>
+        <Class IRI="#Person"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#performedBy"/>
+        <Class IRI="#Person"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#performedInRitual"/>
+        <Class IRI="#Ritual"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#playsInstrument"/>
+        <Class IRI="#Instrument"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#recordedAt"/>
+        <Class IRI="#Location"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#usesInstrument"/>
+        <Class IRI="#Instrument"/>
+    </ObjectPropertyRange>
+    <DataPropertyDomain>
+        <DataProperty IRI="#hasAccessLevel"/>
+        <Class IRI="#Person"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#humanApproval"/>
+        <Class IRI="#Person"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#recordingDate"/>
+        <Class IRI="#Recording"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#requiresAccessLevel"/>
+        <Class IRI="#CulturalItem"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#restrictionEffectiveDate"/>
+        <Class IRI="#Recording"/>
+    </DataPropertyDomain>
+    <DataPropertyRange>
+        <DataProperty IRI="#hasAccessLevel"/>
+        <Datatype abbreviatedIRI="xsd:integer"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#humanApproval"/>
+        <Datatype abbreviatedIRI="xsd:boolean"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#recordingDate"/>
+        <Datatype abbreviatedIRI="xsd:date"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#requiresAccessLevel"/>
+        <Datatype abbreviatedIRI="xsd:integer"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#restrictionEffectiveDate"/>
+        <Datatype abbreviatedIRI="xsd:date"/>
+    </DataPropertyRange>
+</Ontology>
+
+
+
+<!-- Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi -->
+

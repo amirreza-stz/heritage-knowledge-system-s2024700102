@@ -1,0 +1,29 @@
+# Query 18: Community Analysis
+# Analyzes community membership, roles, and activities
+
+PREFIX : <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+SELECT 
+    ?community ?communityLabel
+    (COUNT(DISTINCT ?member) AS ?memberCount)
+    (COUNT(DISTINCT ?role) AS ?roleTypes)
+    (COUNT(DISTINCT ?instrument) AS ?instrumentsUsed)
+    (COUNT(DISTINCT ?work) AS ?musicalWorksKnown)
+    (GROUP_CONCAT(DISTINCT ?roleLabel; separator=", ") AS ?roles)
+WHERE {
+    ?community rdf:type :Community .
+    ?community rdfs:label ?communityLabel .
+    FILTER(LANG(?communityLabel) = "en" || LANG(?communityLabel) = "")
+    ?member :memberOfCommunity ?community .
+    OPTIONAL {
+        ?member :hasRole ?role .
+        ?role rdfs:label ?roleLabel .
+        FILTER(LANG(?roleLabel) = "en" || LANG(?roleLabel) = "")
+    }
+    OPTIONAL { ?member :playsInstrument ?instrument }
+    OPTIONAL { ?member :knowsMusicalWork ?work }
+}
+GROUP BY ?community ?communityLabel
+ORDER BY DESC(?memberCount)

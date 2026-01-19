@@ -1,0 +1,15 @@
+# Query 4: Find people with specific competencies
+# Lists people who have certain skills or knowledge
+
+PREFIX : <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT ?person ?personLabel ?competency ?competencyLabel
+WHERE {
+    ?person :hasCompetency ?competency .
+    ?person rdfs:label ?personLabel .
+    FILTER(LANG(?personLabel) = "en" || LANG(?personLabel) = "")
+    ?competency rdfs:label ?competencyLabel .
+    FILTER(LANG(?competencyLabel) = "en" || LANG(?competencyLabel) = "")
+}
+ORDER BY ?personLabel ?competencyLabel

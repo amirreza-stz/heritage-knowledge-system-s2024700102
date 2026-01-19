@@ -1,19 +1,29 @@
-# Query 1: Find all claims with confidence > 0.8 (RDF Reification pattern)
-# For dataset: heritage-reification
+# Query 1: Find all claims with confidence greater than 0.8 (RDF Reification Pattern)
+# Question 2: Multi-Perspective Knowledge Representation
+# 
+# This query finds high-confidence claims from the reification dataset.
+# Uses rdf:Statement to extract claim information.
 
-PREFIX ex: <http://example.org/heritage/s2024700102#>
+PREFIX : <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage/>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
-SELECT ?claim ?source ?confidence ?dateRecorded ?subject ?predicate ?object
+SELECT ?claim ?ritual ?ritualLabel ?cycle ?cycleLabel ?source ?sourceLabel ?confidence ?dateRecorded
 WHERE {
     ?claim a rdf:Statement ;
-        rdf:subject ?subject ;
-        rdf:predicate ?predicate ;
-        rdf:object ?object ;
-        ex:source ?source ;
-        ex:confidence ?confidence ;
-        ex:dateRecorded ?dateRecorded .
+        rdf:subject ?ritual ;
+        rdf:predicate :belongsTo ;
+        rdf:object ?cycle ;
+        :source ?source ;
+        :confidence ?confidence ;
+        :dateRecorded ?dateRecorded .
+    ?ritual rdfs:label ?ritualLabel .
+    FILTER(LANG(?ritualLabel) = "en" || LANG(?ritualLabel) = "")
+    ?cycle rdfs:label ?cycleLabel .
+    FILTER(LANG(?cycleLabel) = "en" || LANG(?cycleLabel) = "")
+    ?source rdfs:label ?sourceLabel .
+    FILTER(LANG(?sourceLabel) = "en" || LANG(?sourceLabel) = "")
     FILTER (?confidence > 0.8)
 }
 ORDER BY DESC(?confidence)

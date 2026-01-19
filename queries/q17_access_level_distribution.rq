@@ -1,0 +1,27 @@
+# Query 17: Access Level Distribution
+# Shows distribution of access levels across people and cultural items
+
+PREFIX : <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+SELECT 
+    ?accessLevel 
+    (COUNT(DISTINCT ?person) AS ?peopleCount)
+    (COUNT(DISTINCT ?item) AS ?itemsCount)
+    (GROUP_CONCAT(DISTINCT ?personLabel; separator=", ") AS ?people)
+WHERE {
+    {
+        ?person rdf:type :Person .
+        ?person :hasAccessLevel ?accessLevel .
+        ?person rdfs:label ?personLabel .
+        FILTER(LANG(?personLabel) = "en" || LANG(?personLabel) = "")
+    }
+    UNION
+    {
+        ?item rdf:type :CulturalItem .
+        ?item :requiresAccessLevel ?accessLevel .
+    }
+}
+GROUP BY ?accessLevel
+ORDER BY ?accessLevel

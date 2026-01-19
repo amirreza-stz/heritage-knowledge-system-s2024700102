@@ -1,136 +1,228 @@
-# SHACL Validation Shapes for Heritage Knowledge System
-# These shapes validate data quality and business rules
-
+@prefix : <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage/> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix hp: <http://webprotege.stanford.edu/> .
-@prefix ex: <http://example.org/heritage/s2024700102#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 # ============================================
-# Shape 1: People caring for sacred items must have humanApproval
+# SHACL Validation Shapes for Cultural Heritage Ontology
 # ============================================
-ex:PersonCaringForSacredItemShape
-    a sh:NodeShape ;
-    sh:targetClass hp:RDqiGQVsD47hrqZoozr5QsY ;
-    sh:property [
-        sh:path hp:RC2A3h4SFUS7L6DFLFfGllV ;
-        sh:qualifiedValueShape [
-            sh:path [ sh:inversePath hp:RC2A3h4SFUS7L6DFLFfGllV ] ;
-            sh:class hp:R7pxWOFI810disSa49P9mBh ;
-        ] ;
-        sh:qualifiedMinCount 1 ;
-    ] ;
-    sh:property [
-        sh:path hp:RSI0l4uEyriNyqJaIicRNi ;
-        sh:minCount 1 ;
-        sh:message "People caring for sacred items must have humanApproval property" ;
-    ] ;
-    sh:property [
-        sh:path hp:RSI0l4uEyriNyqJaIicRNi ;
-        sh:hasValue "true"^^xsd:boolean ;
-        sh:message "People caring for sacred items must have humanApproval = true" ;
-    ] .
+
+:ValidationShape rdf:type sh:NodeShape ;
+                 sh:targetClass :Person ;
+                 sh:property [
+                     sh:path :hasAccessLevel ;
+                     sh:datatype xsd:integer ;
+                     sh:minInclusive 1 ;
+                     sh:maxInclusive 3 ;
+                     sh:message "Access level must be between 1 and 3"@en
+                 ] ;
+                 sh:property [
+                     sh:path :humanApproval ;
+                     sh:datatype xsd:boolean ;
+                     sh:message "Human approval must be a boolean value"@en
+                 ] .
+
+# Recording validation
+:RecordingShape rdf:type sh:NodeShape ;
+                sh:targetClass :Recording ;
+                sh:property [
+                    sh:path :recordingDate ;
+                    sh:datatype xsd:date ;
+                    sh:minCount 1 ;
+                    sh:message "Recording must have a recording date"@en
+                ] ;
+                sh:property [
+                    sh:path :performedBy ;
+                    sh:minCount 1 ;
+                    sh:message "Recording must have at least one performer"@en
+                ] ;
+                sh:property [
+                    sh:path :recordedAt ;
+                    sh:minCount 1 ;
+                    sh:message "Recording must have a location"@en
+                ] .
+
+# Cultural Item validation
+:CulturalItemShape rdf:type sh:NodeShape ;
+                   sh:targetClass :CulturalItem ;
+                   sh:property [
+                       sh:path :requiresAccessLevel ;
+                       sh:datatype xsd:integer ;
+                       sh:minInclusive 1 ;
+                       sh:maxInclusive 3 ;
+                       sh:message "Access level must be between 1 and 3"@en
+                   ] ;
+                   sh:property [
+                       sh:path :locatedIn ;
+                       sh:minCount 1 ;
+                       sh:message "Cultural item must have a location"@en
+                   ] .
+
+# Person with role validation
+:PersonWithRoleShape rdf:type sh:NodeShape ;
+                     sh:targetClass :Person ;
+                     sh:property [
+                         sh:path :hasRole ;
+                         sh:minCount 1 ;
+                         sh:message "Person should have at least one role"@en
+                     ] .
+
+# Sacred Item validation - must have guardian
+# Note: Data uses caresFor (Person -> SacredItem), so we validate via inverse path
+:SacredItemShape rdf:type sh:NodeShape ;
+                 sh:targetClass :SacredItem ;
+                 sh:property [
+                     sh:path [ sh:inversePath :caresFor ] ;
+                     sh:minCount 1 ;
+                     sh:message "Sacred item must have at least one guardian (via caresFor)"@en
+                 ] ;
+                 sh:property [
+                     sh:path :requiresAccessLevel ;
+                     sh:datatype xsd:integer ;
+                     sh:minInclusive 2 ;
+                     sh:maxInclusive 3 ;
+                     sh:message "Sacred items must require access level 2 or 3"@en
+                 ] .
+
+# Tribal Elder validation
+:TribalElderShape rdf:type sh:NodeShape ;
+                  sh:targetClass :TribalElder ;
+                  sh:property [
+                      sh:path :hasAccessLevel ;
+                      sh:hasValue 3 ;
+                      sh:message "Tribal elders must have access level 3"@en
+                  ] ;
+                  sh:property [
+                      sh:path :humanApproval ;
+                      sh:hasValue true ;
+                      sh:message "Tribal elders must have human approval"@en
+                  ] .
+
+# Instrument validation
+:InstrumentShape rdf:type sh:NodeShape ;
+                 sh:targetClass :Instrument ;
+                 sh:property [
+                     sh:path :locatedIn ;
+                     sh:minCount 1 ;
+                     sh:message "Instrument must have a location"@en
+                 ] .
+
+# Community member validation
+:CommunityMemberShape rdf:type sh:NodeShape ;
+                      sh:targetClass :Person ;
+                      sh:property [
+                          sh:path :memberOfCommunity ;
+                          sh:minCount 1 ;
+                          sh:message "Person should be a member of at least one community"@en
+                      ] .
+
+# Recording access level validation
+# Validates that performer access level meets instrument requirements when recording date is after restriction date
+:RecordingAccessLevelShape rdf:type sh:NodeShape ;
+                           sh:targetClass :Recording ;
+                           sh:sparql [
+                               sh:message "When recording date is after restriction effective date, performer access level must meet instrument requirements"@en ;
+                               sh:select """
+                                   SELECT $this ?performer ?instrument ?recordingDate ?restrictionDate ?performerAccess ?itemAccess
+                                   WHERE {
+                                       $this :performedBy ?performer .
+                                       $this :usesInstrument ?instrument .
+                                       $this :recordingDate ?recordingDate .
+                                       ?instrument :restrictionEffectiveDate ?restrictionDate .
+                                       ?instrument :requiresAccessLevel ?itemAccess .
+                                       ?performer :hasAccessLevel ?performerAccess .
+                                       FILTER (?recordingDate > ?restrictionDate && ?performerAccess < ?itemAccess)
+                                   }
+                               """
+                           ] .
 
 # ============================================
-# Shape 2: All people should have an access level
+# ADDITIONAL COMPREHENSIVE VALIDATIONS
 # ============================================
-ex:PersonAccessLevelShape
-    a sh:NodeShape ;
-    sh:targetClass hp:RDqiGQVsD47hrqZoozr5QsY ;
-    sh:property [
-        sh:path hp:RCJaWiwRu0H17JaH2SCttq4 ;
-        sh:minCount 1 ;
-        sh:message "All people should have an access level" ;
-    ] .
 
-# ============================================
-# Shape 3: Cultural items should have required access level
-# ============================================
-ex:CulturalItemAccessLevelShape
-    a sh:NodeShape ;
-    sh:targetSubjectsOf hp:RMGAHX6nPHqguUGyQWzWc3 ;
-    sh:property [
-        sh:path hp:RpDGSmirVNb6iFln2laxUV ;
-        sh:minCount 1 ;
-        sh:message "Cultural items should specify required access level" ;
-    ] .
+# Mentor validation - mentor must have higher access level or approval
+:MentorshipShape rdf:type sh:NodeShape ;
+                 sh:targetClass :Person ;
+                 sh:sparql [
+                     sh:message "Mentor should have higher or equal access level than mentee, or be a TribalElder"@en ;
+                     sh:select """
+                         SELECT $this ?mentee ?mentorAccess ?menteeAccess
+                         WHERE {
+                             $this :mentoredBy ?mentor .
+                             $this :hasAccessLevel ?menteeAccess .
+                             ?mentor :hasAccessLevel ?mentorAccess .
+                             FILTER (?mentorAccess < ?menteeAccess)
+                             FILTER NOT EXISTS { ?mentor rdf:type :TribalElder }
+                         }
+                     """
+                 ] .
 
-# ============================================
-# Shape 4: Rituals should have recording date
-# ============================================
-ex:RitualDateShape
-    a sh:NodeShape ;
-    sh:targetClass hp:R7mttBU5VPhW5YJQVYDffDM ;
-    sh:property [
-        sh:path hp:RBboBfaALQFmlbSHTvugBOZ ;
-        sh:minCount 1 ;
-        sh:datatype xsd:date ;
-        sh:message "Rituals must have a recording date" ;
-    ] .
+# Approved person validation - must have humanApproval if approvedBy exists
+:ApprovalConsistencyShape rdf:type sh:NodeShape ;
+                          sh:targetClass :Person ;
+                          sh:sparql [
+                              sh:message "Person approved by elder must have humanApproval set to true"@en ;
+                              sh:select """
+                                  SELECT $this ?elder
+                                  WHERE {
+                                      $this :approvedBy ?elder .
+                                      ?elder rdf:type :TribalElder .
+                                      OPTIONAL { $this :humanApproval ?approval }
+                                      FILTER (!bound(?approval) || ?approval != true)
+                                  }
+                              """
+                          ] .
 
-# ============================================
-# Shape 5: Access level consistency
-# ============================================
-# People's access level should match or exceed required access of items they care for
-ex:AccessLevelConsistencyShape
-    a sh:NodeShape ;
-    sh:targetClass hp:RDqiGQVsD47hrqZoozr5QsY ;
-    sh:sparql [
-        sh:message "Person's access level should match or exceed required access of items they care for" ;
-        sh:select """
-            SELECT $this ?item ?personAccess ?requiredAccess
-            WHERE {
-                $this hp:RC2A3h4SFUS7L6DFLFfGllV ?item .
-                $this hp:RCJaWiwRu0H17JaH2SCttq4 ?personAccess .
-                ?item hp:RpDGSmirVNb6iFln2laxUV ?requiredAccess .
-                FILTER(?personAccess != ?requiredAccess)
-            }
-        """ ;
-    ] .
+# Recording instrument consistency - at least one performer should play each instrument
+:RecordingInstrumentShape rdf:type sh:NodeShape ;
+                           sh:targetClass :Recording ;
+                           sh:sparql [
+                               sh:message "At least one performer should play each instrument used in recording"@en ;
+                               sh:select """
+                                   SELECT $this ?instrument
+                                   WHERE {
+                                       $this :usesInstrument ?instrument .
+                                       FILTER NOT EXISTS {
+                                           $this :performedBy ?performer .
+                                           ?performer :playsInstrument ?instrument
+                                       }
+                                   }
+                               """
+                           ] .
 
-# ============================================
-# Shape 6: Performers should have instruments
-# ============================================
-ex:PerformerInstrumentShape
-    a sh:NodeShape ;
-    sh:targetClass hp:R03ZYSVq13JCMj9kLheIM8 ;
-    sh:property [
-        sh:path hp:R8nJXbGpvqynikgtrBpaY34 ;
-        sh:minCount 1 ;
-        sh:message "Performers should have at least one instrument" ;
-    ] .
+# Access level hierarchy validation
+# Level 3 (Sacred/Elder) > Level 2 (Restricted) > Level 1 (Public)
+:AccessLevelHierarchyShape rdf:type sh:NodeShape ;
+                            sh:targetClass :Person ;
+                            sh:sparql [
+                                sh:message "Person with access level 3 should be TribalElder or have humanApproval"@en ;
+                                sh:select """
+                                    SELECT $this ?accessLevel
+                                    WHERE {
+                                        $this :hasAccessLevel 3 .
+                                        FILTER NOT EXISTS { $this rdf:type :TribalElder }
+                                        OPTIONAL { $this :humanApproval ?approval }
+                                        FILTER (!bound(?approval) || ?approval != true)
+                                    }
+                                """
+                            ] .
 
-# ============================================
-# Shape 7: Sacred items should be cared for by someone
-# ============================================
-ex:SacredItemCareShape
-    a sh:NodeShape ;
-    sh:targetClass hp:R7pxWOFI810disSa49P9mBh ;
-    sh:property [
-        sh:path hp:R93nXbfTdGD8uNsKFdX3LXQ ;
-        sh:minCount 1 ;
-        sh:message "Sacred items should be cared for by at least one person" ;
-    ] .
+# Competency validation - person should have competencies matching their roles
+:CompetencyRoleShape rdf:type sh:NodeShape ;
+                     sh:targetClass :Person ;
+                     sh:sparql [
+                         sh:message "Person with AshiqRole should have musical competencies"@en ;
+                         sh:select """
+                             SELECT $this ?role
+                             WHERE {
+                                 $this :hasRole ?role .
+                                 ?role rdf:type :AshiqRole .
+                                 FILTER NOT EXISTS {
+                                     $this :hasCompetency ?comp .
+                                     ?comp rdf:type :InstrumentSkill
+                                 }
+                             }
+                         """
+                     ] .
 
-# ============================================
-# Shape 8: Data type validation
-# ============================================
-ex:DataTypeShape
-    a sh:NodeShape ;
-    sh:targetClass hp:RDqiGQVsD47hrqZoozr5QsY ;
-    sh:property [
-        sh:path hp:RSI0l4uEyriNyqJaIicRNi ;
-        sh:datatype xsd:boolean ;
-        sh:message "humanApproval must be a boolean value" ;
-    ] .
-
-ex:DateTypeShape
-    a sh:NodeShape ;
-    sh:targetSubjectsOf hp:RBboBfaALQFmlbSHTvugBOZ ;
-    sh:property [
-        sh:path hp:RBboBfaALQFmlbSHTvugBOZ ;
-        sh:datatype xsd:date ;
-        sh:message "recordingDate must be an xsd:date value" ;
-    ] .

@@ -1,0 +1,17 @@
+# Query 9: Find persons approved by tribal elders
+# Shows approval relationships between elders and community members
+
+PREFIX : <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT ?elder ?elderLabel ?approvedPerson ?approvedPersonLabel ?humanApproval
+WHERE {
+    ?approvedPerson :approvedBy ?elder .
+    ?elder rdf:type :TribalElder .
+    ?approvedPerson :humanApproval ?humanApproval .
+    ?elder rdfs:label ?elderLabel .
+    FILTER(LANG(?elderLabel) = "en" || LANG(?elderLabel) = "")
+    ?approvedPerson rdfs:label ?approvedPersonLabel .
+    FILTER(LANG(?approvedPersonLabel) = "en" || LANG(?approvedPersonLabel) = "")
+}
+ORDER BY ?elderLabel ?approvedPersonLabel

@@ -1,0 +1,18 @@
+# Query 14: Find people with multiple roles
+# Identifies people who have more than one role
+
+PREFIX : <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT ?person ?personLabel (COUNT(?role) AS ?roleCount) (GROUP_CONCAT(?roleLabel; separator=", ") AS ?roles)
+WHERE {
+    ?person rdf:type :Person .
+    ?person :hasRole ?role .
+    ?person rdfs:label ?personLabel .
+    FILTER(LANG(?personLabel) = "en" || LANG(?personLabel) = "")
+    ?role rdfs:label ?roleLabel .
+    FILTER(LANG(?roleLabel) = "en" || LANG(?roleLabel) = "")
+}
+GROUP BY ?person ?personLabel
+HAVING (COUNT(?role) > 1)
+ORDER BY DESC(?roleCount) ?personLabel

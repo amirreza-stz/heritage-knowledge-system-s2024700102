@@ -1,117 +1,177 @@
-# Fixed Data 
-# Student ID: 2024700102
-# This file contains the same recordings as violations.ttl but with all violations corrected
-
-@prefix ex: <http://example.org/heritage/s2024700102#> .
+@prefix : <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-# ============================================
-# Fixed Recordings 1-5: Temporal Access Violations Corrected
-# ============================================
+#################################################################
+# Fixed Data - All Violations Corrected
+# Question 3: Temporal Constraints and Data Validation
+# 
+# This file contains corrected versions of all violations
+# from heritage_violations_dataset.ttl
+#################################################################
 
-# Fixed 1: Now performer has Sacred access (matches required level)
-ex:s2024700102_recording_violation1 a ex:Recording ;
-    ex:recordingDate "2025-01-15"^^xsd:date ;
-    ex:restrictionEffectiveDate "2020-01-01"^^xsd:date ;
-    ex:requiredAccessLevel ex:Sacred ;
-    ex:performerAccessLevel ex:Sacred ;  # FIXED: Changed from Public to Sacred
-    ex:performer ex:s2024700102_performer1 .
+# Fixed 1: Person with required role
+:PersonWithRole rdf:type :Person ;
+                rdfs:label "Person With Role"@en ;
+                :hasRole :RoleAshiq ;
+                :memberOfCommunity :AshiqCommunity ;
+                :hasAccessLevel 1 ;
+                :humanApproval true .
 
-# Fixed 2: Now performer has Restricted access (matches required level)
-ex:s2024700102_recording_violation2 a ex:Recording ;
-    ex:recordingDate "2024-06-20"^^xsd:date ;
-    ex:restrictionEffectiveDate "2021-01-01"^^xsd:date ;
-    ex:requiredAccessLevel ex:Restricted ;
-    ex:performerAccessLevel ex:Restricted ;  # FIXED: Changed from Public to Restricted
-    ex:performer ex:s2024700102_performer2 .
+# Fixed 2: Recording with date
+:RecordingWithDate rdf:type :Recording ;
+                   rdfs:label "Recording With Date"@en ;
+                   :performedBy :PersonWithRole ;
+                   :recordedAt :Baku ;
+                   :recordingDate "2023-01-01"^^xsd:date .
 
-# Fixed 3: Now performer has Sacred access (matches required level)
-ex:s2024700102_recording_violation3 a ex:Recording ;
-    ex:recordingDate "2025-03-10"^^xsd:date ;
-    ex:restrictionEffectiveDate "2019-06-15"^^xsd:date ;
-    ex:requiredAccessLevel ex:Sacred ;
-    ex:performerAccessLevel ex:Sacred ;  # FIXED: Changed from Restricted to Sacred
-    ex:performer ex:s2024700102_performer3 .
+# Fixed 3: Sacred item with guardian
+:PersonGuardian rdf:type :Person ;
+                rdfs:label "Person Guardian"@en ;
+                :hasRole :RoleGuardianQopuz ;
+                :memberOfCommunity :AshiqCommunity ;
+                :hasAccessLevel 2 ;
+                :humanApproval true ;
+                :caresFor :SacredItemWithGuardian .
 
-# Fixed 4: Now performer has Restricted access (matches required level)
-ex:s2024700102_recording_violation4 a ex:Recording ;
-    ex:recordingDate "2024-09-12"^^xsd:date ;
-    ex:restrictionEffectiveDate "2022-03-01"^^xsd:date ;
-    ex:requiredAccessLevel ex:Restricted ;
-    ex:performerAccessLevel ex:Restricted ;  # FIXED: Changed from Public to Restricted
-    ex:performer ex:s2024700102_performer4 .
+:SacredItemWithGuardian rdf:type :SacredItem ;
+                        rdfs:label "Sacred Item With Guardian"@en ;
+                        :locatedIn :Shusha ;
+                        :requiresAccessLevel 2 .
 
-# Fixed 5: Now performer has Sacred access (matches required level)
-ex:s2024700102_recording_violation5 a ex:Recording ;
-    ex:recordingDate "2025-11-25"^^xsd:date ;
-    ex:restrictionEffectiveDate "2020-08-10"^^xsd:date ;
-    ex:requiredAccessLevel ex:Sacred ;
-    ex:performerAccessLevel ex:Sacred ;  # FIXED: Changed from Restricted to Sacred
-    ex:performer ex:s2024700102_performer5 .
+# Fixed 4: Tribal elder with correct access level
+:TribalElderCorrectLevel rdf:type :TribalElder ;
+                        rdfs:label "Tribal Elder Correct Level"@en ;
+                        :memberOfCommunity :AshiqCommunity ;
+                        :hasAccessLevel 3 ;
+                        :humanApproval true .
 
-# ============================================
-# Fixed Recordings 6-8: Added Missing Performer Information
-# ============================================
+# Fixed 5: Cultural item with location
+:CulturalItemWithLocation rdf:type :MusicalWork ;
+                          rdfs:label "Musical Work With Location"@en ;
+                          :locatedIn :Baku ;
+                          :requiresAccessLevel 1 .
 
-# Fixed 6: Added performer property
-ex:s2024700102_recording_violation6 a ex:Recording ;
-    ex:recordingDate "2023-05-15"^^xsd:date ;
-    ex:restrictionEffectiveDate "2020-01-01"^^xsd:date ;
-    ex:requiredAccessLevel ex:Public ;
-    ex:performerAccessLevel ex:Public ;
-    ex:performer ex:s2024700102_performer8 .  # FIXED: Added missing performer
+# Fixed 6: Recording date before restriction date (safe)
+:RecordingDateSafe rdf:type :Recording ;
+                   rdfs:label "Recording Date Safe"@en ;
+                   :performedBy :PersonWithRole ;
+                   :recordedAt :Baku ;
+                   :recordingDate "2019-12-30"^^xsd:date ;
+                   :restrictionEffectiveDate "2019-12-31"^^xsd:date .
 
-# Fixed 7: Added performer property
-ex:s2024700102_recording_violation7 a ex:Recording ;
-    ex:recordingDate "2023-08-20"^^xsd:date ;
-    ex:restrictionEffectiveDate "2021-01-01"^^xsd:date ;
-    ex:requiredAccessLevel ex:Public ;
-    ex:performerAccessLevel ex:Public ;
-    ex:performer ex:s2024700102_performer9 .  # FIXED: Added missing performer
+# Fixed 7: Person with community membership
+:PersonWithCommunity rdf:type :Person ;
+                     rdfs:label "Person With Community"@en ;
+                     :hasRole :RoleAshiq ;
+                     :memberOfCommunity :AshiqCommunity ;
+                     :hasAccessLevel 2 ;
+                     :humanApproval true .
 
-# Fixed 8: Added performer property
-ex:s2024700102_recording_violation8 a ex:Recording ;
-    ex:recordingDate "2024-02-10"^^xsd:date ;
-    ex:restrictionEffectiveDate "2020-01-01"^^xsd:date ;
-    ex:requiredAccessLevel ex:Public ;
-    ex:performerAccessLevel ex:Public ;
-    ex:performer ex:s2024700102_performer10 .  # FIXED: Added missing performer
+# Fixed 8: Instrument with location
+:InstrumentWithLocation rdf:type :Baglama, :Instrument ;
+                       rdfs:label "Instrument With Location"@en ;
+                       :locatedIn :Baku ;
+                       :requiresAccessLevel 1 .
 
-# ============================================
-# Fixed Recordings 9-10: Corrected Invalid Date Formats
-# ============================================
+# Fixed 9: Recording with performer
+:RecordingWithPerformer rdf:type :Recording ;
+                       rdfs:label "Recording With Performer"@en ;
+                       :performedBy :PersonWithRole ;
+                       :recordedAt :Baku ;
+                       :recordingDate "2023-01-01"^^xsd:date .
 
-# Fixed 9: Corrected date format to valid xsd:date
-ex:s2024700102_recording_violation9 a ex:Recording ;
-    ex:recordingDate "2024-06-15"^^xsd:date ;  # FIXED: Changed from "invalid-date" to valid date
-    ex:restrictionEffectiveDate "2020-01-01"^^xsd:date ;
-    ex:requiredAccessLevel ex:Public ;
-    ex:performerAccessLevel ex:Public ;
-    ex:performer ex:s2024700102_performer6 .
+# Fixed 10: Recording with location
+:RecordingWithLocation rdf:type :Recording ;
+                      rdfs:label "Recording With Location"@en ;
+                      :performedBy :PersonWithRole ;
+                      :recordedAt :Baku ;
+                      :recordingDate "2023-01-01"^^xsd:date .
 
-# Fixed 10: Corrected date format to valid xsd:date
-ex:s2024700102_recording_violation10 a ex:Recording ;
-    ex:recordingDate "2024-12-25"^^xsd:date ;
-    ex:restrictionEffectiveDate "2020-01-01"^^xsd:date ;  # FIXED: Changed from "not-a-date" to valid date
-    ex:requiredAccessLevel ex:Public ;
-    ex:performerAccessLevel ex:Public ;
-    ex:performer ex:s2024700102_performer7 .
+# Fixed 11: Person with access level 3 and humanApproval
+:PersonLevel3WithApproval rdf:type :Person ;
+                          rdfs:label "Person Level 3 With Approval"@en ;
+                          :hasRole :RoleGuardianQopuz ;
+                          :memberOfCommunity :AshiqCommunity ;
+                          :hasAccessLevel 3 ;
+                          :humanApproval true .
 
-# ============================================
-# Supporting Resources
-# ============================================
+# Fixed 12: Person approved by elder with humanApproval
+:PersonApprovedWithHumanApproval rdf:type :Person ;
+                                 rdfs:label "Person Approved With Human Approval"@en ;
+                                 :hasRole :RoleAshiq ;
+                                 :memberOfCommunity :AshiqCommunity ;
+                                 :hasAccessLevel 2 ;
+                                 :humanApproval true ;
+                                 :approvedBy :ElderAli .
 
-ex:Public a ex:AccessLevel .
-ex:Restricted a ex:AccessLevel .
-ex:Sacred a ex:AccessLevel .
+# Fixed 13: Mentorship - mentor has higher access than mentee
+:MentorHighAccess rdf:type :Person ;
+                 rdfs:label "Mentor High Access"@en ;
+                 :hasRole :RoleAshiq ;
+                 :memberOfCommunity :AshiqCommunity ;
+                 :hasAccessLevel 2 ;
+                 :humanApproval true .
 
-ex:s2024700102_performer1 a ex:Performer .
-ex:s2024700102_performer2 a ex:Performer .
-ex:s2024700102_performer3 a ex:Performer .
-ex:s2024700102_performer4 a ex:Performer .
-ex:s2024700102_performer5 a ex:Performer .
-ex:s2024700102_performer6 a ex:Performer .
-ex:s2024700102_performer7 a ex:Performer .
-ex:s2024700102_performer8 a ex:Performer .
-ex:s2024700102_performer9 a ex:Performer .
-ex:s2024700102_performer10 a ex:Performer .
+:MenteeLowAccess rdf:type :Person ;
+                 rdfs:label "Mentee Low Access"@en ;
+                 :hasRole :RoleAshiq ;
+                 :memberOfCommunity :AshiqCommunity ;
+                 :hasAccessLevel 1 ;
+                 :humanApproval true ;
+                 :mentoredBy :MentorHighAccess .
+
+# Fixed 14: AshiqRole with InstrumentSkill competency
+:AshiqWithCompetency rdf:type :Person ;
+                     rdfs:label "Ashiq With Competency"@en ;
+                     :hasRole :RoleAshiq ;
+                     :memberOfCommunity :AshiqCommunity ;
+                     :hasAccessLevel 2 ;
+                     :humanApproval true ;
+                     :hasCompetency :SkillQopuzPlaying .
+
+# Fixed 15: Recording with performer who plays the instrument
+:PerformerWithInstrument rdf:type :Person ;
+                         rdfs:label "Performer With Instrument"@en ;
+                         :hasRole :RolePerformer ;
+                         :memberOfCommunity :AshiqCommunity ;
+                         :hasAccessLevel 1 ;
+                         :humanApproval true ;
+                         :playsInstrument :BaglamaBaku .
+
+:RecordingInstrumentMatch rdf:type :Recording ;
+                         rdfs:label "Recording Instrument Match"@en ;
+                         :performedBy :PerformerWithInstrument ;
+                         :usesInstrument :BaglamaBaku ;
+                         :recordedAt :Baku ;
+                         :recordingDate "2023-06-15"^^xsd:date .
+
+# Fixed 16: Sacred item with correct access level (2 or 3)
+:SacredItemCorrectAccess rdf:type :SacredItem ;
+                        rdfs:label "Sacred Item Correct Access"@en ;
+                        :locatedIn :Shusha ;
+                        :requiresAccessLevel 2 .
+
+# Fixed 17: Person with valid access level (1-3)
+:PersonValidAccessLevel rdf:type :Person ;
+                        rdfs:label "Person Valid Access Level"@en ;
+                        :hasRole :RoleAshiq ;
+                        :memberOfCommunity :AshiqCommunity ;
+                        :hasAccessLevel 3 .
+
+# Additional locations for testing
+:Baku rdf:type :Location ;
+      rdfs:label "Baku"@en .
+
+:Shusha rdf:type :Location ;
+        rdfs:label "Shusha"@en .
+
+# Additional roles and communities referenced
+:RoleAshiq rdf:type :AshiqRole .
+:RoleGuardianQopuz rdf:type :GuardianRole .
+:RolePerformer rdf:type :PerformerRole .
+:AshiqCommunity rdf:type :Community .
+:ElderAli rdf:type :TribalElder .
+:BaglamaBaku rdf:type :Baglama, :Instrument .
+:SkillQopuzPlaying rdf:type :InstrumentSkill .

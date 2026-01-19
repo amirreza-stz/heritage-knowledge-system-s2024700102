@@ -1,0 +1,343 @@
+Prefix(:=<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage/>)
+Prefix(owl:=<http://www.w3.org/2002/07/owl#>)
+Prefix(rdf:=<http://www.w3.org/1999/02/22-rdf-syntax-ns#>)
+Prefix(xml:=<http://www.w3.org/XML/1998/namespace>)
+Prefix(xsd:=<http://www.w3.org/2001/XMLSchema#>)
+Prefix(rdfs:=<http://www.w3.org/2000/01/rdf-schema#>)
+
+
+Ontology(<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage>
+
+Declaration(Class(<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#AshiqRole>))
+Declaration(Class(<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Baglama>))
+Declaration(Class(<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Community>))
+Declaration(Class(<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Competency>))
+Declaration(Class(<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#CulturalEntity>))
+Declaration(Class(<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#CulturalItem>))
+Declaration(Class(<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#DedeRole>))
+Declaration(Class(<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Dombra>))
+Declaration(Class(<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#GuardianRole>))
+Declaration(Class(<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Instrument>))
+Declaration(Class(<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#InstrumentSkill>))
+Declaration(Class(<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Location>))
+Declaration(Class(<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#MusicalWork>))
+Declaration(Class(<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#OzanRole>))
+Declaration(Class(<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#PerformerRole>))
+Declaration(Class(<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Person>))
+Declaration(Class(<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#PoeticSkill>))
+Declaration(Class(<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Qopuz>))
+Declaration(Class(<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Recording>))
+Declaration(Class(<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#RepertoireKnowledge>))
+Declaration(Class(<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#ResearcherRole>))
+Declaration(Class(<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Ritual>))
+Declaration(Class(<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#RitualKnowledge>))
+Declaration(Class(<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Role>))
+Declaration(Class(<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#SacredItem>))
+Declaration(Class(<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#ShamanRole>))
+Declaration(Class(<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#ShamanSaz>))
+Declaration(Class(<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#SpiritualGuardian>))
+Declaration(Class(<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Story>))
+Declaration(Class(<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#StorytellingKnowledge>))
+Declaration(Class(<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#TribalElder>))
+Declaration(ObjectProperty(<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#approvedBy>))
+Declaration(ObjectProperty(<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#approves>))
+Declaration(ObjectProperty(<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#caresFor>))
+Declaration(ObjectProperty(<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#hasCompetency>))
+Declaration(ObjectProperty(<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#hasLocatedItem>))
+Declaration(ObjectProperty(<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#hasMember>))
+Declaration(ObjectProperty(<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#hasRecording>))
+Declaration(ObjectProperty(<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#hasRecordingAt>))
+Declaration(ObjectProperty(<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#hasRole>))
+Declaration(ObjectProperty(<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#isCaredForBy>))
+Declaration(ObjectProperty(<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#isRoleOf>))
+Declaration(ObjectProperty(<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#knowsMusicalWork>))
+Declaration(ObjectProperty(<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#knowsStory>))
+Declaration(ObjectProperty(<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#locatedIn>))
+Declaration(ObjectProperty(<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#memberOfCommunity>))
+Declaration(ObjectProperty(<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#mentoredBy>))
+Declaration(ObjectProperty(<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#performedBy>))
+Declaration(ObjectProperty(<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#performedInRitual>))
+Declaration(ObjectProperty(<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#playsInstrument>))
+Declaration(ObjectProperty(<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#recordedAt>))
+Declaration(ObjectProperty(<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#usesInstrument>))
+Declaration(DataProperty(<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#hasAccessLevel>))
+Declaration(DataProperty(<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#humanApproval>))
+Declaration(DataProperty(<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#recordingDate>))
+Declaration(DataProperty(<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#requiresAccessLevel>))
+Declaration(DataProperty(<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#restrictionEffectiveDate>))
+Declaration(Datatype(xsd:date))
+############################
+#   Object Properties
+############################
+
+# Object Property: <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#approvedBy> (<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#approvedBy>)
+
+SubObjectPropertyOf(<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#approvedBy> owl:topObjectProperty)
+InverseObjectProperties(<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#approvedBy> <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#approves>)
+ObjectPropertyDomain(<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#approvedBy> <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Person>)
+ObjectPropertyRange(<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#approvedBy> <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#TribalElder>)
+
+# Object Property: <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#approves> (<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#approves>)
+
+ObjectPropertyDomain(<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#approves> <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#TribalElder>)
+ObjectPropertyRange(<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#approves> <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Person>)
+
+# Object Property: <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#caresFor> (<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#caresFor>)
+
+ObjectPropertyDomain(<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#caresFor> <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Person>)
+ObjectPropertyRange(<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#caresFor> <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#CulturalItem>)
+
+# Object Property: <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#hasCompetency> (<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#hasCompetency>)
+
+ObjectPropertyDomain(<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#hasCompetency> <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Person>)
+ObjectPropertyRange(<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#hasCompetency> <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Competency>)
+
+# Object Property: <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#hasLocatedItem> (<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#hasLocatedItem>)
+
+InverseObjectProperties(<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#hasLocatedItem> <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#locatedIn>)
+ObjectPropertyDomain(<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#hasLocatedItem> <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Location>)
+ObjectPropertyRange(<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#hasLocatedItem> <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#CulturalItem>)
+
+# Object Property: <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#hasMember> (<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#hasMember>)
+
+InverseObjectProperties(<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#hasMember> <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#memberOfCommunity>)
+ObjectPropertyDomain(<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#hasMember> <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Community>)
+ObjectPropertyRange(<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#hasMember> <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Person>)
+
+# Object Property: <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#hasRecording> (<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#hasRecording>)
+
+InverseObjectProperties(<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#hasRecording> <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#performedBy>)
+ObjectPropertyDomain(<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#hasRecording> <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Person>)
+ObjectPropertyRange(<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#hasRecording> <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Recording>)
+
+# Object Property: <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#hasRecordingAt> (<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#hasRecordingAt>)
+
+InverseObjectProperties(<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#hasRecordingAt> <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#recordedAt>)
+ObjectPropertyDomain(<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#hasRecordingAt> <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Location>)
+ObjectPropertyRange(<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#hasRecordingAt> <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Recording>)
+
+# Object Property: <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#hasRole> (<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#hasRole>)
+
+InverseObjectProperties(<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#hasRole> <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#isRoleOf>)
+ObjectPropertyDomain(<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#hasRole> <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Person>)
+ObjectPropertyRange(<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#hasRole> <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Role>)
+
+# Object Property: <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#isCaredForBy> (<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#isCaredForBy>)
+
+ObjectPropertyDomain(<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#isCaredForBy> <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#CulturalItem>)
+ObjectPropertyRange(<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#isCaredForBy> <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Person>)
+
+# Object Property: <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#isRoleOf> (<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#isRoleOf>)
+
+ObjectPropertyDomain(<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#isRoleOf> <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Role>)
+ObjectPropertyRange(<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#isRoleOf> <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Person>)
+
+# Object Property: <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#knowsMusicalWork> (<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#knowsMusicalWork>)
+
+ObjectPropertyDomain(<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#knowsMusicalWork> <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Person>)
+ObjectPropertyRange(<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#knowsMusicalWork> <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#MusicalWork>)
+
+# Object Property: <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#knowsStory> (<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#knowsStory>)
+
+ObjectPropertyDomain(<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#knowsStory> <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Person>)
+ObjectPropertyRange(<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#knowsStory> <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Story>)
+
+# Object Property: <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#locatedIn> (<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#locatedIn>)
+
+ObjectPropertyDomain(<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#locatedIn> <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#CulturalItem>)
+ObjectPropertyRange(<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#locatedIn> <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Location>)
+
+# Object Property: <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#memberOfCommunity> (<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#memberOfCommunity>)
+
+ObjectPropertyDomain(<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#memberOfCommunity> <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Person>)
+ObjectPropertyRange(<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#memberOfCommunity> <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Community>)
+
+# Object Property: <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#mentoredBy> (<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#mentoredBy>)
+
+ObjectPropertyDomain(<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#mentoredBy> <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Person>)
+ObjectPropertyRange(<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#mentoredBy> <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Person>)
+
+# Object Property: <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#performedBy> (<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#performedBy>)
+
+ObjectPropertyDomain(<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#performedBy> <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Recording>)
+ObjectPropertyRange(<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#performedBy> <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Person>)
+
+# Object Property: <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#performedInRitual> (<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#performedInRitual>)
+
+ObjectPropertyDomain(<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#performedInRitual> <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Person>)
+ObjectPropertyRange(<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#performedInRitual> <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Ritual>)
+
+# Object Property: <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#playsInstrument> (<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#playsInstrument>)
+
+ObjectPropertyDomain(<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#playsInstrument> <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Person>)
+ObjectPropertyRange(<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#playsInstrument> <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Instrument>)
+
+# Object Property: <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#recordedAt> (<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#recordedAt>)
+
+ObjectPropertyDomain(<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#recordedAt> <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Recording>)
+ObjectPropertyRange(<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#recordedAt> <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Location>)
+
+# Object Property: <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#usesInstrument> (<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#usesInstrument>)
+
+ObjectPropertyDomain(<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#usesInstrument> <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Recording>)
+ObjectPropertyRange(<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#usesInstrument> <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Instrument>)
+
+
+############################
+#   Data Properties
+############################
+
+# Data Property: <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#hasAccessLevel> (<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#hasAccessLevel>)
+
+DataPropertyDomain(<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#hasAccessLevel> <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Person>)
+DataPropertyRange(<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#hasAccessLevel> xsd:integer)
+
+# Data Property: <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#humanApproval> (<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#humanApproval>)
+
+DataPropertyDomain(<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#humanApproval> <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Person>)
+DataPropertyRange(<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#humanApproval> xsd:boolean)
+
+# Data Property: <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#recordingDate> (<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#recordingDate>)
+
+DataPropertyDomain(<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#recordingDate> <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Recording>)
+DataPropertyRange(<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#recordingDate> xsd:date)
+
+# Data Property: <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#requiresAccessLevel> (<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#requiresAccessLevel>)
+
+DataPropertyDomain(<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#requiresAccessLevel> <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#CulturalItem>)
+DataPropertyRange(<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#requiresAccessLevel> xsd:integer)
+
+# Data Property: <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#restrictionEffectiveDate> (<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#restrictionEffectiveDate>)
+
+DataPropertyDomain(<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#restrictionEffectiveDate> <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Recording>)
+DataPropertyRange(<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#restrictionEffectiveDate> xsd:date)
+
+
+
+############################
+#   Classes
+############################
+
+# Class: <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#AshiqRole> (<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#AshiqRole>)
+
+SubClassOf(<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#AshiqRole> <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Role>)
+
+# Class: <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Baglama> (<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Baglama>)
+
+SubClassOf(<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Baglama> <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Instrument>)
+
+# Class: <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Community> (<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Community>)
+
+SubClassOf(<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Community> <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#CulturalEntity>)
+
+# Class: <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Competency> (<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Competency>)
+
+SubClassOf(<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Competency> <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#CulturalEntity>)
+
+# Class: <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#CulturalItem> (<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#CulturalItem>)
+
+SubClassOf(<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#CulturalItem> <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#CulturalEntity>)
+
+# Class: <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#DedeRole> (<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#DedeRole>)
+
+SubClassOf(<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#DedeRole> <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Role>)
+
+# Class: <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Dombra> (<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Dombra>)
+
+SubClassOf(<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Dombra> <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Instrument>)
+
+# Class: <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#GuardianRole> (<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#GuardianRole>)
+
+SubClassOf(<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#GuardianRole> <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Role>)
+
+# Class: <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Instrument> (<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Instrument>)
+
+SubClassOf(<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Instrument> <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#CulturalItem>)
+
+# Class: <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#InstrumentSkill> (<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#InstrumentSkill>)
+
+SubClassOf(<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#InstrumentSkill> <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Competency>)
+
+# Class: <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Location> (<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Location>)
+
+SubClassOf(<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Location> <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#CulturalEntity>)
+
+# Class: <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#MusicalWork> (<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#MusicalWork>)
+
+SubClassOf(<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#MusicalWork> <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#CulturalItem>)
+
+# Class: <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#OzanRole> (<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#OzanRole>)
+
+SubClassOf(<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#OzanRole> <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Role>)
+
+# Class: <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#PerformerRole> (<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#PerformerRole>)
+
+SubClassOf(<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#PerformerRole> <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Role>)
+
+# Class: <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Person> (<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Person>)
+
+SubClassOf(<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Person> <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#CulturalEntity>)
+
+# Class: <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#PoeticSkill> (<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#PoeticSkill>)
+
+SubClassOf(<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#PoeticSkill> <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Competency>)
+
+# Class: <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Qopuz> (<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Qopuz>)
+
+SubClassOf(<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Qopuz> <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Instrument>)
+
+# Class: <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Recording> (<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Recording>)
+
+SubClassOf(<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Recording> <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#CulturalItem>)
+
+# Class: <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#RepertoireKnowledge> (<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#RepertoireKnowledge>)
+
+SubClassOf(<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#RepertoireKnowledge> <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Competency>)
+
+# Class: <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#ResearcherRole> (<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#ResearcherRole>)
+
+SubClassOf(<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#ResearcherRole> <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Role>)
+
+# Class: <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Ritual> (<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Ritual>)
+
+SubClassOf(<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Ritual> <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#CulturalItem>)
+
+# Class: <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#RitualKnowledge> (<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#RitualKnowledge>)
+
+SubClassOf(<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#RitualKnowledge> <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Competency>)
+
+# Class: <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Role> (<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Role>)
+
+SubClassOf(<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Role> <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#CulturalEntity>)
+
+# Class: <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#SacredItem> (<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#SacredItem>)
+
+SubClassOf(<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#SacredItem> <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#CulturalItem>)
+
+# Class: <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#ShamanRole> (<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#ShamanRole>)
+
+SubClassOf(<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#ShamanRole> <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Role>)
+
+# Class: <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#ShamanSaz> (<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#ShamanSaz>)
+
+SubClassOf(<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#ShamanSaz> <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Instrument>)
+
+# Class: <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#SpiritualGuardian> (<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#SpiritualGuardian>)
+
+EquivalentClasses(<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#SpiritualGuardian> ObjectIntersectionOf(ObjectSomeValuesFrom(<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#caresFor> <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#SacredItem>) ObjectSomeValuesFrom(<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#hasRole> <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#GuardianRole>)))
+SubClassOf(<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#SpiritualGuardian> <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Role>)
+
+# Class: <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Story> (<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Story>)
+
+SubClassOf(<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Story> <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#CulturalItem>)
+
+# Class: <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#StorytellingKnowledge> (<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#StorytellingKnowledge>)
+
+SubClassOf(<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#StorytellingKnowledge> <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Competency>)
+
+# Class: <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#TribalElder> (<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#TribalElder>)
+
+SubClassOf(<http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#TribalElder> <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Person>)
+
+
+)

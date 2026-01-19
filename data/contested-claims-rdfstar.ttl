@@ -1,101 +1,111 @@
-# Contested Claims - RDF-star Pattern
-# Student ID: 2024700102
-# This file contains 10 contested claims about cultural heritage items
-# Each claim uses RDF-star syntax (<< >>) to annotate statements with metadata
-# The statement itself is the subject, and metadata (source, confidence, date) are properties
-
-@prefix ex: <http://example.org/heritage/s2024700102#> .
+@prefix : <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
 
-# ============================================
-# Claim 1-2: Artifact creation date contested
-# ============================================
-<< ex:artifact_ancient_vase ex:createdIn "1500 BCE"^^xsd:string >>
-    ex:source ex:archaeologist_dr_smith ;
-    ex:confidence 0.92 ;
-    ex:dateRecorded "2023-01-15"^^xsd:date .
+#################################################################
+# Contested Claims - RDF-star Pattern
+# Question 2: Multi-Perspective Knowledge Representation
+# 
+# Different communities have conflicting claims about which cycle
+# cultural rituals belong to (Lunar Cycle vs Solar Cycle).
+# This file uses RDF-star (nested triple syntax << >>) to represent
+# these contested claims with provenance metadata.
+#################################################################
 
-<< ex:artifact_ancient_vase ex:createdIn "1200 BCE"^^xsd:string >>
-    ex:source ex:researcher_prof_jones ;
-    ex:confidence 0.78 ;
-    ex:dateRecorded "2023-03-20"^^xsd:date .
+# Cycle classes
+:LunarCycle rdf:type rdfs:Class ;
+            rdfs:label "Lunar Cycle"@en ;
+            rdfs:label "Ay Dövrü"@az .
 
-# ============================================
-# Claim 3-4: Ritual cycle assignment contested
-# ============================================
-<< ex:ritual_harvest_ceremony ex:belongsTo ex:seasonal_cycle_spring >>
-    ex:source ex:elder_chief_whitefeather ;
-    ex:confidence 0.95 ;
-    ex:dateRecorded "2022-11-10"^^xsd:date .
+:SolarCycle rdf:type rdfs:Class ;
+            rdfs:label "Solar Cycle"@en ;
+            rdfs:label "Günəş Dövrü"@az .
 
-<< ex:ritual_harvest_ceremony ex:belongsTo ex:seasonal_cycle_autumn >>
-    ex:source ex:anthropologist_dr_brown ;
-    ex:confidence 0.85 ;
-    ex:dateRecorded "2023-05-12"^^xsd:date .
+# Source communities/tribes
+:TribeA rdf:type :Community ;
+        rdfs:label "Tribe A - Ashiq Tradition"@en ;
+        rdfs:label "Aşiq Ənənəsi - A Tayfası"@az .
 
-# ============================================
-# Claim 5-6: Sacred item location contested
-# ============================================
-<< ex:sacred_item_ceremonial_mask ex:originallyLocatedAt ex:location_sacred_cave_north >>
-    ex:source ex:guardian_elder_moon ;
-    ex:confidence 0.88 ;
-    ex:dateRecorded "2022-08-25"^^xsd:date .
+:TribeB rdf:type :Community ;
+        rdfs:label "Tribe B - Shaman Tradition"@en ;
+        rdfs:label "Şaman Ənənəsi - B Tayfası"@az .
 
-<< ex:sacred_item_ceremonial_mask ex:originallyLocatedAt ex:location_temple_south >>
-    ex:source ex:historian_dr_williams ;
-    ex:confidence 0.72 ;
-    ex:dateRecorded "2023-07-18"^^xsd:date .
+:TribeC rdf:type :Community ;
+        rdfs:label "Tribe C - Academic Research"@en ;
+        rdfs:label "Akademik Tədqiqat - C Tayfası"@az .
 
-# ============================================
-# Claim 7-8: Instrument performer association contested
-# ============================================
-<< ex:instrument_drum_traditional ex:playedBy ex:performer_master_drummer >>
-    ex:source ex:elder_chief_whitefeather ;
-    ex:confidence 0.90 ;
-    ex:dateRecorded "2022-12-05"^^xsd:date .
+# Properties for metadata
+:belongsTo rdf:type owl:ObjectProperty ;
+           rdfs:domain :Ritual ;
+           rdfs:range rdfs:Class .
 
-<< ex:instrument_drum_traditional ex:playedBy ex:performer_apprentice_drummer >>
-    ex:source ex:researcher_prof_jones ;
-    ex:confidence 0.65 ;
-    ex:dateRecorded "2023-09-22"^^xsd:date .
+:source rdf:type owl:ObjectProperty ;
+        rdfs:range :Community .
 
-# ============================================
-# Claim 9-10: Archaeological site dating contested
-# ============================================
-<< ex:archaeological_site_ancient_settlement ex:datedTo "3000 BCE"^^xsd:string >>
-    ex:source ex:archaeologist_dr_smith ;
-    ex:confidence 0.87 ;
-    ex:dateRecorded "2023-02-14"^^xsd:date .
+:confidence rdf:type owl:DatatypeProperty ;
+            rdfs:range xsd:decimal .
 
-<< ex:archaeological_site_ancient_settlement ex:datedTo "2500 BCE"^^xsd:string >>
-    ex:source ex:carbon_dating_lab_tech ;
-    ex:confidence 0.93 ;
-    ex:dateRecorded "2023-10-30"^^xsd:date .
+:dateRecorded rdf:type owl:DatatypeProperty ;
+              rdfs:range xsd:date .
 
-# ============================================
-# Supporting instance data
-# ============================================
-ex:artifact_ancient_vase a ex:Artifact .
-ex:ritual_harvest_ceremony a ex:Ritual .
-ex:sacred_item_ceremonial_mask a ex:SacredItem .
-ex:instrument_drum_traditional a ex:Instrument .
-ex:archaeological_site_ancient_settlement a ex:ArchaeologicalSite .
+# Claim 1: Spring Ritual - Tribe A claims Lunar
+<< :SpringRitual :belongsTo :LunarCycle >>
+    :source :TribeA ;
+    :confidence 0.9 ;
+    :dateRecorded "2024-03-15"^^xsd:date .
 
-ex:seasonal_cycle_spring a ex:SeasonalCycle .
-ex:seasonal_cycle_autumn a ex:SeasonalCycle .
+# Claim 2: Spring Ritual - Tribe B claims Solar
+<< :SpringRitual :belongsTo :SolarCycle >>
+    :source :TribeB ;
+    :confidence 0.85 ;
+    :dateRecorded "2024-03-20"^^xsd:date .
 
-ex:location_sacred_cave_north a ex:Location .
-ex:location_temple_south a ex:Location .
+# Claim 3: Harvest Ritual - Tribe A claims Solar
+<< :HarvestRitual :belongsTo :SolarCycle >>
+    :source :TribeA ;
+    :confidence 0.95 ;
+    :dateRecorded "2024-09-10"^^xsd:date .
 
-ex:archaeologist_dr_smith a ex:Archaeologist .
-ex:researcher_prof_jones a ex:Researcher .
-ex:elder_chief_whitefeather a ex:TribalElder .
-ex:anthropologist_dr_brown a ex:Anthropologist .
-ex:guardian_elder_moon a ex:Guardian .
-ex:historian_dr_williams a ex:Historian .
-ex:carbon_dating_lab_tech a ex:LabTechnician .
+# Claim 4: Harvest Ritual - Tribe C claims Lunar
+<< :HarvestRitual :belongsTo :LunarCycle >>
+    :source :TribeC ;
+    :confidence 0.75 ;
+    :dateRecorded "2024-09-12"^^xsd:date .
 
-ex:performer_master_drummer a ex:Performer .
-ex:performer_apprentice_drummer a ex:Performer .
+# Claim 5: Ashiq Majlis - Tribe A claims Lunar
+<< :RitualAshiqMajlis :belongsTo :LunarCycle >>
+    :source :TribeA ;
+    :confidence 0.88 ;
+    :dateRecorded "2024-01-05"^^xsd:date .
+
+# Claim 6: Ashiq Majlis - Tribe B claims Solar
+<< :RitualAshiqMajlis :belongsTo :SolarCycle >>
+    :source :TribeB ;
+    :confidence 0.82 ;
+    :dateRecorded "2024-01-08"^^xsd:date .
+
+# Claim 7: Shaman Healing Ritual - Tribe B claims Lunar
+<< :RitualShamanHealing :belongsTo :LunarCycle >>
+    :source :TribeB ;
+    :confidence 0.92 ;
+    :dateRecorded "2024-06-15"^^xsd:date .
+
+# Claim 8: Shaman Healing Ritual - Tribe C claims Solar
+<< :RitualShamanHealing :belongsTo :SolarCycle >>
+    :source :TribeC ;
+    :confidence 0.78 ;
+    :dateRecorded "2024-06-18"^^xsd:date .
+
+# Claim 9: Spring Ritual - Tribe C claims Lunar
+<< :SpringRitual :belongsTo :LunarCycle >>
+    :source :TribeC ;
+    :confidence 0.70 ;
+    :dateRecorded "2024-03-25"^^xsd:date .
+
+# Claim 10: Harvest Ritual - Tribe B claims Solar
+<< :HarvestRitual :belongsTo :SolarCycle >>
+    :source :TribeB ;
+    :confidence 0.80 ;
+    :dateRecorded "2024-09-15"^^xsd:date .
