@@ -44,7 +44,6 @@ heritage-knowledge-system-s2024700102/
 │   ├── q1-reification.rq              # Question 2 queries
 │   ├── q2-named-graphs.rq
 │   ├── q3-rdfstar.rq
-│   ├── q4-conflicting-claims.rq
 │   └── q5-claims-by-source.rq
 ├── shapes/                # SHACL validation shapes
 │   └── validation_shapes.ttl
@@ -106,9 +105,8 @@ pip install -r requirements.txt
 **Question 2 Queries (for contested claims):**
 - q1-reification.rq: Find high-confidence claims (reification pattern)
 - q2-named-graphs.rq: Find conflicting claims (named graphs)
-- q3-rdfstar.rq: Count claims per source (RDF-star)
-- q4-conflicting-claims.rq: Find conflicting claims
-- q5-claims-by-source.rq: Count claims by source
+- q3-rdfstar.rq: Find high-confidence claims (RDF-star)
+- q5-claims-by-source.rq: Count claims by source (all patterns)
 
 ## Question 2: Multi-Perspective Knowledge Representation
 
