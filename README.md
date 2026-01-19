@@ -51,8 +51,8 @@ heritage-knowledge-system-s2024700102/
 ├── validation/           # Validation reports and temporal constraints
 │   ├── temporal-constraints.shacl     # Question 3: Temporal validation
 │   ├── owl-limitation-demo.owl        # Question 3: OWL limitation demo
-│   ├── base_report.txt
-│   └── violations_report.txt
+│   ├── base_report_final.txt          # Validation report for fixed data
+│   └── violations_report.txt          # Validation report for violations
 ├── code/                  # Python scripts
 │   ├── load-triplestore.py
 │   ├── run-queries.py
@@ -348,7 +348,7 @@ I added network visualization using Gephi:
 ## Future Improvements
 
 - Add more equivalent-class axioms for additional inference
-- Create more SHACL shapes for comprehensive validation
+- Create more SHACL shapes for validation
 - Optimize queries and add indexing
 - Improve network visualization
 - Add geographic mapping
