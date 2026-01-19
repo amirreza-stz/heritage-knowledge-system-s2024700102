@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage/"
+     xml:base="http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage/"/>
+    
+    <!-- 
+    OWL Limitation Demonstration
+    Question 3(e): Attempt to encode temporal access constraint using OWL
+    
+    Goal: Express "IF recordingDate > restrictionEffectiveDate 
+          AND performerAccessLevel < requiredAccessLevel 
+          THEN violation"
+    
+    This demonstrates why OWL cannot encode this constraint.
+    -->
+    
+    <!-- 
+    ATTEMPT: Using equivalent class to define TemporalViolation
+    PROBLEM: OWL cannot compare data property values (no > or < operators)
+    OWL can only express class membership and property relationships,
+    not conditional logic based on data property comparisons.
+    -->
+    <owl:Class rdf:about="http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage/TemporalViolation">
+        <rdfs:comment>Attempted definition of temporal violation class - this approach fails because OWL cannot compare data property values (recordingDate > restrictionEffectiveDate) or express conditional logic.</rdfs:comment>
+        <!-- 
+        Cannot express:
+        - recordingDate > restrictionEffectiveDate (no date comparison operators)
+        - performerAccessLevel < requiredAccessLevel (no numeric comparison operators)
+        - IF-THEN conditional logic
+        -->
+    </owl:Class>
+    
+    <!-- 
+    WHY THIS FAILS:
+    1. No date comparisons: OWL has no operators for comparing xsd:date values
+    2. No numeric comparisons: OWL cannot express < or > for numeric values
+    3. No conditional logic: OWL cannot express IF-THEN rules
+    4. Open-world assumption: Missing data means unknown, not false
+    5. Monotonic reasoning: OWL only adds knowledge, never rejects or flags violations
+    
+    SOLUTION: Use SHACL with SPARQL constraints (see validation/temporal-constraints.shacl)
+    -->
+
+</rdf:RDF>

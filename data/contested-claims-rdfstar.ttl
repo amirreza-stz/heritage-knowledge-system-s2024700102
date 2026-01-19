@@ -1,0 +1,111 @@
+@prefix : <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+#################################################################
+# Contested Claims - RDF-star Pattern
+# Question 2: Multi-Perspective Knowledge Representation
+# 
+# Different communities have conflicting claims about which cycle
+# cultural rituals belong to (Lunar Cycle vs Solar Cycle).
+# This file uses RDF-star (nested triple syntax << >>) to represent
+# these contested claims with provenance metadata.
+#################################################################
+
+# Cycle classes
+:LunarCycle rdf:type rdfs:Class ;
+            rdfs:label "Lunar Cycle"@en ;
+            rdfs:label "Ay Dövrü"@az .
+
+:SolarCycle rdf:type rdfs:Class ;
+            rdfs:label "Solar Cycle"@en ;
+            rdfs:label "Günəş Dövrü"@az .
+
+# Source communities/tribes
+:TribeA rdf:type :Community ;
+        rdfs:label "Tribe A - Ashiq Tradition"@en ;
+        rdfs:label "Aşiq Ənənəsi - A Tayfası"@az .
+
+:TribeB rdf:type :Community ;
+        rdfs:label "Tribe B - Shaman Tradition"@en ;
+        rdfs:label "Şaman Ənənəsi - B Tayfası"@az .
+
+:TribeC rdf:type :Community ;
+        rdfs:label "Tribe C - Academic Research"@en ;
+        rdfs:label "Akademik Tədqiqat - C Tayfası"@az .
+
+# Properties for metadata
+:belongsTo rdf:type owl:ObjectProperty ;
+           rdfs:domain :Ritual ;
+           rdfs:range rdfs:Class .
+
+:source rdf:type owl:ObjectProperty ;
+        rdfs:range :Community .
+
+:confidence rdf:type owl:DatatypeProperty ;
+            rdfs:range xsd:decimal .
+
+:dateRecorded rdf:type owl:DatatypeProperty ;
+              rdfs:range xsd:date .
+
+# Claim 1: Spring Ritual - Tribe A claims Lunar
+<< :SpringRitual :belongsTo :LunarCycle >>
+    :source :TribeA ;
+    :confidence 0.9 ;
+    :dateRecorded "2024-03-15"^^xsd:date .
+
+# Claim 2: Spring Ritual - Tribe B claims Solar
+<< :SpringRitual :belongsTo :SolarCycle >>
+    :source :TribeB ;
+    :confidence 0.85 ;
+    :dateRecorded "2024-03-20"^^xsd:date .
+
+# Claim 3: Harvest Ritual - Tribe A claims Solar
+<< :HarvestRitual :belongsTo :SolarCycle >>
+    :source :TribeA ;
+    :confidence 0.95 ;
+    :dateRecorded "2024-09-10"^^xsd:date .
+
+# Claim 4: Harvest Ritual - Tribe C claims Lunar
+<< :HarvestRitual :belongsTo :LunarCycle >>
+    :source :TribeC ;
+    :confidence 0.75 ;
+    :dateRecorded "2024-09-12"^^xsd:date .
+
+# Claim 5: Ashiq Majlis - Tribe A claims Lunar
+<< :RitualAshiqMajlis :belongsTo :LunarCycle >>
+    :source :TribeA ;
+    :confidence 0.88 ;
+    :dateRecorded "2024-01-05"^^xsd:date .
+
+# Claim 6: Ashiq Majlis - Tribe B claims Solar
+<< :RitualAshiqMajlis :belongsTo :SolarCycle >>
+    :source :TribeB ;
+    :confidence 0.82 ;
+    :dateRecorded "2024-01-08"^^xsd:date .
+
+# Claim 7: Shaman Healing Ritual - Tribe B claims Lunar
+<< :RitualShamanHealing :belongsTo :LunarCycle >>
+    :source :TribeB ;
+    :confidence 0.92 ;
+    :dateRecorded "2024-06-15"^^xsd:date .
+
+# Claim 8: Shaman Healing Ritual - Tribe C claims Solar
+<< :RitualShamanHealing :belongsTo :SolarCycle >>
+    :source :TribeC ;
+    :confidence 0.78 ;
+    :dateRecorded "2024-06-18"^^xsd:date .
+
+# Claim 9: Spring Ritual - Tribe C claims Lunar
+<< :SpringRitual :belongsTo :LunarCycle >>
+    :source :TribeC ;
+    :confidence 0.70 ;
+    :dateRecorded "2024-03-25"^^xsd:date .
+
+# Claim 10: Harvest Ritual - Tribe B claims Solar
+<< :HarvestRitual :belongsTo :SolarCycle >>
+    :source :TribeB ;
+    :confidence 0.80 ;
+    :dateRecorded "2024-09-15"^^xsd:date .

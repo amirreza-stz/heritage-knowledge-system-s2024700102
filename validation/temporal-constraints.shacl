@@ -1,0 +1,70 @@
+@prefix : <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+#################################################################
+# Temporal Constraints Validation Shapes
+# Question 3: Temporal Constraints and Data Validation
+# 
+# These shapes validate temporal access rules for recordings:
+# - IF recordingDate > restrictionEffectiveDate 
+#   AND performerAccessLevel < requiredAccessLevel 
+# THEN violation
+#################################################################
+
+# Shape 1: Temporal Access Violation
+# Target: All instances of Recording
+# Logic: IF recordingDate > restrictionEffectiveDate AND performerAccessLevel < requiredAccessLevel
+# Then: sh:Violation
+:RecordingTemporalAccessShape rdf:type sh:NodeShape ;
+                               sh:targetClass :Recording ;
+                               sh:sparql [
+                                   sh:severity sh:Violation ;
+                                   sh:message "Recording made after restriction effective date without proper authorization. Performer access level must meet instrument requirements when recording date is after restriction date."@en ;
+                                   sh:select """
+                                       SELECT $this ?performer ?instrument ?recordingDate ?restrictionDate ?performerAccess ?itemAccess
+                                       WHERE {
+                                           $this :performedBy ?performer .
+                                           $this :usesInstrument ?instrument .
+                                           $this :recordingDate ?recordingDate .
+                                           ?instrument :restrictionEffectiveDate ?restrictionDate .
+                                           ?instrument :requiresAccessLevel ?itemAccess .
+                                           ?performer :hasAccessLevel ?performerAccess .
+                                           FILTER (?recordingDate > ?restrictionDate && ?performerAccess < ?itemAccess)
+                                       }
+                                   """
+                               ] .
+
+# Shape 2: Performer Information Completeness
+# Target: All Recording instances
+# Constraint: Must have performer property
+# Severity: sh:Warning
+:RecordingPerformerShape rdf:type sh:NodeShape ;
+                         sh:targetClass :Recording ;
+                         sh:property [
+                             sh:path :performedBy ;
+                             sh:minCount 1 ;
+                             sh:severity sh:Warning ;
+                             sh:message "Recording should have at least one performer"@en
+                         ] .
+
+# Shape 3: Date Format Validation
+# Target: All entities with date properties
+# Constraint: Dates must be valid xsd:date format
+# Severity: sh:Violation
+:DateFormatShape rdf:type sh:NodeShape ;
+                 sh:targetSubjectsOf :recordingDate, :restrictionEffectiveDate ;
+                 sh:property [
+                     sh:path :recordingDate ;
+                     sh:datatype xsd:date ;
+                     sh:severity sh:Violation ;
+                     sh:message "Recording date must be a valid xsd:date format"@en
+                 ] ;
+                 sh:property [
+                     sh:path :restrictionEffectiveDate ;
+                     sh:datatype xsd:date ;
+                     sh:severity sh:Violation ;
+                     sh:message "Restriction effective date must be a valid xsd:date format"@en
+                 ] .

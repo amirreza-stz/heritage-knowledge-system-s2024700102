@@ -1,0 +1,71 @@
+# Query 4: Find conflicting claims (same ritual, different cycles)
+# Question 2: Multi-Perspective Knowledge Representation
+# 
+# This query finds all conflicting claims where different sources
+# claim the same ritual belongs to different cycles.
+# Works with all three patterns (reification, named graphs, RDF-star).
+
+PREFIX : <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT DISTINCT ?ritual ?ritualLabel ?cycle1 ?cycle1Label ?source1 ?source1Label ?confidence1 ?cycle2 ?cycle2Label ?source2 ?source2Label ?confidence2
+WHERE {
+    {
+        # Pattern 1: RDF Reification
+        ?claim1 a rdf:Statement ;
+            rdf:subject ?ritual ;
+            rdf:predicate :belongsTo ;
+            rdf:object ?cycle1 ;
+            :source ?source1 ;
+            :confidence ?confidence1 .
+        
+        ?claim2 a rdf:Statement ;
+            rdf:subject ?ritual ;
+            rdf:predicate :belongsTo ;
+            rdf:object ?cycle2 ;
+            :source ?source2 ;
+            :confidence ?confidence2 .
+    }
+    UNION
+    {
+        # Pattern 2: Named Graphs
+        GRAPH ?graph1 {
+            ?ritual :belongsTo ?cycle1 .
+        }
+        ?graph1 :source ?source1 ;
+                :confidence ?confidence1 .
+        
+        GRAPH ?graph2 {
+            ?ritual :belongsTo ?cycle2 .
+        }
+        ?graph2 :source ?source2 ;
+                :confidence ?confidence2 .
+    }
+    UNION
+    {
+        # Pattern 3: RDF-star
+        << ?ritual :belongsTo ?cycle1 >>
+            :source ?source1 ;
+            :confidence ?confidence1 .
+        
+        << ?ritual :belongsTo ?cycle2 >>
+            :source ?source2 ;
+            :confidence ?confidence2 .
+    }
+    
+    ?ritual rdfs:label ?ritualLabel .
+    FILTER(LANG(?ritualLabel) = "en" || LANG(?ritualLabel) = "")
+    ?cycle1 rdfs:label ?cycle1Label .
+    FILTER(LANG(?cycle1Label) = "en" || LANG(?cycle1Label) = "")
+    ?cycle2 rdfs:label ?cycle2Label .
+    FILTER(LANG(?cycle2Label) = "en" || LANG(?cycle2Label) = "")
+    ?source1 rdfs:label ?source1Label .
+    FILTER(LANG(?source1Label) = "en" || LANG(?source1Label) = "")
+    ?source2 rdfs:label ?source2Label .
+    FILTER(LANG(?source2Label) = "en" || LANG(?source2Label) = "")
+    
+    FILTER (?cycle1 != ?cycle2 && ?source1 != ?source2)
+}
+ORDER BY ?ritualLabel ?confidence1 DESC

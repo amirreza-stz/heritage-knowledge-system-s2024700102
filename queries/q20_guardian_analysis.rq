@@ -1,0 +1,33 @@
+# Query 20: Guardian Analysis
+# Comprehensive analysis of guardians and sacred items
+
+PREFIX : <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+SELECT 
+    ?guardian ?guardianLabel
+    (COUNT(DISTINCT ?item) AS ?itemsGuarded)
+    (MIN(?itemAccess) AS ?minAccessRequired)
+    (MAX(?itemAccess) AS ?maxAccessRequired)
+    (GROUP_CONCAT(DISTINCT ?itemLabel; separator=", ") AS ?guardedItems)
+    ?guardianAccess ?humanApproval
+    ?community ?communityLabel
+WHERE {
+    ?guardian :caresFor ?item .
+    ?item rdf:type :SacredItem .
+    ?guardian rdfs:label ?guardianLabel .
+    FILTER(LANG(?guardianLabel) = "en" || LANG(?guardianLabel) = "")
+    ?item rdfs:label ?itemLabel .
+    FILTER(LANG(?itemLabel) = "en" || LANG(?itemLabel) = "")
+    ?item :requiresAccessLevel ?itemAccess .
+    ?guardian :hasAccessLevel ?guardianAccess .
+    OPTIONAL { ?guardian :humanApproval ?humanApproval }
+    OPTIONAL {
+        ?guardian :memberOfCommunity ?community .
+        ?community rdfs:label ?communityLabel .
+        FILTER(LANG(?communityLabel) = "en" || LANG(?communityLabel) = "")
+    }
+}
+GROUP BY ?guardian ?guardianLabel ?guardianAccess ?humanApproval ?community ?communityLabel
+ORDER BY DESC(?itemsGuarded) ?guardianLabel

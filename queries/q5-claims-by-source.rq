@@ -1,0 +1,46 @@
+# Query 5: Count claims per source
+# Question 2: Multi-Perspective Knowledge Representation
+# 
+# This query counts the number of claims made by each source (tribe/community)
+# and shows the distribution of claims across sources.
+# Works with all three patterns.
+
+PREFIX : <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT ?source ?sourceLabel 
+       (COUNT(*) AS ?totalClaims)
+       (AVG(?confidence) AS ?avgConfidence)
+       (MIN(?confidence) AS ?minConfidence)
+       (MAX(?confidence) AS ?maxConfidence)
+WHERE {
+    {
+        # Pattern 1: RDF Reification
+        ?claim a rdf:Statement ;
+            :source ?source ;
+            :confidence ?confidence .
+    }
+    UNION
+    {
+        # Pattern 2: Named Graphs
+        GRAPH ?graph {
+            ?ritual :belongsTo ?cycle .
+        }
+        ?graph :source ?source ;
+               :confidence ?confidence .
+    }
+    UNION
+    {
+        # Pattern 3: RDF-star
+        << ?ritual :belongsTo ?cycle >>
+            :source ?source ;
+            :confidence ?confidence .
+    }
+    
+    ?source rdfs:label ?sourceLabel .
+    FILTER(LANG(?sourceLabel) = "en" || LANG(?sourceLabel) = "")
+}
+GROUP BY ?source ?sourceLabel
+ORDER BY DESC(?totalClaims)

@@ -1,0 +1,27 @@
+# Query 21: Mentorship Network Analysis
+# Analyzes mentorship relationships and hierarchies
+
+PREFIX : <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+SELECT 
+    ?mentor ?mentorLabel
+    (COUNT(DISTINCT ?mentee) AS ?menteeCount)
+    (GROUP_CONCAT(DISTINCT ?menteeLabel; separator=", ") AS ?mentees)
+    ?mentorAccess ?mentorRole ?mentorRoleLabel
+WHERE {
+    ?mentee :mentoredBy ?mentor .
+    ?mentor rdfs:label ?mentorLabel .
+    FILTER(LANG(?mentorLabel) = "en" || LANG(?mentorLabel) = "")
+    ?mentee rdfs:label ?menteeLabel .
+    FILTER(LANG(?menteeLabel) = "en" || LANG(?menteeLabel) = "")
+    ?mentor :hasAccessLevel ?mentorAccess .
+    OPTIONAL {
+        ?mentor :hasRole ?mentorRole .
+        ?mentorRole rdfs:label ?mentorRoleLabel .
+        FILTER(LANG(?mentorRoleLabel) = "en" || LANG(?mentorRoleLabel) = "")
+    }
+}
+GROUP BY ?mentor ?mentorLabel ?mentorAccess ?mentorRole ?mentorRoleLabel
+ORDER BY DESC(?menteeCount) ?mentorLabel

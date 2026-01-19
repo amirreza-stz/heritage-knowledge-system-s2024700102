@@ -1,0 +1,28 @@
+# Query 16: Statistics Overview
+# Provides comprehensive statistics about the knowledge base
+
+PREFIX : <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+SELECT 
+    (COUNT(DISTINCT ?person) AS ?totalPeople)
+    (COUNT(DISTINCT ?location) AS ?totalLocations)
+    (COUNT(DISTINCT ?community) AS ?totalCommunities)
+    (COUNT(DISTINCT ?instrument) AS ?totalInstruments)
+    (COUNT(DISTINCT ?work) AS ?totalMusicalWorks)
+    (COUNT(DISTINCT ?recording) AS ?totalRecordings)
+    (COUNT(DISTINCT ?ritual) AS ?totalRituals)
+    (COUNT(DISTINCT ?story) AS ?totalStories)
+    (COUNT(DISTINCT ?sacredItem) AS ?totalSacredItems)
+WHERE {
+    { SELECT DISTINCT ?person WHERE { ?person rdf:type :Person } }
+    { SELECT DISTINCT ?location WHERE { ?location rdf:type :Location } }
+    { SELECT DISTINCT ?community WHERE { ?community rdf:type :Community } }
+    { SELECT DISTINCT ?instrument WHERE { ?instrument rdf:type :Instrument } }
+    { SELECT DISTINCT ?work WHERE { ?work rdf:type :MusicalWork } }
+    { SELECT DISTINCT ?recording WHERE { ?recording rdf:type :Recording } }
+    { SELECT DISTINCT ?ritual WHERE { ?ritual rdf:type :Ritual } }
+    { SELECT DISTINCT ?story WHERE { ?story rdf:type :Story } }
+    { SELECT DISTINCT ?sacredItem WHERE { ?sacredItem rdf:type :SacredItem } }
+}

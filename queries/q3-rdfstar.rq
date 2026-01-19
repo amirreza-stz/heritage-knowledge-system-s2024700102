@@ -1,0 +1,21 @@
+# Query 3: Count claims per source (RDF-star Pattern)
+# Question 2: Multi-Perspective Knowledge Representation
+# 
+# This query counts how many claims each source (tribe) has made.
+# Uses RDF-star nested triple syntax << >> to query annotated statements.
+
+PREFIX : <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT ?source ?sourceLabel (COUNT(*) AS ?claimCount) (AVG(?confidence) AS ?avgConfidence)
+WHERE {
+    << ?ritual :belongsTo ?cycle >>
+        :source ?source ;
+        :confidence ?confidence .
+    ?source rdfs:label ?sourceLabel .
+    FILTER(LANG(?sourceLabel) = "en" || LANG(?sourceLabel) = "")
+}
+GROUP BY ?source ?sourceLabel
+ORDER BY DESC(?claimCount)

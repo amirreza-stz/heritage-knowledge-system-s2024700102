@@ -1,0 +1,177 @@
+@prefix : <http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+#################################################################
+# Fixed Data - All Violations Corrected
+# Question 3: Temporal Constraints and Data Validation
+# 
+# This file contains corrected versions of all violations
+# from heritage_violations_dataset.ttl
+#################################################################
+
+# Fixed 1: Person with required role
+:PersonWithRole rdf:type :Person ;
+                rdfs:label "Person With Role"@en ;
+                :hasRole :RoleAshiq ;
+                :memberOfCommunity :AshiqCommunity ;
+                :hasAccessLevel 1 ;
+                :humanApproval true .
+
+# Fixed 2: Recording with date
+:RecordingWithDate rdf:type :Recording ;
+                   rdfs:label "Recording With Date"@en ;
+                   :performedBy :PersonWithRole ;
+                   :recordedAt :Baku ;
+                   :recordingDate "2023-01-01"^^xsd:date .
+
+# Fixed 3: Sacred item with guardian
+:PersonGuardian rdf:type :Person ;
+                rdfs:label "Person Guardian"@en ;
+                :hasRole :RoleGuardianQopuz ;
+                :memberOfCommunity :AshiqCommunity ;
+                :hasAccessLevel 2 ;
+                :humanApproval true ;
+                :caresFor :SacredItemWithGuardian .
+
+:SacredItemWithGuardian rdf:type :SacredItem ;
+                        rdfs:label "Sacred Item With Guardian"@en ;
+                        :locatedIn :Shusha ;
+                        :requiresAccessLevel 2 .
+
+# Fixed 4: Tribal elder with correct access level
+:TribalElderCorrectLevel rdf:type :TribalElder ;
+                        rdfs:label "Tribal Elder Correct Level"@en ;
+                        :memberOfCommunity :AshiqCommunity ;
+                        :hasAccessLevel 3 ;
+                        :humanApproval true .
+
+# Fixed 5: Cultural item with location
+:CulturalItemWithLocation rdf:type :MusicalWork ;
+                          rdfs:label "Musical Work With Location"@en ;
+                          :locatedIn :Baku ;
+                          :requiresAccessLevel 1 .
+
+# Fixed 6: Recording date before restriction date (safe)
+:RecordingDateSafe rdf:type :Recording ;
+                   rdfs:label "Recording Date Safe"@en ;
+                   :performedBy :PersonWithRole ;
+                   :recordedAt :Baku ;
+                   :recordingDate "2019-12-30"^^xsd:date ;
+                   :restrictionEffectiveDate "2019-12-31"^^xsd:date .
+
+# Fixed 7: Person with community membership
+:PersonWithCommunity rdf:type :Person ;
+                     rdfs:label "Person With Community"@en ;
+                     :hasRole :RoleAshiq ;
+                     :memberOfCommunity :AshiqCommunity ;
+                     :hasAccessLevel 2 ;
+                     :humanApproval true .
+
+# Fixed 8: Instrument with location
+:InstrumentWithLocation rdf:type :Baglama, :Instrument ;
+                       rdfs:label "Instrument With Location"@en ;
+                       :locatedIn :Baku ;
+                       :requiresAccessLevel 1 .
+
+# Fixed 9: Recording with performer
+:RecordingWithPerformer rdf:type :Recording ;
+                       rdfs:label "Recording With Performer"@en ;
+                       :performedBy :PersonWithRole ;
+                       :recordedAt :Baku ;
+                       :recordingDate "2023-01-01"^^xsd:date .
+
+# Fixed 10: Recording with location
+:RecordingWithLocation rdf:type :Recording ;
+                      rdfs:label "Recording With Location"@en ;
+                      :performedBy :PersonWithRole ;
+                      :recordedAt :Baku ;
+                      :recordingDate "2023-01-01"^^xsd:date .
+
+# Fixed 11: Person with access level 3 and humanApproval
+:PersonLevel3WithApproval rdf:type :Person ;
+                          rdfs:label "Person Level 3 With Approval"@en ;
+                          :hasRole :RoleGuardianQopuz ;
+                          :memberOfCommunity :AshiqCommunity ;
+                          :hasAccessLevel 3 ;
+                          :humanApproval true .
+
+# Fixed 12: Person approved by elder with humanApproval
+:PersonApprovedWithHumanApproval rdf:type :Person ;
+                                 rdfs:label "Person Approved With Human Approval"@en ;
+                                 :hasRole :RoleAshiq ;
+                                 :memberOfCommunity :AshiqCommunity ;
+                                 :hasAccessLevel 2 ;
+                                 :humanApproval true ;
+                                 :approvedBy :ElderAli .
+
+# Fixed 13: Mentorship - mentor has higher access than mentee
+:MentorHighAccess rdf:type :Person ;
+                 rdfs:label "Mentor High Access"@en ;
+                 :hasRole :RoleAshiq ;
+                 :memberOfCommunity :AshiqCommunity ;
+                 :hasAccessLevel 2 ;
+                 :humanApproval true .
+
+:MenteeLowAccess rdf:type :Person ;
+                 rdfs:label "Mentee Low Access"@en ;
+                 :hasRole :RoleAshiq ;
+                 :memberOfCommunity :AshiqCommunity ;
+                 :hasAccessLevel 1 ;
+                 :humanApproval true ;
+                 :mentoredBy :MentorHighAccess .
+
+# Fixed 14: AshiqRole with InstrumentSkill competency
+:AshiqWithCompetency rdf:type :Person ;
+                     rdfs:label "Ashiq With Competency"@en ;
+                     :hasRole :RoleAshiq ;
+                     :memberOfCommunity :AshiqCommunity ;
+                     :hasAccessLevel 2 ;
+                     :humanApproval true ;
+                     :hasCompetency :SkillQopuzPlaying .
+
+# Fixed 15: Recording with performer who plays the instrument
+:PerformerWithInstrument rdf:type :Person ;
+                         rdfs:label "Performer With Instrument"@en ;
+                         :hasRole :RolePerformer ;
+                         :memberOfCommunity :AshiqCommunity ;
+                         :hasAccessLevel 1 ;
+                         :humanApproval true ;
+                         :playsInstrument :BaglamaBaku .
+
+:RecordingInstrumentMatch rdf:type :Recording ;
+                         rdfs:label "Recording Instrument Match"@en ;
+                         :performedBy :PerformerWithInstrument ;
+                         :usesInstrument :BaglamaBaku ;
+                         :recordedAt :Baku ;
+                         :recordingDate "2023-06-15"^^xsd:date .
+
+# Fixed 16: Sacred item with correct access level (2 or 3)
+:SacredItemCorrectAccess rdf:type :SacredItem ;
+                        rdfs:label "Sacred Item Correct Access"@en ;
+                        :locatedIn :Shusha ;
+                        :requiresAccessLevel 2 .
+
+# Fixed 17: Person with valid access level (1-3)
+:PersonValidAccessLevel rdf:type :Person ;
+                        rdfs:label "Person Valid Access Level"@en ;
+                        :hasRole :RoleAshiq ;
+                        :memberOfCommunity :AshiqCommunity ;
+                        :hasAccessLevel 3 .
+
+# Additional locations for testing
+:Baku rdf:type :Location ;
+      rdfs:label "Baku"@en .
+
+:Shusha rdf:type :Location ;
+        rdfs:label "Shusha"@en .
+
+# Additional roles and communities referenced
+:RoleAshiq rdf:type :AshiqRole .
+:RoleGuardianQopuz rdf:type :GuardianRole .
+:RolePerformer rdf:type :PerformerRole .
+:AshiqCommunity rdf:type :Community .
+:ElderAli rdf:type :TribalElder .
+:BaglamaBaku rdf:type :Baglama, :Instrument .
+:SkillQopuzPlaying rdf:type :InstrumentSkill .
