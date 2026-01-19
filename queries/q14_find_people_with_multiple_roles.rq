@@ -9,7 +9,9 @@ WHERE {
     ?person rdf:type :Person .
     ?person :hasRole ?role .
     ?person rdfs:label ?personLabel .
+    FILTER(LANG(?personLabel) = "en" || LANG(?personLabel) = "")
     ?role rdfs:label ?roleLabel .
+    FILTER(LANG(?roleLabel) = "en" || LANG(?roleLabel) = "")
 }
 GROUP BY ?person ?personLabel
 HAVING (COUNT(?role) > 1)

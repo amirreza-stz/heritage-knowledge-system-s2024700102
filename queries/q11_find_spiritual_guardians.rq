@@ -10,12 +10,15 @@ SELECT ?person ?personLabel ?role ?roleLabel ?sacredItem ?sacredItemLabel ?acces
 WHERE {
     ?person rdf:type :SpiritualGuardian .
     ?person rdfs:label ?personLabel .
+    FILTER(LANG(?personLabel) = "en" || LANG(?personLabel) = "")
     ?person :hasRole ?role .
     ?role rdf:type :GuardianRole .
     ?role rdfs:label ?roleLabel .
+    FILTER(LANG(?roleLabel) = "en" || LANG(?roleLabel) = "")
     ?person :caresFor ?sacredItem .
     ?sacredItem rdf:type :SacredItem .
     ?sacredItem rdfs:label ?sacredItemLabel .
+    FILTER(LANG(?sacredItemLabel) = "en" || LANG(?sacredItemLabel) = "")
     OPTIONAL { ?person :hasAccessLevel ?accessLevel }
     OPTIONAL { ?person :humanApproval ?humanApproval }
 }

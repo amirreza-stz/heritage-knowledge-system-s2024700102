@@ -9,6 +9,8 @@ WHERE {
     ?person :memberOfCommunity ?community .
     ?person :hasAccessLevel ?accessLevel .
     ?community rdfs:label ?communityLabel .
+    FILTER(LANG(?communityLabel) = "en" || LANG(?communityLabel) = "")
     ?person rdfs:label ?personLabel .
+    FILTER(LANG(?personLabel) = "en" || LANG(?personLabel) = "")
 }
 ORDER BY ?communityLabel ?personLabel

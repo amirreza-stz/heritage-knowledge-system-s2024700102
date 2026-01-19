@@ -8,6 +8,8 @@ SELECT ?person ?personLabel ?competency ?competencyLabel
 WHERE {
     ?person :hasCompetency ?competency .
     ?person rdfs:label ?personLabel .
+    FILTER(LANG(?personLabel) = "en" || LANG(?personLabel) = "")
     ?competency rdfs:label ?competencyLabel .
+    FILTER(LANG(?competencyLabel) = "en" || LANG(?competencyLabel) = "")
 }
 ORDER BY ?personLabel ?competencyLabel

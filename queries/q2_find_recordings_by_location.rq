@@ -12,7 +12,10 @@ WHERE {
     ?recording :recordedAt ?location .
     ?recording :recordingDate ?date .
     ?recording rdfs:label ?recordingLabel .
+    FILTER(LANG(?recordingLabel) = "en" || LANG(?recordingLabel) = "")
     ?performer rdfs:label ?performerLabel .
+    FILTER(LANG(?performerLabel) = "en" || LANG(?performerLabel) = "")
     ?location rdfs:label ?locationLabel .
+    FILTER(LANG(?locationLabel) = "en" || LANG(?locationLabel) = "")
 }
 ORDER BY DESC(?date)

@@ -10,7 +10,9 @@ WHERE {
     ?item rdf:type :CulturalItem .
     ?item :locatedIn ?location .
     ?item rdfs:label ?itemLabel .
+    FILTER(LANG(?itemLabel) = "en" || LANG(?itemLabel) = "")
     ?location rdfs:label ?locationLabel .
+    FILTER(LANG(?locationLabel) = "en" || LANG(?locationLabel) = "")
     OPTIONAL { ?item :requiresAccessLevel ?accessLevel }
     {
         ?item rdf:type :Instrument .

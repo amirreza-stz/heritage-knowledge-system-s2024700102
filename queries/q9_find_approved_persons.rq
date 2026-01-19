@@ -10,6 +10,8 @@ WHERE {
     ?elder rdf:type :TribalElder .
     ?approvedPerson :humanApproval ?humanApproval .
     ?elder rdfs:label ?elderLabel .
+    FILTER(LANG(?elderLabel) = "en" || LANG(?elderLabel) = "")
     ?approvedPerson rdfs:label ?approvedPersonLabel .
+    FILTER(LANG(?approvedPersonLabel) = "en" || LANG(?approvedPersonLabel) = "")
 }
 ORDER BY ?elderLabel ?approvedPersonLabel

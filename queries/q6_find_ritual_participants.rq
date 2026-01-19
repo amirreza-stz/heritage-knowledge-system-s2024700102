@@ -9,7 +9,10 @@ WHERE {
     ?person :performedInRitual ?ritual .
     ?ritual :locatedIn ?location .
     ?ritual rdfs:label ?ritualLabel .
+    FILTER(LANG(?ritualLabel) = "en" || LANG(?ritualLabel) = "")
     ?person rdfs:label ?personLabel .
+    FILTER(LANG(?personLabel) = "en" || LANG(?personLabel) = "")
     ?location rdfs:label ?locationLabel .
+    FILTER(LANG(?locationLabel) = "en" || LANG(?locationLabel) = "")
 }
 ORDER BY ?ritualLabel ?personLabel

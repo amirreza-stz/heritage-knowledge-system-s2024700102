@@ -9,6 +9,7 @@ WHERE {
     ?person rdf:type :Person .
     ?person :hasAccessLevel ?accessLevel .
     ?person rdfs:label ?personLabel .
+    FILTER(LANG(?personLabel) = "en" || LANG(?personLabel) = "")
     OPTIONAL { ?person :humanApproval ?humanApproval }
 }
 ORDER BY ?accessLevel ?personLabel

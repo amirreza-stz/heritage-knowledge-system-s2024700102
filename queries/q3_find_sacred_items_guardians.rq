@@ -11,7 +11,10 @@ WHERE {
     ?item :locatedIn ?location .
     ?item :requiresAccessLevel ?accessLevel .
     ?item rdfs:label ?itemLabel .
+    FILTER(LANG(?itemLabel) = "en" || LANG(?itemLabel) = "")
     ?guardian rdfs:label ?guardianLabel .
+    FILTER(LANG(?guardianLabel) = "en" || LANG(?guardianLabel) = "")
     ?location rdfs:label ?locationLabel .
+    FILTER(LANG(?locationLabel) = "en" || LANG(?locationLabel) = "")
 }
 ORDER BY DESC(?accessLevel)

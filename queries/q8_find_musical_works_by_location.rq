@@ -10,6 +10,8 @@ WHERE {
     ?work :locatedIn ?location .
     ?work :requiresAccessLevel ?accessLevel .
     ?work rdfs:label ?workLabel .
+    FILTER(LANG(?workLabel) = "en" || LANG(?workLabel) = "")
     ?location rdfs:label ?locationLabel .
+    FILTER(LANG(?locationLabel) = "en" || LANG(?locationLabel) = "")
 }
 ORDER BY ?locationLabel ?workLabel

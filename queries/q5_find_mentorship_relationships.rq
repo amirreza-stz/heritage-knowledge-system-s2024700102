@@ -8,6 +8,8 @@ SELECT ?mentor ?mentorLabel ?apprentice ?apprenticeLabel
 WHERE {
     ?apprentice :mentoredBy ?mentor .
     ?mentor rdfs:label ?mentorLabel .
+    FILTER(LANG(?mentorLabel) = "en" || LANG(?mentorLabel) = "")
     ?apprentice rdfs:label ?apprenticeLabel .
+    FILTER(LANG(?apprenticeLabel) = "en" || LANG(?apprenticeLabel) = "")
 }
 ORDER BY ?mentorLabel

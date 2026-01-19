@@ -10,6 +10,8 @@ WHERE {
     ?role rdf:type :AshiqRole .
     ?person :playsInstrument ?instrument .
     ?person rdfs:label ?personLabel .
+    FILTER(LANG(?personLabel) = "en" || LANG(?personLabel) = "")
     ?instrument rdfs:label ?instrumentLabel .
+    FILTER(LANG(?instrumentLabel) = "en" || LANG(?instrumentLabel) = "")
 }
 ORDER BY ?personLabel
