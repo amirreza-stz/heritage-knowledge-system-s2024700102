@@ -44,7 +44,105 @@
                         :recordingDate "2020-01-01"^^xsd:date ;
                         :restrictionEffectiveDate "2019-12-31"^^xsd:date .
 
-# Additional location for testing
+# Violation 7: Person without community membership
+:PersonWithoutCommunity rdf:type :Person ;
+                        rdfs:label "Person Without Community"@en ;
+                        :hasRole :RoleAshiq ;
+                        :hasAccessLevel 2 ;
+                        :humanApproval true .
+
+# Violation 8: Instrument without location
+:InstrumentNoLocation rdf:type :Baglama, :Instrument ;
+                     rdfs:label "Instrument Without Location"@en ;
+                     :requiresAccessLevel 1 .
+
+# Violation 9: Recording without performer
+:RecordingWithoutPerformer rdf:type :Recording ;
+                          rdfs:label "Recording Without Performer"@en ;
+                          :recordedAt :Baku ;
+                          :recordingDate "2023-01-01"^^xsd:date .
+
+# Violation 10: Recording without location
+:RecordingWithoutLocation rdf:type :Recording ;
+                          rdfs:label "Recording Without Location"@en ;
+                          :performedBy :PersonWithoutRole ;
+                          :recordingDate "2023-01-01"^^xsd:date .
+
+# Violation 11: Person with access level 3 but no humanApproval (AccessLevelHierarchyShape)
+:PersonLevel3NoApproval rdf:type :Person ;
+                        rdfs:label "Person Level 3 No Approval"@en ;
+                        :hasRole :RoleGuardianQopuz ;
+                        :memberOfCommunity :AshiqCommunity ;
+                        :hasAccessLevel 3 ;
+                        :humanApproval false .
+
+# Violation 12: Person approved by elder but no humanApproval (ApprovalConsistencyShape)
+# Note: Using a test elder that exists in base dataset
+:PersonApprovedNoHumanApproval rdf:type :Person ;
+                               rdfs:label "Person Approved No Human Approval"@en ;
+                               :hasRole :RoleAshiq ;
+                               :memberOfCommunity :AshiqCommunity ;
+                               :hasAccessLevel 2 ;
+                               :approvedBy :ElderAli .
+                               # Missing :humanApproval true
+
+# Violation 13: Mentorship violation - mentee has higher access than mentor (MentorshipShape)
+:MentorLowAccess rdf:type :Person ;
+                 rdfs:label "Mentor Low Access"@en ;
+                 :hasRole :RoleAshiq ;
+                 :memberOfCommunity :AshiqCommunity ;
+                 :hasAccessLevel 1 ;
+                 :humanApproval true .
+
+:MenteeHighAccess rdf:type :Person ;
+                  rdfs:label "Mentee High Access"@en ;
+                  :hasRole :RoleAshiq ;
+                  :memberOfCommunity :AshiqCommunity ;
+                  :hasAccessLevel 2 ;
+                  :humanApproval true ;
+                  :mentoredBy :MentorLowAccess .
+
+# Violation 14: AshiqRole without InstrumentSkill competency (CompetencyRoleShape)
+:AshiqWithoutCompetency rdf:type :Person ;
+                         rdfs:label "Ashiq Without Competency"@en ;
+                         :hasRole :RoleAshiq ;
+                         :memberOfCommunity :AshiqCommunity ;
+                         :hasAccessLevel 2 ;
+                         :humanApproval true .
+                         # Missing :hasCompetency :InstrumentSkill
+
+# Violation 15: Recording with performer who doesn't play the instrument (RecordingInstrumentShape)
+:PerformerNoInstrument rdf:type :Person ;
+                       rdfs:label "Performer No Instrument"@en ;
+                       :hasRole :RolePerformer ;
+                       :memberOfCommunity :AshiqCommunity ;
+                       :hasAccessLevel 1 ;
+                       :humanApproval true .
+                       # Doesn't play any instruments
+
+:RecordingInstrumentMismatch rdf:type :Recording ;
+                             rdfs:label "Recording Instrument Mismatch"@en ;
+                             :performedBy :PerformerNoInstrument ;
+                             :usesInstrument :BaglamaBaku ;
+                             :recordedAt :Baku ;
+                             :recordingDate "2023-06-15"^^xsd:date .
+
+# Violation 16: Sacred item with access level 1 (should be 2 or 3)
+:SacredItemWrongAccess rdf:type :SacredItem ;
+                      rdfs:label "Sacred Item Wrong Access"@en ;
+                      :locatedIn :Shusha ;
+                      :requiresAccessLevel 1 .
+                      # Should be 2 or 3
+
+# Violation 17: Person with access level 4 (out of range)
+:PersonInvalidAccessLevel rdf:type :Person ;
+                          rdfs:label "Person Invalid Access Level"@en ;
+                          :hasRole :RoleAshiq ;
+                          :memberOfCommunity :AshiqCommunity ;
+                          :hasAccessLevel 4 .
+                          # Should be 1-3
+
+# Additional locations for testing
 :Baku rdf:type :Location ;
       rdfs:label "Baku"@en .
 

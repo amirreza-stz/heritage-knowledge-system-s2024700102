@@ -1,0 +1,130 @@
+Validation Report
+Conforms: False
+Results (16):
+Constraint Violation in HasValueConstraintComponent (http://www.w3.org/ns/shacl#HasValueConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:hasValue Literal("3", datatype=xsd:integer) ; sh:message Literal("Tribal elders must have access level 3", lang=en) ; sh:path :hasAccessLevel ]
+	Focus Node: :TribalElderWrongLevel
+	Result Path: :hasAccessLevel
+	Message: Tribal elders must have access level 3
+Constraint Violation in HasValueConstraintComponent (http://www.w3.org/ns/shacl#HasValueConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:hasValue Literal("true" = True, datatype=xsd:boolean) ; sh:message Literal("Tribal elders must have human approval", lang=en) ; sh:path :humanApproval ]
+	Focus Node: :TribalElderWrongLevel
+	Result Path: :humanApproval
+	Message: Tribal elders must have human approval
+Constraint Violation in MaxInclusiveConstraintComponent (http://www.w3.org/ns/shacl#MaxInclusiveConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:datatype xsd:integer ; sh:maxInclusive Literal("3", datatype=xsd:integer) ; sh:message Literal("Access level must be between 1 and 3", lang=en) ; sh:minInclusive Literal("1", datatype=xsd:integer) ; sh:path :hasAccessLevel ]
+	Focus Node: :PersonInvalidAccessLevel
+	Value Node: Literal("4", datatype=xsd:integer)
+	Result Path: :hasAccessLevel
+	Message: Access level must be between 1 and 3
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:datatype xsd:date ; sh:message Literal("Recording must have a recording date", lang=en) ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path :recordingDate ]
+	Focus Node: :RecordingWithoutDate
+	Result Path: :recordingDate
+	Message: Recording must have a recording date
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:message Literal("Instrument must have a location", lang=en) ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path :locatedIn ]
+	Focus Node: :InstrumentNoLocation
+	Result Path: :locatedIn
+	Message: Instrument must have a location
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:message Literal("Person should be a member of at least one community", lang=en) ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path :memberOfCommunity ]
+	Focus Node: :PersonWithoutCommunity
+	Result Path: :memberOfCommunity
+	Message: Person should be a member of at least one community
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:message Literal("Person should be a member of at least one community", lang=en) ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path :memberOfCommunity ]
+	Focus Node: :PersonWithoutRole
+	Result Path: :memberOfCommunity
+	Message: Person should be a member of at least one community
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:message Literal("Person should have at least one role", lang=en) ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path :hasRole ]
+	Focus Node: :PersonWithoutRole
+	Result Path: :hasRole
+	Message: Person should have at least one role
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:message Literal("Recording must have a location", lang=en) ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path :recordedAt ]
+	Focus Node: :RecordingWithoutLocation
+	Result Path: :recordedAt
+	Message: Recording must have a location
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:message Literal("Recording must have at least one performer", lang=en) ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path :performedBy ]
+	Focus Node: :RecordingWithoutPerformer
+	Result Path: :performedBy
+	Message: Recording must have at least one performer
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:message Literal("Sacred item must have at least one guardian (via caresFor)", lang=en) ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path [ sh:inversePath :caresFor ] ]
+	Focus Node: :SacredItemWithoutGuardian
+	Result Path: [ sh:inversePath :caresFor ]
+	Message: Sacred item must have at least one guardian (via caresFor)
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:message Literal("Sacred item must have at least one guardian (via caresFor)", lang=en) ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path [ sh:inversePath :caresFor ] ]
+	Focus Node: :SacredItemWrongAccess
+	Result Path: [ sh:inversePath :caresFor ]
+	Message: Sacred item must have at least one guardian (via caresFor)
+Constraint Violation in MinInclusiveConstraintComponent (http://www.w3.org/ns/shacl#MinInclusiveConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:datatype xsd:integer ; sh:maxInclusive Literal("3", datatype=xsd:integer) ; sh:message Literal("Sacred items must require access level 2 or 3", lang=en) ; sh:minInclusive Literal("2", datatype=xsd:integer) ; sh:path :requiresAccessLevel ]
+	Focus Node: :SacredItemWrongAccess
+	Value Node: Literal("1", datatype=xsd:integer)
+	Result Path: :requiresAccessLevel
+	Message: Sacred items must require access level 2 or 3
+Constraint Violation in SPARQLConstraintComponent (http://www.w3.org/ns/shacl#SPARQLConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: :AccessLevelHierarchyShape
+	Focus Node: :PersonLevel3NoApproval
+	Value Node: :PersonLevel3NoApproval
+	Source Constraint: [ sh:message Literal("Person with access level 3 should be TribalElder or have humanApproval", lang=en) ; sh:select Literal("
+                                    SELECT $this ?accessLevel
+                                    WHERE {
+                                        $this :hasAccessLevel 3 .
+                                        FILTER NOT EXISTS { $this rdf:type :TribalElder }
+                                        OPTIONAL { $this :humanApproval ?approval }
+                                        FILTER (!bound(?approval) || ?approval != true)
+                                    }
+                                ") ]
+	Message: Person with access level 3 should be TribalElder or have humanApproval
+Constraint Violation in SPARQLConstraintComponent (http://www.w3.org/ns/shacl#SPARQLConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: :MentorshipShape
+	Focus Node: :MenteeHighAccess
+	Value Node: :MenteeHighAccess
+	Source Constraint: [ sh:message Literal("Mentor should have higher or equal access level than mentee, or be a TribalElder", lang=en) ; sh:select Literal("
+                         SELECT $this ?mentee ?mentorAccess ?menteeAccess
+                         WHERE {
+                             $this :mentoredBy ?mentor .
+                             $this :hasAccessLevel ?menteeAccess .
+                             ?mentor :hasAccessLevel ?mentorAccess .
+                             FILTER (?mentorAccess < ?menteeAccess)
+                             FILTER NOT EXISTS { ?mentor rdf:type :TribalElder }
+                         }
+                     ") ]
+	Message: Mentor should have higher or equal access level than mentee, or be a TribalElder
+Constraint Violation in SPARQLConstraintComponent (http://www.w3.org/ns/shacl#SPARQLConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: :RecordingInstrumentShape
+	Focus Node: :RecordingInstrumentMismatch
+	Value Node: :RecordingInstrumentMismatch
+	Source Constraint: [ sh:message Literal("At least one performer should play each instrument used in recording", lang=en) ; sh:select Literal("
+                                   SELECT $this ?instrument
+                                   WHERE {
+                                       $this :usesInstrument ?instrument .
+                                       FILTER NOT EXISTS {
+                                           $this :performedBy ?performer .
+                                           ?performer :playsInstrument ?instrument
+                                       }
+                                   }
+                               ") ]
+	Message: At least one performer should play each instrument used in recording

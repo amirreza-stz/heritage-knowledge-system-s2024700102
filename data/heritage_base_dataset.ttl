@@ -470,7 +470,8 @@
                 rdfs:label "Əli Aşıq Təbriz"@az ;
                 :memberOfCommunity :AshiqCommunityAzerbaijan ;
                 :hasRole :RoleAshiq ;
-                :playsInstrument :SacredQopuzTabriz ;
+                :playsInstrument :SacredQopuzTabriz, :BaglamaTabriz ;
+                :hasCompetency :SkillQopuzPlaying, :SkillBaglamaPlaying ;
                 :knowsMusicalWork :DastanKoroghlu, :AshiqHavaTabriz ;
                 :knowsStory :StoryDedeKorkut ;
                 :hasAccessLevel 2 ;
@@ -533,9 +534,9 @@
                     :memberOfCommunity :AshiqCommunityAzerbaijan ;
                     :hasRole :RoleGuardianQopuz ;
                     :caresFor :SacredQopuzTabriz ;
+                    :playsInstrument :SacredQopuzTabriz ;
                     :hasAccessLevel 1 ;
                     :humanApproval false .
-# Note: Should be inferred as SpiritualGuardian but lacks humanApproval
 
 :ZahraGuardianQopuz rdf:type :Person ;
                     rdfs:label "Zahra Guardian of Qopuz"@en ;

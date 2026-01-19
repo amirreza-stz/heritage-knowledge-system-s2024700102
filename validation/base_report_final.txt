@@ -1,0 +1,21 @@
+Validation Report
+Conforms: False
+Results (1):
+Constraint Violation in SPARQLConstraintComponent (http://www.w3.org/ns/shacl#SPARQLConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: :RecordingAccessLevelShape
+	Focus Node: :RecordingQopuzViolation2026
+	Value Node: :RecordingQopuzViolation2026
+	Source Constraint: [ sh:message Literal("When recording date is after restriction effective date, performer access level must meet instrument requirements", lang=en) ; sh:select Literal("
+                                   SELECT $this ?performer ?instrument ?recordingDate ?restrictionDate ?performerAccess ?itemAccess
+                                   WHERE {
+                                       $this :performedBy ?performer .
+                                       $this :usesInstrument ?instrument .
+                                       $this :recordingDate ?recordingDate .
+                                       ?instrument :restrictionEffectiveDate ?restrictionDate .
+                                       ?instrument :requiresAccessLevel ?itemAccess .
+                                       ?performer :hasAccessLevel ?performerAccess .
+                                       FILTER (?recordingDate > ?restrictionDate && ?performerAccess < ?itemAccess)
+                                   }
+                               ") ]
+	Message: When recording date is after restriction effective date, performer access level must meet instrument requirements
