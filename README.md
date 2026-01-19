@@ -121,7 +121,9 @@ python code/run-shacl-validation.py data/heritage_violations_dataset.ttl shapes/
 
 ## SPARQL Queries
 
-The project includes 10 SPARQL queries:
+The project includes **25 SPARQL queries** organized into two categories:
+
+### Basic Information Retrieval (Q1-Q15)
 
 1. **q1_find_all_ashiqs.rq**: Find all Ashiq performers and their instruments
 2. **q2_find_recordings_by_location.rq**: Find recordings by location
@@ -133,31 +135,132 @@ The project includes 10 SPARQL queries:
 8. **q8_find_musical_works_by_location.rq**: Find musical works by location
 9. **q9_find_approved_persons.rq**: Find persons approved by tribal elders
 10. **q10_find_recordings_with_instruments.rq**: Find recordings with instruments
+11. **q11_find_spiritual_guardians.rq**: Find SpiritualGuardians (inferred via OWL)
+12. **q12_find_people_by_access_level.rq**: Find people by access level
+13. **q13_find_cultural_items_by_location.rq**: Find cultural items by location
+14. **q14_find_people_with_multiple_roles.rq**: Find people with multiple roles
+15. **q15_find_recordings_with_access_violations.rq**: Find recordings with access violations
+
+### Analytical Queries (Q16-Q25)
+
+16. **q16_statistics_overview.rq**: Overall statistics (counts of entities)
+17. **q17_access_level_distribution.rq**: Access level distribution analysis
+18. **q18_community_analysis.rq**: Community membership analysis
+19. **q19_temporal_analysis.rq**: Temporal analysis of recordings
+20. **q20_guardian_analysis.rq**: Spiritual guardian analysis
+21. **q21_mentorship_network.rq**: Mentorship network mapping
+22. **q22_instrument_usage_analysis.rq**: Instrument usage analysis
+23. **q23_location_cultural_density.rq**: Cultural density by location
+24. **q24_approval_network.rq**: Approval network analysis
+25. **q25_comprehensive_validation_check.rq**: Comprehensive validation check
+
+See `ANALYTICAL_QUESTIONS.md` for detailed documentation of all queries.
 
 ## SHACL Validation
 
-The SHACL shapes validate:
+The SHACL shapes include **12 validation shapes** that validate:
 
+### Basic Validations (9 shapes)
 - **Person validation**: Access levels (1-3), human approval
 - **Recording validation**: Required dates, performers, locations
 - **Cultural Item validation**: Access levels, locations
-- **Sacred Item validation**: Must have guardians, access level 3
+- **Sacred Item validation**: Must have guardians, access level 2-3
 - **Tribal Elder validation**: Access level 3, human approval required
-- **Date consistency**: Recording dates vs restriction dates
+- **Instrument validation**: Location requirements
+- **Community membership**: Person should belong to community
+- **Person roles**: Person should have at least one role
+- **Recording access level**: Complex SPARQL constraint for access validation
+
+### Advanced Validations (3 shapes)
+- **Mentorship validation**: Mentor access level hierarchy
+- **Approval consistency**: Approval and humanApproval alignment
+- **Access level hierarchy**: Access level 3 requirements
+- **Competency-role matching**: Role-competency consistency
+- **Recording instrument consistency**: Performer-instrument matching
+
+See `VALIDATION_VIOLATIONS_GUIDE.md` for detailed validation documentation.
 
 ## Sample Data
 
 The `heritage_base_dataset.ttl` includes:
 
-- **5 Locations**: Shusha, Baku, Ganja, Nakhchivan, Qarabağ
-- **3 Communities**: Ashiq, Shaman, Musical Heritage
-- **6 People**: Tribal Elder, 2 Ashiq Masters, Shaman Master, Guardian, Researcher, Performer
-- **6 Instruments**: Baglama, Dombra, Qopuz, Shaman Saz
-- **4 Musical Works**: Ashig Gharib, Koroglu, Leyli and Majnoon, Shaman Ritual Song
-- **2 Stories**: Ashig Gharib Story, Koroglu Story
-- **2 Rituals**: Spring Ritual, Harvest Ritual
-- **2 Sacred Items**: Sacred Baglama, Sacred Qopuz
-- **5 Recordings**: Various performances with dates and locations
+- **9 Locations**: Shusha, Baku, Ganja, Nakhchivan, Qarabağ, Tabriz, Istanbul, Altai, Oslo
+- **6 Communities**: Ashiq, Shaman, Musical Heritage, Ashiq Azerbaijan, Altai Shaman Lineage, Academic Research, Viking Heritage
+- **20+ People**: Tribal Elders, Ashiq Masters, Shaman Masters, Guardians, Researchers, Performers
+- **10+ Instruments**: Baglama, Dombra, Qopuz, Shaman Saz (including sacred instruments)
+- **10+ Musical Works**: Traditional works including Ashig Gharib, Koroglu, Leyli and Majnoon
+- **5+ Stories**: Cultural stories and narratives
+- **5+ Rituals**: Traditional rituals and ceremonies
+- **5+ Sacred Items**: Sacred instruments requiring special access
+- **10+ Recordings**: Various performances with dates, locations, and access controls
+
+**Total**: 1000+ triples with comprehensive relationships and bilingual labels (English/Azerbaijani)
+
+See `DATA_ANALYSIS.md` for detailed data analysis and design decisions.
+
+## Key Design Decisions
+
+### 1. Hierarchical Class Structure
+- Root class `CulturalEntity` provides common base for all entities
+- Enables flexible relationship modeling and inheritance
+
+### 2. Access Control Model
+- Three-tier system (1: Public, 2: Restricted, 3: Sacred/Elder-only)
+- Applied to both people and cultural items
+- Supports fine-grained access control
+
+### 3. Role-Based System
+- Roles as separate entities (instances, not classes)
+- Enables multiple roles per person
+- Supports OWL inference (e.g., `SpiritualGuardian`)
+
+### 4. OWL Reasoning vs SHACL Validation
+- **OWL**: Infers new knowledge (e.g., SpiritualGuardian roles)
+- **SHACL**: Validates constraints and data quality
+- Both are essential for a complete semantic web system
+
+See `DATA_ANALYSIS.md` for comprehensive analysis of design decisions.
+
+## Visualization
+
+### Gephi Network Visualization
+
+The project includes network visualization capabilities:
+
+1. **Export to GEXF:**
+   ```bash
+   python code/export-to-gephi.py data/heritage_base_dataset.ttl visualizations/heritage_network.gexf
+   ```
+
+2. **Import into Gephi:**
+   - Open Gephi → File → Open → Select `visualizations/heritage_network.gexf`
+   - Apply layout (e.g., ForceAtlas 2)
+   - Color nodes by type, size by degree
+   - Export as PNG/SVG
+
+See `GEPHI_VISUALIZATION_GUIDE.md` for detailed instructions.
+
+## Documentation
+
+- **`DATA_ANALYSIS.md`**: Comprehensive data analysis and design decisions
+- **`ANALYTICAL_QUESTIONS.md`**: Documentation of all 25 queries
+- **`VALIDATION_VIOLATIONS_GUIDE.md`**: Validation violations guide
+- **`PROJECT_COMPLETION_FINAL.md`**: Complete project status
+- **`QUICK_REFERENCE.md`**: Quick reference guide
+
+## Limitations and Future Improvements
+
+### Current Limitations
+- Date precision: Uses `xsd:date` (could extend to `xsd:dateTime`)
+- Access control: Three-tier system (could be more granular)
+- Approval process: Binary (could extend with workflow states)
+
+### Future Improvements
+- Enhanced inference with more equivalent-class axioms
+- Extended SHACL validation with comprehensive shapes
+- Query optimization and indexing
+- Network visualization enhancements
+- Geographic mapping integration
 
 ## Contributing
 
@@ -172,3 +275,4 @@ This project is created for educational purposes as part of a Master's degree pr
 - Azerbaijani cultural music heritage
 - Ashiq tradition
 - Traditional instruments and musical works
+- Cultural communities and their preservation efforts
