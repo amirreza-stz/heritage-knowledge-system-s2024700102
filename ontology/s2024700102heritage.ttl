@@ -36,6 +36,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 ###  http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#caresFor
 :caresFor rdf:type owl:ObjectProperty ;
+          owl:inverseOf :isCaredForBy ;
           rdfs:domain :Person ;
           rdfs:range :CulturalItem .
 
@@ -183,7 +184,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 ###  http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#restrictionEffectiveDate
 :restrictionEffectiveDate rdf:type owl:DatatypeProperty ;
-                          rdfs:domain :Recording ;
+                          rdfs:domain :CulturalItem ;
                           rdfs:range xsd:date .
 
 
@@ -327,18 +328,23 @@ xsd:date rdf:type rdfs:Datatype .
 
 ###  http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#SpiritualGuardian
 :SpiritualGuardian rdf:type owl:Class ;
-                   owl:equivalentClass [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
-                                                                owl:onProperty :caresFor ;
-                                                                owl:someValuesFrom :SacredItem
-                                                              ]
+                   rdfs:subClassOf :GuardianRole ;
+                   owl:equivalentClass [ rdf:type owl:Class ;
+                                         owl:intersectionOf ( :GuardianRole
                                                               [ rdf:type owl:Restriction ;
-                                                                owl:onProperty :hasRole ;
-                                                                owl:someValuesFrom :GuardianRole
+                                                                owl:onProperty :isRoleOf ;
+                                                                owl:someValuesFrom [ rdf:type owl:Class ;
+                                                                                     owl:intersectionOf ( :Person
+                                                                                                          [ rdf:type owl:Restriction ;
+                                                                                                            owl:onProperty :caresFor ;
+                                                                                                            owl:someValuesFrom :SacredItem
+                                                                                                          ]
+                                                                                                        )
+                                                                                   ]
                                                               ]
-                                                            ) ;
-                                         rdf:type owl:Class
+                                                            )
                                        ] ;
-                   rdfs:subClassOf :Role .
+                   rdfs:comment "A SpiritualGuardian is a GuardianRole that is held by (isRoleOf) a Person who caresFor at least one SacredItem. When a person has a GuardianRole and caresFor a SacredItem, the reasoner will infer that the role instance is a SpiritualGuardian, and queries can find people who have such roles."@en .
 
 
 ###  http://www.semanticweb.org/ubuntu/ontologies/2026/0/s2024700102heritage#Story
